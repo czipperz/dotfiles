@@ -119,14 +119,13 @@ let paste_mode = 0 " 0 = normal, 1 = paste
 map N Nzz
 map n nzz
 
-inoremap ' ''<Left>
-inoremap " ""<Left>
-inoremap ( ()<Left>
-inoremap < <><Left>
-inoremap { {}<Left>
-inoremap {<cr> {<cr><Down>\}<Backspace><Up>
-inoremap [ []<Left>
-inoremap ( ()<Left>
+inoremap '' ''<Left>
+inoremap "" ""<Left>
+inoremap () ()<Left>
+inoremap <> <><Left>
+inoremap {} {}<Left>
+inoremap {<cr> {}<left><cr><cr><Backspace><up><tab>
+inoremap [] []<Left>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " All the following commands are prefixed with 'h' by default
