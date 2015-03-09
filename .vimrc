@@ -119,13 +119,14 @@ let paste_mode = 0 " 0 = normal, 1 = paste
 map N Nzz
 map n nzz
 
-inoremap '' ''<Left>
-inoremap "" ""<Left>
-inoremap () ()<Left>
-inoremap <> <><Left>
-inoremap {} {}<Left>
-inoremap [] []<Left>
-inoremap () ()<Left>
+inoremap ' ''<Left>
+inoremap " ""<Left>
+inoremap ( ()<Left>
+inoremap < <><Left>
+inoremap { {}<Left>
+inoremap {<cr> {<cr><Down>\}<Backspace><Up>
+inoremap [ []<Left>
+inoremap ( ()<Left>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " All the following commands are prefixed with 'h' by default
@@ -134,12 +135,13 @@ inoremap () ()<Left>
 let mapleader='h'
 let g:mapleader='h'
 
+map h <nop>
+
 " Search and replace with the fassion :%s/find/replace/operator
 " operator is g for global, gc for global with confirmation
 " Dont put the final slash and operator if you wish to just search the
 " selected line
 map <leader>r :%s/
-
 
 " Tabs
 map <leader>tn :tabnew<cr>
@@ -166,3 +168,13 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 " Next line and back to normal mode
 map <leader>o o<Esc>
 map <leader>O O<Esc>
+" Window
+map <leader>swj	:topleft	vnew<cr>
+map <leader>sw;	:botright	vnew<cr>
+map <leader>swl	:topleft	new<cr>
+map <leader>swk	:botright	new<cr>
+" Buffer
+map <leader>sj	:leftabove	vnew<cr>
+map <leader>s;	:rightbelow	vnew<cr>
+map <leader>sl	:leftabove	new<cr>
+map <leader>sk	:rightbelow	new<cr>
