@@ -42,15 +42,20 @@ set si
 " Wrap lines
 set wrap
 " Makes long lines as break lines (move up or down vertically one line no matter what)
-" Also makes the line controlls more intuitive for stupid me.
-map j <left>
-imap <up> <Esc><up>a
-map k <down>
-imap <down> <Esc><down>a
-map l <up>
-map ; <right>
-map <down> gj
-map <up> gk
+" Also makes the line controlls more intuitive for stupid me
+" and makes the arrow keys disabled in normal mode.
+nnoremap j <left>
+nnoremap k <down>
+nnoremap l <up>
+nnoremap ; <right>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <Esc><up>a
+inoremap <down> <Esc><down>a
+inoremap <down> gj
+inoremap <up> gk
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
