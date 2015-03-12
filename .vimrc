@@ -32,7 +32,7 @@ colorscheme desert
 " Still want the darkness to eat you
 set background=dark
 " Smarts
-"set smarttab
+set smarttab
 " Sets tab as width of 4 was like 8
 set shiftwidth=4
 set tabstop=4
@@ -43,7 +43,16 @@ set si
 set wrap
 " Makes long lines as break lines (move up or down vertically one line no matter what)
 " Also makes the line controlls more intuitive for stupid me
-" and makes the arrow keys disabled in normal mode.
+" and makes the arrow keys disabled in normal and visual mode.
+vnoremap j <left>
+vnoremap k <down>
+vnoremap l <up>
+vnoremap ; <right>
+vnoremap <up> <nop>
+vnoremap <down> <nop>
+vnoremap <left> <nop>
+vnoremap <right> <nop>
+vnoremap h <nop>
 nnoremap j <left>
 nnoremap k <down>
 nnoremap l <up>
@@ -54,8 +63,6 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 inoremap <up> <Esc><up>a
 inoremap <down> <Esc><down>a
-inoremap <down> gj
-inoremap <up> gk
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -65,7 +72,11 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 " Hitting zero goes to first non-blank character
-map 0 ^
+nmap 0 ^
+" Hitting shift and 0 will do default 0
+nmap ) 0
+map <Home> <nop>
+map <End> <nop>
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
 	exe "normal mz"
@@ -118,8 +129,6 @@ set nohidden
 
 highlight MatchParen ctermbg=4
 
-let paste_mode = 0 " 0 = normal, 1 = paste
-
 "Centers when you search and go up and down in results
 map N Nzz
 map n nzz
@@ -139,7 +148,7 @@ inoremap [] []<Left>
 let mapleader='h'
 let g:mapleader='h'
 
-map h <nop>
+map <leader> <nop>
 
 " Search and replace with the fassion :%s/find/replace/operator
 " operator is g for global, gc for global with confirmation
@@ -147,38 +156,40 @@ map h <nop>
 " selected line
 map <leader>r :%s/
 
+map <leader>p <Esc>"+p
+
 " Tabs
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
-map <leader>t1 :tabmove 0<cr>
-map <leader>t2 :tabmove 1<cr>
-map <leader>t3 :tabmove 2<cr>
-map <leader>t4 :tabmove 3<cr>
-map <leader>t5 :tabmove 4<cr>
-map <leader>t6 :tabmove 5<cr>
-map <leader>t7 :tabmove 6<cr>
-map <leader>t8 :tabmove 7<cr>
-map <leader>t9 :tabmove 10000<cr>
 map <leader>t<leader> :tabnext<cr>
-" Toggle indentation so can paste better
-map <leader>ii :ai<cr>:si<cr>
-map <leader>ip :noai<cr>:nosi<cr>
-" Saving
-nmap <leader>w :w!<cr>
+map <leader>l :tabnext<cr>
+map <leader>j :tabprevious<cr>
 " cd to the dir of current buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 " Next line and back to normal mode
 map <leader>o o<Esc>
 map <leader>O O<Esc>
-" Window
+" Switches between Buffers or Windows
+nnoremap <leader>k <C-w><C-w>
+" Window aka splits the window up
 map <leader>swj	:topleft	vnew<cr>
 map <leader>sw;	:botright	vnew<cr>
 map <leader>swl	:topleft	new<cr>
 map <leader>swk	:botright	new<cr>
-" Buffer
+" Buffer aka splits the current part of the window up
 map <leader>sj	:leftabove	vnew<cr>
 map <leader>s;	:rightbelow	vnew<cr>
 map <leader>sl	:leftabove	new<cr>
 map <leader>sk	:rightbelow	new<cr>
+
+map <leader>q :qa<cr>
+map <leader>Q :qa!<cr>
+map <leader>bq :q<cr>
+map <leader>bQ :q!<cr>
+
+map <leader>w :wa<cr>
+map <leader>W :wa!<cr>
+map <leader>bw :w<cr>
+map <leader>bW :w!<cr>
