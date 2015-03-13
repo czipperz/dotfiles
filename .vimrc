@@ -106,7 +106,6 @@ set showcmd
 
 " Needed for Syntax Highlighting and Stuff
 filetype on
-filetype plugin on
 syntax enable
 set grepprg=grep\ -nH\ $*
 
