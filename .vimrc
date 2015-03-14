@@ -4,9 +4,19 @@ set nocompatible
 " Don't use Ex mode, use Q for formatting
 map Q gq
 " Need those line numbers
-set relativenumber
-set number
-nnoremap \ :set relativenumber!<cr>
+function! NumberToggle()
+	if(&relativenumber == 1)
+		set norelativenumber
+		set number
+		highlight LineNr ctermfg=red
+	else
+		set relativenumber
+		set number
+		highlight LineNr ctermfg=yellow
+	endif
+endfunc
+call NumberToggle()
+nnoremap \ :call NumberToggle()<cr>
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
@@ -127,13 +137,27 @@ highlight MatchParen ctermbg=4
 map N Nzz
 map n nzz
 
-inoremap '' ''<Left>
-inoremap "" ""<Left>
-inoremap () ()<Left>
-inoremap <> <><Left>
-inoremap {} {}<Left>
+" Hitting { and Enter will make the following block and put your cursor
+"{
+"	here	
+"}
 inoremap {<cr> {}<left><cr><cr><Backspace><up><tab>
-inoremap [] []<Left>
+
+" Typing one autocompletes to both
+inoremap ' ''<Left>
+inoremap " ""<Left>
+inoremap ( ()<Left>
+inoremap < <><Left>
+inoremap { {}<Left>
+inoremap [ []<Left>
+
+" Typing both puts your cursor after it
+inoremap '' ''
+inoremap "" ""
+inoremap () ()
+inoremap <> <>
+inoremap {} {}
+inoremap [] []
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " All the following commands are prefixed with 'h' by default
@@ -160,13 +184,17 @@ map <leader>tm :tabmove
 map <leader>t<leader> :tabnext<cr>
 map <leader>l :tabnext<cr>
 map <leader>j :tabprevious<cr>
+
 " cd to the dir of current buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
 " Next line and back to normal mode
 map <leader>o o<Esc>
 map <leader>O O<Esc>
+
 " Switches between Buffers or Windows
 nnoremap <leader>k <C-w><C-w>
+
 " Window aka splits the window up
 map <leader>swj	:topleft	vnew<cr>
 map <leader>sw;	:botright	vnew<cr>
@@ -178,6 +206,7 @@ map <leader>s;	:rightbelow	vnew<cr>
 map <leader>sl	:leftabove	new<cr>
 map <leader>sk	:rightbelow	new<cr>
 
+" Save and quits
 map <leader>q :qa<cr>
 map <leader>Q :qa!<cr>
 map <leader>bq :q<cr>
