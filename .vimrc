@@ -3,6 +3,10 @@ set nocompatible
 ""EVERYTHING ELSE FOLLOWS""
 " Don't use Ex mode, use Q for formatting
 map Q gq
+" Need those line numbers
+set relativenumber
+set number
+nnoremap <C-n> :set relativenumber!<cr>
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
@@ -44,25 +48,16 @@ set wrap
 " Makes long lines as break lines (move up or down vertically one line no matter what)
 " Also makes the line controlls more intuitive for stupid me
 " and makes the arrow keys disabled in normal and visual mode.
-vnoremap j <left>
-vnoremap k <down>
-vnoremap l <up>
-vnoremap ; <right>
-vnoremap <up> <nop>
-vnoremap <down> <nop>
-vnoremap <left> <nop>
-vnoremap <right> <nop>
-vnoremap h <nop>
-nnoremap j <left>
-nnoremap k <down>
-nnoremap l <up>
-nnoremap ; <right>
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <Esc><up>a
-inoremap <down> <Esc><down>a
+noremap j h
+map k gj
+map l gk
+noremap ; l
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+inoremap <up> <Esc>gka
+inoremap <down> <Esc>gja
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -72,9 +67,9 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 " Hitting zero goes to first non-blank character
-nmap 0 ^
+nnoremap 0 ^
 " Hitting shift and 0 will do default 0
-nmap ) 0
+nnoremap ) 0
 map <Home> <nop>
 map <End> <nop>
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
