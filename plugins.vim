@@ -12,6 +12,8 @@ Plugin 'sickill/vim-pasta'
 Plugin 'scrooloose/syntastic'
 Plugin 'ervandew/supertab'
 Plugin 'vim-scripts/ZoomWin'
+Plugin 'vim-scripts/tComment'
+Plugin 'https://github.com/tpope/vim-fugitive.git'
 
 call vundle#end()
 ""filetype plugin indent on
