@@ -1,4 +1,4 @@
-source plugins.vim
+"source /home/czipperz/dotfiles/plugins.vim
 "EVERYTHING ELSE FOLLOWS"
 
 " Don't use Ex mode, use Q for formatting
