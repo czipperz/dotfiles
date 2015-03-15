@@ -1,4 +1,4 @@
-"source /home/czipperz/dotfiles/plugins.vim
+source /home/czipperz/dotfiles/plugins.vim
 "EVERYTHING ELSE FOLLOWS"
 
 " Don't use Ex mode, use Q for formatting
@@ -15,7 +15,7 @@ function! NumberToggle()
 		highlight LineNr ctermfg=yellow
 	endif
 endfunc
-call NumberToggle()
+set number
 nnoremap \ :call NumberToggle()<cr>
 
 highlight Search ctermbg=Yellow ctermfg=Black
