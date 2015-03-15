@@ -6,6 +6,12 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'tmhedberg/matchit'
+Plugin 'sickill/vim-pasta'
+Plugin 'scrooloose/syntastic'
+Plugin 'ervandew/supertab'
+Plugin 'vim-scripts/ZoomWin'
 
 call vundle#end()
 ""filetype plugin indent on
