@@ -1,6 +1,6 @@
-" Sets to use Vim settings instead of Vi
-set nocompatible
-""EVERYTHING ELSE FOLLOWS""
+source plugins.vim
+"EVERYTHING ELSE FOLLOWS"
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 " Need those line numbers
@@ -17,6 +17,17 @@ function! NumberToggle()
 endfunc
 call NumberToggle()
 nnoremap \ :call NumberToggle()<cr>
+
+highlight Search ctermbg=Yellow ctermfg=Black
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd BufWinEnter * call clearmatches()
+autocmd BufWinLeave * call clearmatches()
+autocmd InsertLeave * call clearmatches()
+autocmd InsertEnter * match ExtraWhitespace /\s\+$\| \+\ze\t\|\t/
+
+"filetype plugin on
+
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
@@ -43,6 +54,10 @@ syntax enable
 syntax on
 " Colorscheme
 colorscheme desert
+
+" Color column
+au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+
 " Still want the darkness to eat you
 set background=dark
 " Smarts
@@ -110,8 +125,8 @@ endtry
 set showcmd
 
 " Needed for Syntax Highlighting and Stuff
-filetype on
-syntax enable
+""filetype on
+""syntax enable
 set grepprg=grep\ -nH\ $*
 
 "Use English for spell check but dont spell check by default
@@ -162,7 +177,7 @@ inoremap [] []
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Language settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType java source ~/dotfiles/vim/java.vim
+autocmd FileType java source ~/dotfiles/java.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " All the following commands are prefixed with 'h' by default
