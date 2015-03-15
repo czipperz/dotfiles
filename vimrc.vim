@@ -1,5 +1,6 @@
 source /home/czipperz/dotfiles/plugins.vim
 "EVERYTHING ELSE FOLLOWS"
+set shell=/bin/bash
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
