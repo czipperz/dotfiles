@@ -13,5 +13,3 @@ HOME=/
 @reboot /usr/bin/ckb-daemon
 #Flux
 @reboot /usr/bin/xflux -z 97330 -k 2700
-#Steam
-@reboot /usr/bin/steam
