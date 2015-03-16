@@ -157,7 +157,7 @@ map n nzz
 "{
 "	here
 "}
-inoremap {<cr> {}<left><cr><cr><Backspace><up><tab>
+inoremap {<cr> {}<left><cr><cr><Backspace><up><right>
 
 " Typing one autocompletes to both
 inoremap ' ''<Left>
@@ -228,12 +228,12 @@ map <leader>sl	:leftabove	new<cr>
 map <leader>sk	:rightbelow	new<cr>
 
 " Save and quits
-map <leader>q :qa<cr>
-map <leader>Q :qa!<cr>
-map <leader>bq :q<cr>
-map <leader>bQ :q!<cr>
+map <leader>a :wa<cr>
+map <leader>A :wa!<cr>
+map <leader>e :wq<cr>
+map <leader>E :wq!<cr>
 
-map <leader>w :wa<cr>
-map <leader>W :wa!<cr>
-map <leader>bw :w<cr>
-map <leader>bW :w!<cr>
+map <leader>w :w<cr>
+map <leader>W :w!<cr>
+map <leader>q :q<cr>
+map <leader>Q :q!<cr>
