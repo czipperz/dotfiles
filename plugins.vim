@@ -13,7 +13,12 @@ Plugin 'scrooloose/syntastic'
 Plugin 'ervandew/supertab'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'vim-scripts/tComment'
-Plugin 'https://github.com/tpope/vim-fugitive.git'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-fugitive.git'
+Plugin 'kien/ctrlp.vim'
+Plugin 'rstacruz/sparkup'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()
 ""filetype plugin indent on
