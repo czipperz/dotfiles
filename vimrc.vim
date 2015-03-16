@@ -113,7 +113,7 @@ try
 catch
 endtry
 
-" :W uses :w! instead
+" :W uses :w!
 command W w !sudo tee % > /dev/null
 
 " Specify the behavior when switching between buffers
