@@ -1,0 +1,13 @@
+[alias]
+	st = status
+	aa = add -A
+	a = add
+	us = reset HEAD
+	unstage = reset HEAD
+	ps = push origin master
+	ci = commit
+	cm = commit
+	di = difftool
+[user]
+	email = czipperz@gmail.com
+	name = Czipperz
