@@ -1,4 +1,4 @@
-source /home/czipperz/dotfiles/plugins.vim
+source /home/czipperz/linuxfiles/plugins.vim
 "EVERYTHING ELSE FOLLOWS"
 set shell=/bin/bash
 
@@ -216,7 +216,7 @@ map <leader>l :tabnext<cr>
 map <leader>j :tabprevious<cr>
 
 " cd to the dir of current buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
+map <leader>cd :cd %:p:h<cr>
 
 " Next line and back to normal mode
 map <leader>o o<Esc>
