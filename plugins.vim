@@ -19,6 +19,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'rstacruz/sparkup'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'wavded/vim-stylus'
 
 call vundle#end()
 ""filetype plugin indent on
