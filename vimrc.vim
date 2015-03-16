@@ -2,6 +2,14 @@ source /home/czipperz/dotfiles/plugins.vim
 "EVERYTHING ELSE FOLLOWS"
 set shell=/bin/bash
 
+set novisualbell
+set noerrorbells
+
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+	autocmd GUIEnter * set visualbell t_vb=
+endif
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 " Need those line numbers
@@ -179,7 +187,8 @@ inoremap [] []
 " Language settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType java source ~/dotfiles/java.vim
-
+autocmd FileType vimrc inoremap " "
+autocmd FileType vim inoremap " "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " All the following commands are prefixed with 'h' by default
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
