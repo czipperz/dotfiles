@@ -1,4 +1,4 @@
-source /home/czipperz/linuxfiles/plugins.vim
+source /home/czipperz/linuxfiles/vim/plugins.vim
 "EVERYTHING ELSE FOLLOWS"
 set shell=/bin/bash
 
