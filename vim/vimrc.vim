@@ -174,6 +174,7 @@ inoremap ( ()<Left>
 inoremap < <><Left>
 inoremap { {}<Left>
 inoremap [ []<Left>
+inoremap ` ``<Left>
 
 " Typing both puts your cursor after it
 inoremap '' ''
@@ -182,6 +183,14 @@ inoremap () ()
 inoremap <> <>
 inoremap {} {}
 inoremap [] []
+inoremap `` ``
+
+inoremap \' '
+inoremap \" "
+inoremap \( (
+inoremap \< <
+inoremap \{ {
+inoremap \` `
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Language settings
