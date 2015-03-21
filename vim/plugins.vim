@@ -1,7 +1,7 @@
 set nocompatible
 
 "Runtime path and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
@@ -18,8 +18,12 @@ Plugin 'tpope/vim-fugitive.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rstacruz/sparkup'
 "Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plugin 'gmarik/vim-markdown'
 Plugin 'wavded/vim-stylus'
+Plugin 'gmarik/sudo-gui.vim'
+Plugin 'gmarik/ide-popup.vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'AndrewRadev/splitjoin.vim'
 
 call vundle#end()
 ""filetype plugin indent on
