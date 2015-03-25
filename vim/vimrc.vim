@@ -93,6 +93,12 @@ map <right> <nop>
 inoremap <up> <Esc>gka
 inoremap <down> <Esc>gja
 
+
+" Remaps r to c and c to r. More intuitive for me
+
+nnoremap r c
+nnoremap c r
+
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |
