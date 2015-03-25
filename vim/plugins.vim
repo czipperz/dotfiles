@@ -1,7 +1,7 @@
 set nocompatible
 
 "Runtime path and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=/home/czipperz/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
