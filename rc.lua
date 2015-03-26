@@ -56,7 +56,6 @@ alt = "Mod1"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
@@ -67,7 +66,8 @@ local layouts =
     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier
+    awful.layout.suit.magnifier,
+	awful.layout.suit.floating
 }
 -- }}}
 
@@ -91,15 +91,14 @@ end
 -- {{{ Menu
 -- Create a laucher widget and a main menu
 myawesomemenu = {
-   { "manual", terminal .. " -e man awesome" },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
 
 mymainmenu = awful.menu({ items = {
 	{ "Terminal", terminal },
-	{ "Awesome", myawesomemenu, beautiful.awesome_icon },
-	{ "Chrome", "google-chrome-stable" }
+	{ "Chrome", "google-chrome-stable" },
+	{ "Awesome", myawesomemenu, beautiful.awesome_icon }
 }})
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
@@ -220,6 +219,7 @@ down = "k"
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
+	awful.key({                   }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/screenshots/ 2>/dev/null'") end),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
@@ -368,6 +368,7 @@ awful.rules.rules = {
                      focus = awful.client.focus.filter,
                      raise = true,
                      keys = clientkeys,
+					 size_hints_honor = false,
                      buttons = clientbuttons } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
