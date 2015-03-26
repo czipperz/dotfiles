@@ -12,6 +12,7 @@ endif
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
+
 " Need those line numbers
 function! NumberToggle()
 	if(&relativenumber == 1)
@@ -40,27 +41,36 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+$\| \+\ze\t\|\t/
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
+
 " Sets all temporary and backup files all in one place
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
+
 " Sets how many lines of history VIM has to remember
 set history=700
+
 " Always show current position
 set ruler
 set hid
+
 " Good search routines (highlight and incremental)
 set hlsearch
 set incsearch
+
 " Set to auto read when a file is changed from the outside
 set autoread
+
 " Search ignores case
 set ignorecase
+
 " Magic searching
 set magic
+
 " Enable syntax highlighting
 syntax enable
 syntax on
+
 " Colorscheme
 colorscheme desert
 
@@ -69,16 +79,21 @@ au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 
 " Still want the darkness to eat you
 set background=dark
+
 " Smarts
 set smarttab
+
 " Sets tab as width of 4 was like 8
 set shiftwidth=4
 set tabstop=4
+
 " Auto and smart indent
 set ai
 set si
+
 " Wrap lines
 set wrap
+
 " Makes long lines as break lines (move up or down vertically one line no matter what)
 " Also makes the line controlls more intuitive for stupid me
 " and makes the arrow keys disabled in normal and visual mode.
@@ -90,12 +105,8 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
-inoremap <up> <Esc>gka
-inoremap <down> <Esc>gja
-
 
 " Remaps r to c and c to r. More intuitive for me
-
 nnoremap r c
 nnoremap c r
 
@@ -104,25 +115,24 @@ autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |
 	\   exe "normal! g`\"" |
 	\ endif
+
 " Remember info about open buffers on close
 set viminfo^=%
-" Hitting zero goes to first non-blank character
-nnoremap 0 ^
-" Hitting shift and 0 will do default 0
-nnoremap ) 0
 map <Home> <nop>
 map <End> <nop>
+
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
 	exe "normal mz"
 	%s/\s\+$//ge
 	exe "normal `z"
 endfunc
+
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 try
-    set undodir=~/.vim_runtime/temp_dirs/undodir
+    set undodir=~/.vim/tmp/undo
 	set undofile
 catch
 endtry
@@ -140,8 +150,8 @@ endtry
 set showcmd
 
 " Needed for Syntax Highlighting and Stuff
-""filetype on
-""syntax enable
+"filetype on
+"syntax enable
 set grepprg=grep\ -nH\ $*
 
 "Use English for spell check but dont spell check by default
@@ -168,9 +178,9 @@ map N Nzz
 map n nzz
 
 " Hitting { and Enter will make the following block and put your cursor
-"{
-"	here
-"}
+"	{
+"		here
+"	}
 inoremap {<cr> {}<left><cr><cr><Backspace><up><right>
 
 " Typing one autocompletes to both
@@ -191,19 +201,22 @@ inoremap {} {}
 inoremap [] []
 inoremap `` ``
 
+" Backslash with the doubles eliminates the second
 inoremap \' '
 inoremap \" "
 inoremap \( (
 inoremap \< <
 inoremap \{ {
+inoremap \[ [
 inoremap \` `
+
+nnoremap <Tab> i<Tab><Esc><Right>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Language settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType java source ~/dotfiles/java.vim
-autocmd FileType vimrc inoremap " "
-autocmd FileType vim inoremap " "
+autocmd FileType java source ~/linuxfiles/vim/java.vim
+autocmd FileType vim,vimrc inoremap " " 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " All the following commands are prefixed with 'h' by default
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -218,8 +231,6 @@ map <leader> <nop>
 " Dont put the final slash and operator if you wish to just search the
 " selected line
 map <leader>r :%s/
-
-map <leader>p <Esc>"+p
 
 " Tabs
 map <leader>tn :tabnew<cr>
