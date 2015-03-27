@@ -24,6 +24,10 @@ Plugin 'gmarik/sudo-gui.vim'
 Plugin 'gmarik/ide-popup.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'bling/vim-airline'
+Plugin 'czipperz/vim-surround'
+Plugin 'taghighlight'
+Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 ""filetype plugin indent on
