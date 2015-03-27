@@ -1,4 +1,3 @@
-source /home/czipperz/linuxfiles/vim/plugins.vim
 "EVERYTHING ELSE FOLLOWS"
 set shell=/bin/bash
 
@@ -110,6 +109,10 @@ map <right> <nop>
 nnoremap r c
 nnoremap c r
 
+" So much better (hit 0 to go to start of line, past whitespace. <S-0> will go to start of line, before whitespace)
+nnoremap 0 ^
+nnoremap ) 0
+
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -210,7 +213,18 @@ inoremap \{ {
 inoremap \[ [
 inoremap \` `
 
+" Tabbing Guaranteed
 nnoremap <Tab> i<Tab><Esc><Right>
+
+" Gundo
+nnoremap <F5> :GundoToggle<cr>
+let g:gundo_width = 60
+let g:gundo_preview_height = 40
+let g:gundo_right = 1
+
+" Nerd tree
+nnoremap <F4> :NERDTreeToggle<cr>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Language settings
@@ -272,3 +286,5 @@ map <leader>w :w<cr>
 map <leader>W :w!<cr>
 map <leader>q :q<cr>
 map <leader>Q :q!<cr>
+
+source /home/czipperz/linuxfiles/vim/plugins.vim
