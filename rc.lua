@@ -248,7 +248,8 @@ globalkeys = awful.util.table.join(
                 client.focus:raise()
             end
         end),
-
+	-- Default programs bound to numbers
+	awful.key({ modkey, alt       }, "3", function () awful.util.spawn(google-chrome-stable) end),
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
 	awful.key({ "Control", alt    }, "t", function () awful.util.spawn(terminal) end),
@@ -309,7 +310,7 @@ clientkeys = awful.util.table.join(
 for i = 1, 9 do
     globalkeys = awful.util.table.join(globalkeys,
         -- View tag only.
-        awful.key({ modkey }, "#" .. i + 9,
+        awful.key({ modkey            }, "#" .. i + 9,
                   function ()
                         local screen = mouse.screen
                         local tag = awful.tag.gettags(screen)[i]
@@ -327,7 +328,7 @@ for i = 1, 9 do
                       end
                   end),
         -- Move client to tag.
-        awful.key({ modkey, "Shift" }, "#" .. i + 9,
+        awful.key({ modkey, "Shift"   }, "#" .. i + 9,
                   function ()
                       if client.focus then
                           local tag = awful.tag.gettags(client.focus.screen)[i]
@@ -385,12 +386,14 @@ awful.rules.rules = {
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c, startup)
     -- Enable sloppy focus
+	--[[
     c:connect_signal("mouse::enter", function(c)
         if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
             and awful.client.focus.filter(c) then
             client.focus = c
         end
     end)
+	--]]
 
     if not startup then
         -- Set the windows at the slave,
