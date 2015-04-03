@@ -216,9 +216,23 @@ right = ";"
 up = "l"
 down = "k"
 
+mouseOn = false
+function toggleMouseHover()
+	return function()
+		mouseOn = not mouseOn
+	end
+end
+function getMouseHover(c)
+	return function(c)
+		if mouseOn and awful.layout.get(c.screen) ~= awful.layout.suit.magnifier and awful.client.focus.filter(c) then
+			client.focus = c
+		end
+	end
+end
+
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-	awful.key({                   }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/screenshots/ 2>/dev/null'") end),
+	awful.key({                   }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/Pictures/ 2>/dev/null'") end),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
@@ -233,26 +247,33 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
+	awful.key({ modkey, "Shift"   }, 'Tab',
+		function ()
+			awful.client.focus.byidx(-1)
+			if client.focus then client.focus:raise() end
+		end),
+	awful.key({ modkey,           }, 'Tab',
+		function ()
+			awful.client.focus.byidx( 1)
+			if client.focus then client.focus:raise() end
+		end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, down, function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, up, function () awful.client.swap.byidx( -1)    end),
-    awful.key({ modkey, "Control" }, down, function () awful.screen.focus_relative( 1) end),
-    awful.key({ modkey, "Control" }, up, function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey, "Shift"   }, left, function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey, "Shift"   }, right, function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
-    awful.key({ modkey,           }, "Tab",
+    awful.key({ modkey,           }, '`',
         function ()
             awful.client.focus.history.previous()
             if client.focus then
                 client.focus:raise()
             end
         end),
-	-- Default programs bound to numbers
-	awful.key({ modkey, alt       }, "3", function () awful.util.spawn(google-chrome-stable) end),
+	awful.key({ modkey,           }, "r", toggleMouseHover()),
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-	awful.key({ "Control", alt    }, "t", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "q", awesome.quit),
 
@@ -269,7 +290,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+    --awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
     awful.key({ modkey }, "x",
               function ()
@@ -376,6 +397,11 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
+	{ rule = { class = "steam" },
+	  properties = { floating = true,
+	 				 tag = tags[1][2] } },
+	{ rule = { class = "popcorntime" },
+	  properties = { tag = tags[1][3] } },
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },
@@ -386,14 +412,7 @@ awful.rules.rules = {
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c, startup)
     -- Enable sloppy focus
-	--[[
-    c:connect_signal("mouse::enter", function(c)
-        if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
-            and awful.client.focus.filter(c) then
-            client.focus = c
-        end
-    end)
-	--]]
+    c:connect_signal("mouse::enter", getMouseHover(c))
 
     if not startup then
         -- Set the windows at the slave,
@@ -416,12 +435,16 @@ client.connect_signal("manage", function (c, startup)
                     c:raise()
                     awful.mouse.client.move(c)
                 end),
+				--[[
+				awful.button({ }, 2, function()
+					c:minimize()
+				end),
+				--]]
                 awful.button({ }, 3, function()
                     client.focus = c
                     c:raise()
                     awful.mouse.client.resize(c)
-                end)
-                )
+                end))
 
         -- Widgets that are aligned to the left
         local left_layout = wibox.layout.fixed.horizontal()
