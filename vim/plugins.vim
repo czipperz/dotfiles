@@ -27,7 +27,8 @@ Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'bling/vim-airline'
 Plugin 'czipperz/vim-surround'
 Plugin 'taghighlight'
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
+Plugin 'Spaceghost/vim-matchit'
 
 call vundle#end()
 ""filetype plugin indent on
