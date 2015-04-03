@@ -213,6 +213,8 @@ inoremap \{ {
 inoremap \[ [
 inoremap \` `
 
+command Q q!
+
 " Tabbing Guaranteed
 nnoremap <Tab> i<Tab><Esc><Right>
 
@@ -278,13 +280,13 @@ map <leader>sk	:rightbelow	new<cr>
 
 " Save and quits
 map <leader>a :wa<cr>
-map <leader>A :wa!<cr>
-map <leader>e :wq<cr>
-map <leader>E :wq!<cr>
+map <leader>A :Wa<cr>
+map <leader>e :exit<CR>
+map <leader>E :exit!<CR>
 
 map <leader>w :w<cr>
-map <leader>W :w!<cr>
+map <leader>W :W<cr>
 map <leader>q :q<cr>
-map <leader>Q :q!<cr>
+map <leader>Q :Q<cr>
 
 source /home/czipperz/linuxfiles/vim/plugins.vim
