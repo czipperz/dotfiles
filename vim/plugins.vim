@@ -24,11 +24,14 @@ Plugin 'gmarik/sudo-gui.vim'
 Plugin 'gmarik/ide-popup.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'powerline/powerline'
 Plugin 'bling/vim-airline'
 Plugin 'czipperz/vim-surround'
 Plugin 'taghighlight'
 " Plugin 'scrooloose/nerdtree'
 Plugin 'Spaceghost/vim-matchit'
+" Requires silver-searcher-git
+Plugin 'rking/ag.vim'
 
 call vundle#end()
 ""filetype plugin indent on
