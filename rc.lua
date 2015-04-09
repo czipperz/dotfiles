@@ -216,7 +216,7 @@ right = ";"
 up = "l"
 down = "k"
 
-mouseOn = false
+mouseOn = true
 function toggleMouseHover()
 	return function()
 		mouseOn = not mouseOn
@@ -279,8 +279,8 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey,           }, right,     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, left,     function () awful.tag.incmwfact(-0.05)    end),
-    awful.key({ modkey, "Shift"   }, left,     function () awful.tag.incnmaster( 1)      end),
-    awful.key({ modkey, "Shift"   }, right,     function () awful.tag.incnmaster(-1)      end),
+    awful.key({ modkey, "Control"   }, up,     function () awful.tag.incnmaster( 1)      end),
+    awful.key({ modkey, "Control"   }, down,     function () awful.tag.incnmaster(-1)      end),
     awful.key({ modkey, "Control" }, left,     function () awful.tag.incncol( 1)         end),
     awful.key({ modkey, "Control" }, right,     function () awful.tag.incncol(-1)         end),
 
