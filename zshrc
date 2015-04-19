@@ -83,13 +83,30 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cls="clear;ls"
 
-alias ll="ls -l"
+alias l="ls"
 alias la="ls -lA"
-alias li="ls -i"
-alias lia="ls -iA"
+alias ll="ls -l"
+alias li="ls -li"
+alias lia="ls -liA"
 
 alias syyu="yaourt -Syyua;gem update"
 alias syu="yaourt -Syua;gem update"
 alias su="yaourt -Sua;gem update"
 
+
+
+
+alias pacls="comm -23 <(pacman -Qeq | sort) <(pacman -Qgq base base-devel | sort)"
+alias paclso='sudo pacman -Qdt'
+alias pacrmo='sudo pacman -Rs $(pacman -Qtdq)'
+alias pac='sudo pacman'
+alias pacm='sudo pacman'
+
+alias yaols="comm -23 <(yaourt -Qeq | sort) <(yaourt -Qgq base base-devel | sort)"
+alias yaolso='sudo yaourt -Qdt'
+alias yaormo='sudo yaourt -Rs $(yaourt -Qtdq)'
+alias yao='yaourt'
+
 alias ga="git aa;git ci -m"
+alias mnt='sudo mount'
+alias umnt='sudo umount'
