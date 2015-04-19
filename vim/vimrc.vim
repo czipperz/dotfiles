@@ -96,9 +96,9 @@
 	" Makes long lines as break lines (move up or down vertically one line no matter what)
 	" Also makes the line controlls more intuitive for stupid me
 	" and makes the arrow keys disabled in normal and visual mode.
-	noremap j h
-	map k gj
-	map l gk
+	noremap l h
+	map j gj
+	map k gk
 	noremap ; l
 	map <up> <nop>
 	map <down> <nop>
