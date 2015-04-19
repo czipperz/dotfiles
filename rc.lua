@@ -92,6 +92,7 @@ end
 myawesomemenu = {
    { "restart", awesome.restart },
    { "quit", awesome.quit }
+   --{ "sleep", }
 }
 
 mymainmenu = awful.menu({ items = {
@@ -274,6 +275,8 @@ globalkeys = awful.util.table.join(
 	awful.key({ modkey,           }, "r", toggleMouseHover()),
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
+	awful.key({ modkey, "Control" }, "i", function () awful.util.spawn("idea.sh") end),
+	awful.key({ modkey, "Control" }, "c", function () awful.util.spawn("google-chrome-stable") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "q", awesome.quit),
 
