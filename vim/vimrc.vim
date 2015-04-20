@@ -182,38 +182,38 @@
 	map N Nzz
 	map n nzz
 
-	" Hitting { and Enter will make the following block and put your cursor
+" Hitting { and Enter will make the following block and put your cursor
 "	{
 "		here
 "	}
-inoremap {<cr> {}<left><cr><cr><Backspace><up><right>
+" inoremap {<cr> {}<left><cr><cr><Backspace><up><right>
 
 " Typing one autocompletes to both
-inoremap ' ''<Left>
-inoremap " ""<Left>
-inoremap ( ()<Left>
-inoremap < <><Left>
-inoremap { {}<Left>
-inoremap [ []<Left>
-inoremap ` ``<Left>
+" inoremap ' ''<Left>
+" inoremap " ""<Left>
+" inoremap ( ()<Left>
+" inoremap < <><Left>
+" inoremap { {}<Left>
+" inoremap [ []<Left>
+" inoremap ` ``<Left>
 
 " Typing both puts your cursor after it
-inoremap '' ''
-inoremap "" ""
-inoremap () ()
-inoremap <> <>
-inoremap {} {}
-inoremap [] []
-inoremap `` ``
+" inoremap '' ''
+" inoremap "" ""
+" inoremap () ()
+" inoremap <> <>
+" inoremap {} {}
+" inoremap [] []
+" inoremap `` ``
 
 " Backslash with the doubles eliminates the second
-inoremap \' '
-inoremap \" "
-inoremap \( (
-inoremap \< <
-inoremap \{ {
-inoremap \[ [
-inoremap \` `
+" inoremap \' '
+" inoremap \" "
+" inoremap \( (
+" inoremap \< <
+" inoremap \{ {
+" inoremap \[ [
+" inoremap \` `
 
 command Q q!
 
@@ -234,7 +234,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " Language settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType java source ~/linuxfiles/vim/java.vim
-autocmd FileType vim,vimrc inoremap " " 
+" autocmd FileType vim,vimrc inoremap " " 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " All the following commands are prefixed with 'h' by default
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
