@@ -1,186 +1,186 @@
-	"EVERYTHING ELSE FOLLOWS"
-	set shell=/bin/bash
+"EVERYTHING ELSE FOLLOWS"
+set shell=/bin/bash
 
-	set novisualbell
-	set noerrorbells
+set novisualbell
+set noerrorbells
 
-	set noerrorbells visualbell t_vb=
-	if has('autocmd')
-		autocmd GUIEnter * set visualbell t_vb=
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+	autocmd GUIEnter * set visualbell t_vb=
+endif
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
+" Need those line numbers
+function! NumberToggle()
+	if(&relativenumber == 1)
+		set norelativenumber
+		set number
+		highlight LineNr ctermfg=red
+	else
+		set relativenumber
+		set number
+		highlight LineNr ctermfg=yellow
 	endif
+endfunc
+set number
+nnoremap \ :call NumberToggle()<cr>
 
-	" Don't use Ex mode, use Q for formatting
-	map Q gq
+highlight Search ctermbg=Yellow ctermfg=Black
 
-	" Need those line numbers
-	function! NumberToggle()
-		if(&relativenumber == 1)
-			set norelativenumber
-			set number
-			highlight LineNr ctermfg=red
-		else
-			set relativenumber
-			set number
-			highlight LineNr ctermfg=yellow
-		endif
-	endfunc
-	set number
-	nnoremap \ :call NumberToggle()<cr>
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd BufWinEnter * call clearmatches()
+autocmd BufWinLeave * call clearmatches()
+autocmd InsertLeave * call clearmatches()
+autocmd InsertEnter * match ExtraWhitespace /\s\+$\| \+\ze\t\|\t/
 
-	highlight Search ctermbg=Yellow ctermfg=Black
+"filetype plugin on
 
-	highlight ExtraWhitespace ctermbg=red guibg=red
-	autocmd BufWinEnter * call clearmatches()
-	autocmd BufWinLeave * call clearmatches()
-	autocmd InsertLeave * call clearmatches()
-	autocmd InsertEnter * match ExtraWhitespace /\s\+$\| \+\ze\t\|\t/
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
 
-	"filetype plugin on
+" Sets all temporary and backup files all in one place
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
 
-	" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-	" so that you can undo CTRL-U after inserting a line break.
-	inoremap <C-U> <C-G>u<C-U>
+" Sets how many lines of history VIM has to remember
+set history=700
 
-	" Sets all temporary and backup files all in one place
-	set backup
-	set backupdir=~/.vim/backup
-	set directory=~/.vim/tmp
+" Always show current position
+set ruler
+set hid
 
-	" Sets how many lines of history VIM has to remember
-	set history=700
+" Good search routines (highlight and incremental)
+set hlsearch
+set incsearch
 
-	" Always show current position
-	set ruler
-	set hid
+" Set to auto read when a file is changed from the outside
+set autoread
 
-	" Good search routines (highlight and incremental)
-	set hlsearch
-	set incsearch
+" Search ignores case
+set ignorecase
 
-	" Set to auto read when a file is changed from the outside
-	set autoread
+" Magic searching
+set magic
 
-	" Search ignores case
-	set ignorecase
+" Enable syntax highlighting
+syntax enable
+syntax on
 
-	" Magic searching
-	set magic
+" Colorscheme
+colorscheme desert
 
-	" Enable syntax highlighting
-	syntax enable
-	syntax on
+" Color column #red #bg
+" au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 
-	" Colorscheme
-	colorscheme desert
+" Still want the darkness to eat you
+set background=dark
 
-	" Color column #red #bg
-	" au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+" Smarts
+"set smarttab
 
-	" Still want the darkness to eat you
-	set background=dark
+" Sets tab as width of 4 was like 8
+set shiftwidth=4
+set tabstop=4
 
-	" Smarts
-	set smarttab
+" Auto and smart indent
+set ai
+"set si
 
-	" Sets tab as width of 4 was like 8
-	set shiftwidth=4
-	set tabstop=4
+" Wrap lines
+set wrap
 
-	" Auto and smart indent
-	set ai
-	set si
+" Makes long lines as break lines (move up or down vertically one line no matter what)
+" Also makes the line controlls more intuitive for stupid me
+" and makes the arrow keys disabled in normal and visual mode.
+noremap j h
+noremap k gj
+noremap l gk
+noremap ; l
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+inoremap <up> <Esc>gka
+inoremap <down> <Esc>gja
 
-	" Wrap lines
-	set wrap
+" Remaps r to c and c to r. More intuitive for me
+nnoremap r c
+nnoremap c r
 
-	" Makes long lines as break lines (move up or down vertically one line no matter what)
-	" Also makes the line controlls more intuitive for stupid me
-	" and makes the arrow keys disabled in normal and visual mode.
-	noremap l h
-	map j gj
-	map k gk
-	noremap ; l
-	map <up> <nop>
-	map <down> <nop>
-	map <left> <nop>
-	map <right> <nop>
-	inoremap <up> <Esc>gka
-	inoremap <down> <Esc>gja
+" So much better (hit 0 to go to start of line, past whitespace. <S-0> will go to start of line, before whitespace)
+nnoremap 0 ^
+nnoremap ) 0
 
-	" Remaps r to c and c to r. More intuitive for me
-	nnoremap r c
-	nnoremap c r
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+	\ if line("'\"") > 0 && line("'\"") <= line("$") |
+	\   exe "normal! g`\"" |
+	\ endif
 
-	" So much better (hit 0 to go to start of line, past whitespace. <S-0> will go to start of line, before whitespace)
-	nnoremap 0 ^
-	nnoremap ) 0
+" Remember info about open buffers on close
+set viminfo^=%
+map <Home> <nop>
+map <End> <nop>
 
-	" Return to last edit position when opening files (You want this!)
-	autocmd BufReadPost *
-		\ if line("'\"") > 0 && line("'\"") <= line("$") |
-		\   exe "normal! g`\"" |
-		\ endif
+" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+func! DeleteTrailingWS()
+	exe "normal mz"
+	%s/\s\+$//ge
+	exe "normal `z"
+endfunc
 
-	" Remember info about open buffers on close
-	set viminfo^=%
-	map <Home> <nop>
-	map <End> <nop>
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
-	" Delete trailing white space on save, useful for Python and CoffeeScript ;)
-	func! DeleteTrailingWS()
-		exe "normal mz"
-		%s/\s\+$//ge
-		exe "normal `z"
-	endfunc
+try
+	set undodir=~/.vim/tmp/undo
+	set undofile
+catch
+endtry
 
-	autocmd BufWrite *.py :call DeleteTrailingWS()
-	autocmd BufWrite *.coffee :call DeleteTrailingWS()
+" :W uses :w!
+command W w !sudo tee % > /dev/null
 
-	try
-		set undodir=~/.vim/tmp/undo
-		set undofile
-	catch
-	endtry
+" Specify the behavior when switching between buffers
+try
+	set switchbuf=useopen,usetab,newtab
+	set stal=2
+catch
+endtry
 
-	" :W uses :w!
-	command W w !sudo tee % > /dev/null
+set showcmd
 
-	" Specify the behavior when switching between buffers
-	try
-		set switchbuf=useopen,usetab,newtab
-		set stal=2
-	catch
-	endtry
+" Needed for Syntax Highlighting and Stuff
+"filetype on
+"syntax enable
+set grepprg=grep\ -nH\ $*
 
-	set showcmd
+"Use English for spell check but dont spell check by default
+if version >= 700
+	set spl=en spell
+	set nospell
+endif
 
-	" Needed for Syntax Highlighting and Stuff
-	"filetype on
-	"syntax enable
-	set grepprg=grep\ -nH\ $*
+" Tab completion
+set wildmenu
+set wildmode=list:longest,full
 
-	"Use English for spell check but dont spell check by default
-	if version >= 700
-		set spl=en spell
-		set nospell
-	endif
+set smartcase
 
-	" Tab completion
-	set wildmenu
-	set wildmode=list:longest,full
+let g:clipbrdDefaultReg = '+'
 
-	set smartcase
+"Close tab, remove buffer
+set nohidden
 
-	let g:clipbrdDefaultReg = '+'
+highlight MatchParen ctermbg=4
 
-	"Close tab, remove buffer
-	set nohidden
-
-	highlight MatchParen ctermbg=4
-
-	"Centers when you search and go up and down in results
-	map N Nzz
-	map n nzz
+"Centers when you search and go up and down in results
+map N Nzz
+map n nzz
 
 " Hitting { and Enter will make the following block and put your cursor
 "	{
@@ -233,7 +233,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Language settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType java source ~/linuxfiles/vim/java.vim
+" autocmd FileType java source ~/linuxfiles/vim/java.vim
 " autocmd FileType vim,vimrc inoremap " " 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " All the following commands are prefixed with 'h' by default
