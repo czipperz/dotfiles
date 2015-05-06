@@ -85,10 +85,12 @@ set background=dark
 " Sets tab as width of 4 was like 8
 set shiftwidth=4
 set tabstop=4
+set softtabstop=4
+set noexpandtab
 
 " Auto and smart indent
-set ai
-"set si
+"set ai
+set si
 
 " Wrap lines
 set wrap
