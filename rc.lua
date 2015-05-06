@@ -275,7 +275,7 @@ globalkeys = awful.util.table.join(
 	awful.key({ modkey,           }, "r", toggleMouseHover()),
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-	awful.key({ modkey, "Control" }, "i", function () awful.util.spawn("idea.sh") end),
+	awful.key({ modkey, "Control" }, "i", function () awful.util.spawn("intellij-idea-ce-eap") end),
 	awful.key({ modkey, "Control" }, "c", function () awful.util.spawn("google-chrome-stable") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "q", awesome.quit),
@@ -312,6 +312,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
     awful.key({ alt               }, "F4",     function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
+	awful.key({ modkey, "Control" }, "u",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
