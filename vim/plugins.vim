@@ -4,6 +4,7 @@ set nocompatible
 set rtp+=/home/czipperz/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'majutsushi/tagbar'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'bronson/vim-trailing-whitespace'
