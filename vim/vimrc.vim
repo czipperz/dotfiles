@@ -173,7 +173,8 @@ set wildmode=list:longest,full
 
 set smartcase
 
-let g:clipbrdDefaultReg = '+'
+"let g:clipbrdDefaultReg='+'
+set clipboard=unnamedplus
 
 "Close tab, remove buffer
 set nohidden
@@ -228,9 +229,11 @@ let g:gundo_width = 60
 let g:gundo_preview_height = 40
 let g:gundo_right = 1
 
-" Nerd tree
-nnoremap <F4> :NERDTreeToggle<cr>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" Nerd tree - **NOT INSTALLED** at the moment
+"nnoremap <F4> :NERDTreeToggle<cr>
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+nmap <F8> :TagbarToggle<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Language settings
