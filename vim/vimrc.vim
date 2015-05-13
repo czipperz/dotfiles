@@ -71,7 +71,8 @@ syntax enable
 syntax on
 
 " Colorscheme
-colorscheme desert
+colorscheme Tomorrow-Night
+let g:airline_theme="sol"
 
 " Color column #red #bg
 " au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
