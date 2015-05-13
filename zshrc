@@ -49,7 +49,7 @@ plugins=(git gitfast git-extras sudo)
 
 # User configuration
 
-export PATH=/home/czipperz/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/czipperz/.gem/ruby/2.2.0/bin
+export PATH=/home/czipperz/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/czipperz/.gem/ruby/2.2.0/bin:/home/czipperz/.perl6/2015.03/bin
 
 fpath=( $HOME/.oh-my-zsh/functions $fpath )
 
@@ -91,7 +91,6 @@ alias lia="ls -liA"
 
 alias syyu="yaourt -Syyua;gem update"
 alias syu="yaourt -Syua;gem update"
-alias su="yaourt -Sua;gem update"
 
 
 
@@ -110,3 +109,29 @@ alias yao='yaourt'
 alias ga="git aa;git ci -m"
 alias mnt='sudo mount'
 alias umnt='sudo umount'
+
+alias lllp='systemctl suspend'
+
+alias g='git'
+alias G='grep'
+
+alias S='sed -r'
+
+alias sc='sudo systemctl'
+alias scu='systemctl --user'
+
+alias :e='vim'
+alias :q='exit'
+
+alias music="ncmpcpp"
+
+lmr
+
+[[ -s /home/czipperz/.autojump/etc/profile.d/autojump.sh ]] && source /home/czipperz/.autojump/etc/profile.d/autojump.sh
+
+	autoload -U compinit && compinit -u
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/home/czipperz/.gvm/bin/gvm-init.sh" ]] && source "/home/czipperz/.gvm/bin/gvm-init.sh"
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ ! -s ~/.config/mpd/pid ] && mpd
