@@ -4,6 +4,8 @@ set nocompatible
 set rtp+=/home/czipperz/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+"Plugin 'Shougo/vimproc'
+"Plugin 'Shougo/vimshell.vim' "Depends on the above
 Plugin 'majutsushi/tagbar'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'ntpeters/vim-better-whitespace'
@@ -25,14 +27,15 @@ Plugin 'gmarik/sudo-gui.vim'
 Plugin 'gmarik/ide-popup.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'powerline/powerline'
+" Plugin 'powerline/powerline'
+" Plugin 'zhaocai/linepower.vim'
 Plugin 'bling/vim-airline'
 Plugin 'czipperz/vim-surround'
 Plugin 'taghighlight'
-" Plugin 'scrooloose/nerdtree'
 Plugin 'Spaceghost/vim-matchit'
-" Requires silver-searcher-git
-Plugin 'rking/ag.vim'
+Plugin 'rking/ag.vim' "Requires silver-searcher-git
+Plugin 'tomasr/molokai'
+" Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 ""filetype plugin indent on
