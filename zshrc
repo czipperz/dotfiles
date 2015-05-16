@@ -82,6 +82,7 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cls="clear;ls"
+alias clg="clear;git status"
 
 alias l="ls"
 alias la="ls -lA"
@@ -121,17 +122,16 @@ alias sc='sudo systemctl'
 alias scu='systemctl --user'
 
 alias :e='vim'
+alias :d='vimdiff'
 alias :q='exit'
 
 alias music="ncmpcpp"
 
 lmr
 
+#Sources
 [[ -s /home/czipperz/.autojump/etc/profile.d/autojump.sh ]] && source /home/czipperz/.autojump/etc/profile.d/autojump.sh
-
-	autoload -U compinit && compinit -u
-
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+autoload -U compinit && compinit -u
 [[ -s "/home/czipperz/.gvm/bin/gvm-init.sh" ]] && source "/home/czipperz/.gvm/bin/gvm-init.sh"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ ! -s ~/.config/mpd/pid ] && mpd
