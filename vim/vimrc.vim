@@ -110,8 +110,7 @@ map <right> <nop>
 inoremap <up> <Esc>gka
 inoremap <down> <Esc>gja
 
-"Shift + Enter goes up a line (and zeroes)
-nnoremap <S-cr> kk<cr>
+noremap , ;
 
 " Remaps r to c and c to r. More intuitive for me
 nnoremap r c
@@ -196,31 +195,31 @@ map n nzz
 inoremap {<cr> {}<left><cr><cr><Backspace><up><right>
 
 " Typing one autocompletes to both
-inoremap ' ''<Left>
-inoremap " ""<Left>
-inoremap ( ()<Left>
-inoremap < <><Left>
-inoremap { {}<Left>
-inoremap [ []<Left>
-inoremap ` ``<Left>
+"inoremap ' ''<Left>
+"inoremap " ""<Left>
+"inoremap ( ()<Left>
+"inoremap < <><Left>
+"inoremap { {}<Left>
+"inoremap [ []<Left>
+"inoremap ` ``<Left>
 
 " Typing both puts your cursor after it
-inoremap '' ''
-inoremap "" ""
-inoremap () ()
-inoremap <> <>
-inoremap {} {}
-inoremap [] []
-inoremap `` ``
+"inoremap '' ''
+"inoremap "" ""
+"inoremap () ()
+"inoremap <> <>
+"inoremap {} {}
+"inoremap [] []
+"inoremap `` ``
 
 " Backslash with the doubles eliminates the second
-inoremap \' '
-inoremap \" "
-inoremap \( (
-inoremap \< <
-inoremap \{ {
-inoremap \[ [
-inoremap \` `
+"inoremap \' '
+"inoremap \" "
+"inoremap \( (
+"inoremap \< <
+"inoremap \{ {
+"inoremap \[ [
+"inoremap \` `
 
 command Q q!
 
@@ -299,5 +298,10 @@ map <leader>w :w<cr>
 map <leader>W :W<cr>
 map <leader>q :q<cr>
 map <leader>Q :Q<cr>
+
+map <leader>gc :Gcommit<cr>
+map <leader>gw :Gwrite<cr>
+map <leader>gp :Gpush origin master<cr>
+map <leader>gd :Gdiff<cr>
 
 source /home/czipperz/linuxfiles/vim/plugins.vim
