@@ -102,11 +102,11 @@ set wrap
 " Also makes the line controlls more intuitive for stupid me
 " and makes the arrow keys disabled in normal and visual mode.
 noremap j h
-noremap k j
-"gj
-noremap l k
-"gk
+noremap k gj
+noremap l gk
 noremap ; l
+noremap gk j
+noremap gl k
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
