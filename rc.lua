@@ -70,6 +70,10 @@ local layouts =
 }
 -- }}}
 
+-- {{{ Unagi aka transparency (yaourt -S unagi)
+--awful.util.spawn_with_shell("unagi &")
+-- }}}
+
 -- {{{ Wallpaper
 if beautiful.wallpaper then
     for s = 1, screen.count() do
