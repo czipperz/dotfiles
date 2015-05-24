@@ -1,0 +1,19 @@
+# Maintainer: Czipperz <czipperz@gmail.com>
+_gitname="b"
+
+pkgname=$_gitname-git
+pkgver=
+pkgrel=1
+pkgdesc=''
+arch=("any")
+requires=("git")
+url="https://github.com/czipperz/$_gitname"
+
+_gitroot="git://github.com/czipperz/${_gitname}.git"
+
+source=("$_gitroot")
+
+package() {
+	cd $srcdir/$_gitname
+}
+md5sums=('SKIP')
