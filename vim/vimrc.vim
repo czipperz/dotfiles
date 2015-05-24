@@ -4,6 +4,8 @@ set shell=/bin/bash
 set novisualbell
 set noerrorbells
 
+au BufRead,BufNewFile *.hbml setfiletype haml
+
 set noerrorbells visualbell t_vb=
 if has('autocmd')
 	autocmd GUIEnter * set visualbell t_vb=
@@ -47,7 +49,7 @@ set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
 
 " Sets how many lines of history VIM has to remember
-set history=700
+set history=10000
 
 " Always show current position
 set ruler
@@ -109,6 +111,7 @@ map <left> <nop>
 map <right> <nop>
 inoremap <up> <Esc>gka
 inoremap <down> <Esc>gja
+vnoremap . :norm.<cr>
 
 noremap , ;
 
@@ -125,6 +128,8 @@ autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |
 	\   exe "normal! g`\"" |
 	\ endif
+
+set foldmethod=indent
 
 " Remember info about open buffers on close
 set viminfo^=%
@@ -180,7 +185,7 @@ set smartcase
 set clipboard=unnamedplus
 
 "Close tab, remove buffer
-set nohidden
+"set nohidden
 
 highlight MatchParen ctermbg=4
 
