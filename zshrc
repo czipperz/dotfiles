@@ -52,6 +52,7 @@ plugins=(sudo)
 export PATH=/home/czipperz/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/czipperz/.gem/ruby/2.2.0/bin:/home/czipperz/.perl6/2015.03/bin
 
 fpath=( $HOME/.oh-my-zsh/functions $fpath )
+autoload -U compinit
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
