@@ -1,4 +1,3 @@
-"EVERYTHING ELSE FOLLOWS"
 set shell=/bin/bash
 
 set novisualbell
@@ -124,6 +123,8 @@ nnoremap c r
 " So much better (hit 0 to go to start of line, past whitespace. <S-0> will go to start of line, before whitespace)
 nnoremap 0 ^
 nnoremap ) 0
+noremap <Home> <nop>
+noremap <End> <nop>
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -135,8 +136,6 @@ set foldmethod=indent
 
 " Remember info about open buffers on close
 set viminfo^=%
-map <Home> <nop>
-map <End> <nop>
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
@@ -295,14 +294,16 @@ map <leader>s;	:rightbelow	vnew<cr>
 map <leader>sl	:leftabove	new<cr>
 map <leader>sk	:rightbelow	new<cr>
 
-" Save and quits
+" Writes all
 map <leader>a :wa<cr>
 map <leader>A :Wa<cr>
+" Save and quits
 map <leader>e :exit<CR>
 map <leader>E :exit!<CR>
-
+" Writes
 map <leader>w :w<cr>
 map <leader>W :W<cr>
+" Quits
 map <leader>q :q<cr>
 map <leader>Q :Q<cr>
 
