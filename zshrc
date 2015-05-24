@@ -128,6 +128,7 @@ alias scu='systemctl --user'
 alias :e='vim'
 alias :d='vimdiff'
 alias :q='exit'
+alias vi='vim'
 
 alias music="ncmpcpp"
 
