@@ -88,6 +88,7 @@ alias cll="clear;ls -l"
 alias cli="clear;ls -li"
 alias clia="clear;ls -liA"
 alias clg="clear;git status"
+alias cld="clear;git diff | cat"
 
 alias l="ls"
 alias la="ls -lA"
