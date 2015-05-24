@@ -81,7 +81,12 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias cl="clear"
 alias cls="clear;ls"
+alias cla="clear;ls -lA"
+alias cll="clear;ls -l"
+alias cli="clear;ls -li"
+alias clia="clear;ls -liA"
 alias clg="clear;git status"
 
 alias l="ls"
@@ -92,9 +97,6 @@ alias lia="ls -liA"
 
 alias syyu="yaourt -Syyua;gem update"
 alias syu="yaourt -Syua;gem update"
-
-
-
 
 alias pacls="comm -23 <(pacman -Qeq | sort) <(pacman -Qgq base base-devel | sort)"
 alias paclso='sudo pacman -Qdt'
@@ -107,7 +109,7 @@ alias yaolso='sudo yaourt -Qdt'
 alias yaormo='sudo yaourt -Rs $(yaourt -Qtdq)'
 alias yao='yaourt'
 
-alias ga="git aa;git ci -m"
+alias ga="git aa;git cm"
 alias mnt='sudo mount'
 alias umnt='sudo umount'
 
@@ -127,7 +129,13 @@ alias :q='exit'
 
 alias music="ncmpcpp"
 
-lmr
+alias sc='sudo systemctl'
+alias scu='systemctl --user'
+
+#A shell script clone of 'Jump' called 'c'. github.com/czipperz/c
+alias b='. b'
+
+screenfetch
 
 #Sources
 [[ -s /home/czipperz/.autojump/etc/profile.d/autojump.sh ]] && source /home/czipperz/.autojump/etc/profile.d/autojump.sh
