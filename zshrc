@@ -45,7 +45,7 @@ ZSH_THEME="czipperz"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast git-extras sudo)
+plugins=(sudo)
 
 # User configuration
 
@@ -88,7 +88,7 @@ alias cll="clear;ls -l"
 alias cli="clear;ls -li"
 alias clia="clear;ls -liA"
 alias clg="clear;git status"
-alias cld="clear;git diff | cat"
+alias cld="clear;/usr/bin/gd" #Uses https://github.com/czipperz/gd
 
 alias l="ls"
 alias la="ls -lA"
@@ -133,7 +133,7 @@ alias music="ncmpcpp"
 alias sc='sudo systemctl'
 alias scu='systemctl --user'
 
-#A shell script clone of 'Jump' called 'c'. github.com/czipperz/c
+#A shell script clone of 'Jump' called 'b'. https://github.com/czipperz/b
 alias b='. b'
 
 screenfetch
@@ -144,3 +144,4 @@ autoload -U compinit && compinit -u
 [[ -s "/home/czipperz/.gvm/bin/gvm-init.sh" ]] && source "/home/czipperz/.gvm/bin/gvm-init.sh"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ ! -s ~/.config/mpd/pid ] && mpd
+setopt interactivecomments
