@@ -10,8 +10,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 
 
-"NeoBundle 'Shougo/vimproc'
-"NeoBundle 'Shougo/vimshell.vim' "Depends on the above
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimshell.vim' "Depends on the above
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'gmarik/Vundle.vim'
 NeoBundle 'ntpeters/vim-better-whitespace'
