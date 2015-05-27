@@ -65,6 +65,6 @@ git clone https://github.com/czipperz/{linuxfiles,b,gd}
 	echo 'source /home/czipperz/linuxfiles/vim/vimrc.vim' > .vimrc
 
 read -p "Do you want my work files? " -n 1 -r
-if [[ ! $REPLY =~ ^[Yy]$ ]]; then exit 1; fi
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then exit 0; fi
 
 git clone https://github.com/czipperz/{hbml,czipperz.github.io,chsWebsiteDraft}
