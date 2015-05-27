@@ -1,6 +1,6 @@
 source /home/czipperz/linuxfiles/vim/plugins.vim
 
-source /home/czipperz/linuxfiles/vim/neocomplete.vim
+source /home/czipperz/linuxfiles/vim/neosettings.vim
 
 set shell=/bin/bash
 
@@ -80,9 +80,6 @@ set shell=/bin/bash
 " Color column #red #bg
 " au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 
-" Smarts
-"set smarttab
-
 " Sets tab as width of 4 was like 8
 	set shiftwidth=4
 	set tabstop=4
@@ -90,6 +87,7 @@ set shell=/bin/bash
 	set noexpandtab
 	"set ai
 	set si
+	"set smarttab
 
 " Wrap lines
 set wrap
@@ -137,17 +135,18 @@ set foldmethod=indent
 set viminfo^=%
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! DeleteTrailingWS()
-	exe "normal mz"
-	%s/\s\+$//ge
-	exe "normal `z"
-endfunc
+	func! DeleteTrailingWS()
+		exe "normal mz"
+		%s/\s\+$//ge
+		exe "normal `z"
+	endfunc
 
-try
-	set undodir=~/.vim/tmp/undo
-	set undofile
-catch
-endtry
+" Custom undo directory
+	try
+		set undodir=~/.vim/tmp/undo
+		set undofile
+	catch
+	endtry
 
 " Commands
 	command W w !sudo tee % > /dev/null
@@ -175,8 +174,8 @@ set showcmd
 	endif
 
 " Tab completion - Replacing with neocomplete.vim
-	set wildmenu
-	set wildmode=list:longest,full
+	"set wildmenu
+	"set wildmode=list:longest,full
 
 set smartcase
 
