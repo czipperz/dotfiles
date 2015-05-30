@@ -26,8 +26,10 @@ fi
 #Basic installs
 echo "Installing basic things"
 	yaourt -Syu
-	yaourt -S zsh xorg-server xorg-server-utils xorg-apps xorg-xinit awesome gvmtool screenfetch xfluxd-args pgem-git rakudo jdk otf-meslo-powerline-git ttf-meslo gvim scrot alsa-utils
-	read -p "Edit xflux settings? " -n 1 -r
+	yaourt -S zsh xorg-server xorg-server-utils xorg-apps xorg-xinit
+	yaourt -S awesome gvmtool screenfetch xfluxd-args pgem-git rakudo
+	yaourt -S jdk otf-meslo-powerline-git ttf-meslo gvim scrot alsa-utils
+	read -p "Edit xfluxd-args settings? " -n 1 -r
 	if [[ $REPLY =~ ^[Yy]$ ]]; then nano /etc/xfluxd-args.conf; fi
 	systemctl --user enable xfluxd-args
 	#read -p "Running xserver test. Type \`pkill x\` to exit. [Any key to continue] " -n 1 -r
@@ -38,7 +40,9 @@ echo "Installing basic things"
 	chsh -s $(which zsh)
 
 #linuxfiles setup
-git clone https://github.com/czipperz/{linuxfiles,b,gd}
+git clone https://github.com/czipperz/linuxfiles
+git clone https://github.com/czipperz/b
+git clone https://github.com/czipperz/gd
 	if [ -f .gitconfig ]; then mv .gitconfig .gitconfig.bkup; fi
 	ln linuxfiles/gitconfig $HOME/.gitconfig
 
@@ -67,4 +71,8 @@ git clone https://github.com/czipperz/{linuxfiles,b,gd}
 read -p "Do you want my work files? " -n 1 -r
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then exit 0; fi
 
-git clone https://github.com/czipperz/{hbml,czipperz.github.io,chsWebsiteDraft}
+git clone https://github.com/czipperz/hbml
+git clone https://github.com/czipperz/czipperz.github.io
+git clone https://github.com/czipperz/chsWebsiteDraft
+
+yaourt -S intellij-idea-ce-eap
