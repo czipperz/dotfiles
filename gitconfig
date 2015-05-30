@@ -6,7 +6,7 @@
 	unstage = reset HEAD
 	ps = push origin master
 	ci = commit
-	cm = commit
+	cm = commit -m
 	di = difftool
 [user]
 	email = czipperz@gmail.com
