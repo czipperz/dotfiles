@@ -26,7 +26,7 @@ fi
 #Basic installs
 echo "Installing basic things"
 	yaourt -Syu
-	yaourt -S zsh xorg-server xorg-server-utils xorg-apps xorg-xinit
+	yaourt -S zsh xorg-server xorg-server-utils xorg-apps xorg-xinit ctags
 	yaourt -S awesome gvmtool screenfetch xfluxd-args pgem-git rakudo
 	yaourt -S jdk otf-meslo-powerline-git ttf-meslo gvim scrot alsa-utils
 	read -p "Edit xfluxd-args settings? " -n 1 -r
@@ -56,17 +56,23 @@ git clone https://github.com/czipperz/gd
 	ln linuxfiles/czipperz.zsh-theme .oh-my-zsh/themes
 	if [ -f .xinitrc ]; then mv .xinitrc .xinitrc.bkup; fi
 	ln linuxfiles/xinitrc .xinitrc
+	curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 
-	say "Installing b"
+	echo "Installing b"
 	sudo cp b /usr/bin
 	mkdir .oh-my-zsh/functions
 	ln b/_b .oh-my-zsh/functions
 
-	say "Installing gd"
+	echo "Installing gd"
 	sudo cp gd/gd /usr/bin
 
-	if [ -f .vimrc ]; then mv .vimrc .vimrc.bkup; fi
-	echo 'source /home/czipperz/linuxfiles/vim/vimrc.vim' > .vimrc
+# vim setup
+if [ -f .vimrc ]; then mv .vimrc .vimrc.bkup; fi
+	echo "source $HOME/linuxfiles/vim/vimrc.vim" > .vimrc
+	mkdir -p $HOME/.vim/{tmp/undo,backup}
+	curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+	git clone https://github.com/ChrisKempson/Tomorrow-Theme $HOME/.vim/bundle/Tomorrow-Theme
+	cp -R $HOME/.vim/bundle/Tomorrow-Theme/vim/colors $HOME/.vim
 
 read -p "Do you want my work files? " -n 1 -r
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then exit 0; fi
