@@ -1,9 +1,8 @@
 #!/bin/bash
 echo 'Files will be moved to "their name".bkup'
-echo 'Requires arch linux. INSTALLS YAOURT-GIT'
-echo "It will now ask for your password (as a sudo authenticator)"
+echo 'Requires arch linux. INSTALLS YAOURT-GIT by using `makepkg`'
 echo "It assumes you DO NOT have \`linuxfiles\` installed."
-echo "It assumes you have a graphics driver installed"
+echo "It assures you have a graphics card"
 echo "Please make sure these requirements are fulfilled"
 echo
 read -p "Do you want to continue? " -n 1 -r
