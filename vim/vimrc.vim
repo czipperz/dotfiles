@@ -99,8 +99,10 @@ set wrap
 	noremap k gj
 	noremap l gk
 	noremap ; l
+	noremap gj gh
 	noremap gk j
 	noremap gl k
+	noremap g; gl
 	map <up> <nop>
 	map <down> <nop>
 	map <left> <nop>
