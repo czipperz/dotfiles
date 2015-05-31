@@ -69,7 +69,7 @@ git clone https://github.com/czipperz/gd
 # vim setup
 if [ -f .vimrc ]; then mv .vimrc .vimrc.bkup; fi
 	echo "source $HOME/linuxfiles/vim/vimrc.vim" > .vimrc
-	mkdir -p $HOME/.vim/{tmp/undo,backup}
+	mkdir -p $HOME/.vim/{tmp,undo,backup}
 	curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 	git clone https://github.com/ChrisKempson/Tomorrow-Theme $HOME/.vim/bundle/Tomorrow-Theme
 	cp -R $HOME/.vim/bundle/Tomorrow-Theme/vim/colors $HOME/.vim
