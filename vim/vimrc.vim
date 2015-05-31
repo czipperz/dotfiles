@@ -143,7 +143,7 @@ set viminfo^=%
 
 " Custom undo directory
 	try
-		set undodir=~/.vim/tmp/undo
+		set undodir=~/.vim/undo
 		set undofile
 	catch
 	endtry
