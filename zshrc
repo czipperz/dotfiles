@@ -82,6 +82,9 @@ alias scu='systemctl --user'
 #A shell script clone of 'Jump' called 'b'. https://github.com/czipperz/b
 alias b='. b'
 
+#Auto `makedir` and `cd`
+alias mcd='. mcd'
+
 screenfetch
 
 #Sources
