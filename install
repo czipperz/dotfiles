@@ -1,17 +1,18 @@
 #!/bin/bash
 echo 'Files will be moved to "their name".bkup'
-echo 'Requires arch linux. INSTALLS YAOURT-GIT by using `makepkg`'
-echo "It assumes you DO NOT have \`linuxfiles\` installed."
-echo "It assures you have a graphics card"
-echo "Please make sure these requirements are fulfilled"
+echo 'Requires arch linux. Installs https://aur.archlinux.org/packages/yaourt-git by using `makepkg`'
+echo 'It assumes you DO NOT have `linuxfiles` installed.'
+echo 'It assures you have a graphics card'
+echo 'Please make sure these requirements are fulfilled'
+echo "Note that this doesn't install the asert keyboard layout. You must do that manually"
 echo
 read -p "Do you want to continue? " -n 1 -r
-if [[ ! $REPLY =~ ^[Yy]$ ]]; then exit 1; fi
+[[ ! $REPLY =~ ^[Yy]$ ]] && exit 1
 
 cd $HOME
 
 #Yaourt
-if [ ! -f /usr/bin/yaourt ]; then
+if [ ! -e /bin/yaourt ]; then
 	echo "Installing yaourt"
 	mkdir abs && cd abs
 	curl -L "https://aur.archlinux.org/packages/ya/yaourt-git/yaourt-git.tar.gz" > yaourt-git.tar.gz
@@ -26,58 +27,59 @@ fi
 echo "Installing basic things"
 	yaourt -Syu
 	yaourt -S zsh xorg-server xorg-server-utils xorg-apps xorg-xinit ctags
-	yaourt -S awesome gvmtool screenfetch xfluxd-args pgem-git rakudo
+	yaourt -S awesome gvmtool screenfetch pgem-git rakudo
 	yaourt -S jdk otf-meslo-powerline-git ttf-meslo gvim scrot alsa-utils
+	yaourt -S xfluxd-args
 	read -p "Edit xfluxd-args settings? " -n 1 -r
-	if [[ $REPLY =~ ^[Yy]$ ]]; then nano /etc/xfluxd-args.conf; fi
+	[[ $REPLY =~ ^[Yy]$ ]] && nano /etc/xfluxd-args.conf
 	systemctl --user enable xfluxd-args
-	#read -p "Running xserver test. Type \`pkill x\` to exit. [Any key to continue] " -n 1 -r
-	#echo
-	#startx
-	git clone git://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
+	echo "Installing my git applications"
+		git clone https://github.com/czipperz/g
+		cd g
+		./install
+		cd $HOME
+		rm -R g
+
+		gcl czipperz/cd-tools
+		cd cd-tools
+		./install
+		cd $HOME
+		rm -R cd-tools
+	gcl robbyrussell/oh-my-zsh.git .oh-my-zsh
 	echo "Setting zsh as default shell"
 	chsh -s $(which zsh)
 
 #linuxfiles setup
-git clone https://github.com/czipperz/linuxfiles
-git clone https://github.com/czipperz/b
-git clone https://github.com/czipperz/gd
-	if [ -f .gitconfig ]; then mv .gitconfig .gitconfig.bkup; fi
+gcl czipperz/linuxfiles
+gcl czipperz/b
+	[ -f .gitconfig ] && mv .gitconfig .gitconfig.bkup
 	ln linuxfiles/gitconfig $HOME/.gitconfig
 
 	#Setup awesome
-	if [ ! -d .config/awesome ]; then mkdir -p .config/awesome/themes; fi
+	[ -d .config/awesome ] || mkdir -p .config/awesome/themes
 	if [ ! -d .config/awesome/themes/transBlack ]; then
-		git clone https://github.com/czipperz/awesomeThemes
+		gcl czipperz/awesomeThemes
 		cp -R awesomeThemes/trans* .config/awesome/themes
+		rm -R awesomeThemes
 	fi
 	ln linuxfiles/rc.lua .config/awesome
 	ln linuxfiles/czipperz.zsh-theme .oh-my-zsh/themes
-	if [ -f .xinitrc ]; then mv .xinitrc .xinitrc.bkup; fi
+	[ -f .xinitrc ] && mv .xinitrc .xinitrc.bkup
 	ln linuxfiles/xinitrc .xinitrc
-	curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+	ln linuxfiles/zshrc .zshrc
+	ln linuxfiles/zlogin .zlogin
 
 	echo "Installing b"
 	sudo cp b /usr/bin
 	mkdir .oh-my-zsh/functions
 	ln b/_b .oh-my-zsh/functions
 
-	echo "Installing gd"
-	sudo cp gd/gd /usr/bin
-
 # vim setup
-if [ -f .vimrc ]; then mv .vimrc .vimrc.bkup; fi
+[ -f .vimrc ] && mv .vimrc .vimrc.bkup
 	echo "source $HOME/linuxfiles/vim/vimrc.vim" > .vimrc
 	mkdir -p $HOME/.vim/{tmp,undo,backup}
 	curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
-	git clone https://github.com/ChrisKempson/Tomorrow-Theme $HOME/.vim/bundle/Tomorrow-Theme
+	gcl ChrisKempson/Tomorrow-Theme $HOME/.vim/bundle/Tomorrow-Theme
 	cp -R $HOME/.vim/bundle/Tomorrow-Theme/vim/colors $HOME/.vim
-
-read -p "Do you want my work files? " -n 1 -r
-if [[ ! $REPLY =~ ^[Yy]$ ]]; then exit 0; fi
-
-git clone https://github.com/czipperz/hbml
-git clone https://github.com/czipperz/czipperz.github.io
-git clone https://github.com/czipperz/chsWebsiteDraft
 
 yaourt -S intellij-idea-ce-eap
