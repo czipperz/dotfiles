@@ -82,4 +82,10 @@ gcl czipperz/b
 	gcl ChrisKempson/Tomorrow-Theme $HOME/.vim/bundle/Tomorrow-Theme
 	cp -R $HOME/.vim/bundle/Tomorrow-Theme/vim/colors $HOME/.vim
 
+# MPD - music player daemon
+yaourt -S mpd ncmpcpp-git
+	mkdir -p ~/.config/mpd/playlists
+	touch ~/.config/mpd/{database,log,pid,state,sticker.sql}
+	ln mpd.conf ~/.config/mpd/mpd.conf
+
 yaourt -S intellij-idea-ce-eap
