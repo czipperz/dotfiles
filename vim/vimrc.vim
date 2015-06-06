@@ -107,9 +107,11 @@ set wrap
 	map <down> <nop>
 	map <left> <nop>
 	map <right> <nop>
-	inoremap <up> <Esc>gka
-	inoremap <down> <Esc>gja
+	inoremap <up> <C-o>gk
+	inoremap <down> <C-o>gj
 	noremap , ;
+	noremap H L
+	noremap L H
 
 " Visual mode hacks
 	vnoremap . :norm.<cr>
