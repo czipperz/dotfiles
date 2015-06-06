@@ -1,8 +1,6 @@
 [user]
 	email = czipperz@gmail.com
 	name = Czipperz
-[github]
-	user = czipperz
 [alias]
 	s = status -sb
 	st = status
