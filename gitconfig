@@ -1,3 +1,8 @@
+[user]
+	email = czipperz@gmail.com
+	name = Czipperz
+[github]
+	user = czipperz
 [alias]
 	st = status
 	aa = add -A
@@ -8,6 +13,3 @@
 	ci = commit
 	cm = commit -m
 	di = difftool
-[user]
-	email = czipperz@gmail.com
-	name = Czipperz
