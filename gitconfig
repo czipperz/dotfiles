@@ -4,6 +4,7 @@
 [github]
 	user = czipperz
 [alias]
+	s = status -sb
 	st = status
 	aa = add -A
 	a = add
