@@ -10,8 +10,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 
 
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/vimshell.vim' "Depends on the above
+"NeoBundle 'Shougo/vimproc'
+"NeoBundle 'Shougo/vimshell.vim' "Depends on the above
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/neocomplete.vim'
