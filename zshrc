@@ -69,12 +69,14 @@ alias c='cd'
 alias sc='sudo systemctl'
 alias scu='systemctl --user'
 
-alias :e='vim'
-alias :d='vimdiff'
-alias :q='exit'
-alias vi='vim'
+alias e='vim'
+alias d='vimdiff'
+alias q='exit'
+alias x='exit'
+alias v='vim'
 
-alias music="ncmpcpp"
+alias mu="ncmpcpp"
+alias am="alsamixer"
 
 alias sc='sudo systemctl'
 alias scu='systemctl --user'
