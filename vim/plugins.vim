@@ -45,6 +45,8 @@ NeoBundle 'Spaceghost/vim-matchit'
 NeoBundle 'rking/ag.vim' "Requires silver-searcher-git
 NeoBundle 'tomasr/molokai'
 "NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'czipperz/vim-sensible'
+NeoBundle 'altercation/vim-colors-solarized'
 
 
 
