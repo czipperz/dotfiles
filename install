@@ -25,26 +25,25 @@ fi
 
 #Basic installs
 echo "Installing basic things"
+sleep 2000
 	yaourt -Syu
 	yaourt -S zsh xorg-server xorg-server-utils xorg-apps xorg-xinit ctags
 	yaourt -S awesome gvmtool screenfetch pgem-git rakudo
 	yaourt -S jdk otf-meslo-powerline-git ttf-meslo gvim scrot alsa-utils
 	yaourt -S xfluxd-args
-	read -p "Edit xfluxd-args settings? " -n 1 -r
-	[[ $REPLY =~ ^[Yy]$ ]] && nano /etc/xfluxd-args.conf
-	systemctl --user enable xfluxd-args
+	#read -p "Edit xfluxd-args settings? " -n 1 -r
+	#[[ $REPLY =~ ^[Yy]$ ]] && nano /etc/xfluxd-args.conf
+	#systemctl --user enable xfluxd-args
 	echo "Installing my git applications"
-		git clone https://github.com/czipperz/g
-		cd g
-		./install
-		cd $HOME
-		rm -R g
-
-		gcl czipperz/cd-tools
+		git clone czipperz/cd-tools
 		cd cd-tools
 		./install
 		cd $HOME
 		rm -R cd-tools
+
+		git clone https://github.com/czipperz/g
+		./g/install
+		rm -R g
 	gcl robbyrussell/oh-my-zsh.git .oh-my-zsh
 	echo "Setting zsh as default shell"
 	chsh -s $(which zsh)
@@ -56,7 +55,7 @@ gcl czipperz/b
 	ln linuxfiles/gitconfig $HOME/.gitconfig
 
 	#Setup awesome
-	[ -d .config/awesome ] || mkdir -p .config/awesome/themes
+	mkdir -p .config/awesome/themes
 	if [ ! -d .config/awesome/themes/transBlack ]; then
 		gcl czipperz/awesomeThemes
 		cp -R awesomeThemes/trans* .config/awesome/themes
@@ -69,23 +68,21 @@ gcl czipperz/b
 	ln linuxfiles/zshrc .zshrc
 	ln linuxfiles/zlogin .zlogin
 
-	echo "Installing b"
-	sudo cp b /usr/bin
-	mkdir .oh-my-zsh/functions
-	ln b/_b .oh-my-zsh/functions
+	tcd $HOME/b './install'
 
 # vim setup
 [ -f .vimrc ] && mv .vimrc .vimrc.bkup
 	echo "source $HOME/linuxfiles/vim/vimrc.vim" > .vimrc
 	mkdir -p $HOME/.vim/{tmp,undo,backup}
 	curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
-	gcl ChrisKempson/Tomorrow-Theme $HOME/.vim/bundle/Tomorrow-Theme
-	cp -R $HOME/.vim/bundle/Tomorrow-Theme/vim/colors $HOME/.vim
+	cd $HOME/.vim/bundle
+	gcl altercation/vim-colors-solarized
+	cp -R $HOME/.vim/bundle/vim-colors-solarized/colors $HOME/.vim
 
 # MPD - music player daemon
 yaourt -S mpd ncmpcpp-git
-	mkdir -p ~/.config/mpd/playlists
-	touch ~/.config/mpd/{database,log,pid,state,sticker.sql}
-	ln mpd.conf ~/.config/mpd/mpd.conf
+	mkdir -p $HOME/.config/mpd/playlists
+	touch $HOME/.config/mpd/{database,log,pid,state,sticker.sql}
+	ln $HOME/linuxfiles/mpd.conf $HOME/.config/mpd/mpd.conf
 
 yaourt -S intellij-idea-ce-eap
