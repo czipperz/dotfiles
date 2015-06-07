@@ -40,8 +40,9 @@ set shell=/bin/bash
 "filetype plugin on
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" INCLUDED IN https://github.com/czipperz/vim-sensible
 	" so that you can undo CTRL-U after inserting a line break.
-	inoremap <C-U> <C-G>u<C-U>
+	" inoremap <C-U> <C-G>u<C-U>
 
 " Sets all temporary and backup files all in one place
 	set backup
@@ -73,9 +74,10 @@ set shell=/bin/bash
 	syntax on
 
 " Colorscheme
-	colorscheme Tomorrow-Night
+	colorscheme solarized
 	let g:airline_theme="sol"
 	set background=dark
+	set t_Co=256
 
 " Color column #red #bg
 " au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
@@ -196,7 +198,7 @@ highlight MatchParen ctermbg=4
 	"	{
 	"		here
 	"	}
-	inoremap {<cr> {}<left><cr><cr><Backspace><up><right>
+	imap {<cr> {}<left><cr><cr><Backspace><up><right>
 
 " Unused insert mode auto completions
 	" Typing one autocompletes to both
@@ -291,12 +293,9 @@ highlight MatchParen ctermbg=4
 			map <leader>sk	:rightbelow	new<cr>
 
 	" Saving commands
-		" Writes all
-			map <leader>a :wa<cr>
-			map <leader>A :Wa<cr>
 		" Save and quits
-			map <leader>e :exit<CR>
-			map <leader>E :exit!<CR>
+			map <leader>x :wq<CR>
+			map <leader>X :W<CR>:Q<CR>
 		" Writes
 			map <leader>w :w<cr>
 			map <leader>W :W<cr>
