@@ -198,7 +198,7 @@ highlight MatchParen ctermbg=4
 	"	{
 	"		here
 	"	}
-	imap {<cr> {}<left><cr><cr><Backspace><up><right>
+	"imap {<cr> {}<left><cr><cr><Backspace><up><right>
 
 " Unused insert mode auto completions
 	" Typing one autocompletes to both
