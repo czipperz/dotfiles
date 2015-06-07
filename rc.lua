@@ -101,7 +101,7 @@ myawesomemenu = {
 
 mymainmenu = awful.menu({ items = {
 	{ "Terminal", terminal },
-	{ "Chrome", "google-chrome-stable" },
+	{ "Chromium", "chromium" },
 	{ "Awesome", myawesomemenu, beautiful.awesome_icon }
 }})
 
@@ -280,7 +280,7 @@ globalkeys = awful.util.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
 	awful.key({ modkey, "Control" }, "i", function () awful.util.spawn("intellij-idea-ce-eap") end),
-	awful.key({ modkey, "Control" }, "c", function () awful.util.spawn("google-chrome-stable") end),
+	awful.key({ modkey, "Control" }, "c", function () awful.util.spawn("chromium") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "q", awesome.quit),
 
