@@ -32,7 +32,7 @@ alias cla="clear;ls -lA"
 alias cll="clear;ls -l"
 alias cli="clear;ls -li"
 alias clia="clear;ls -liA"
-alias clg="clear;git status"
+alias clg="clear;git status -sb"
 alias cld="clear;/usr/bin/gd" #Uses https://github.com/czipperz/gd
 
 alias l="ls"
