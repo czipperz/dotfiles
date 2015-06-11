@@ -259,26 +259,29 @@ highlight MatchParen ctermbg=4
 
 	" Search and replace
 		" Append g for global, c for confirmation
-		map <leader>r :%s/
+		noremap <leader>r :%s/
 
 	" Tabs
-		map <leader>tn :tabnew<cr>
-		map <leader>to :tabonly<cr>
-		map <leader>tc :tabclose<cr>
-		map <leader>tm :tabmove 
-		map <leader>t<leader> :tabnext<cr>
-		map <leader>l :tabnext<cr>
-		map <leader>j :tabprevious<cr>
+		noremap <leader>tn :tabnew<cr>
+		noremap <leader>to :tabonly<cr>
+		noremap <leader>tc :tabclose<cr>
+		noremap <leader>tm :tabmove 
+		noremap <leader>t<leader> :tabnext<cr>
+		noremap <leader>t<S-leader> :tabprevious<cr>
 
 	" cd to the dir of current buffer
-	map <leader>cd :cd %:p:h<cr>
+	noremap <leader>cd :cd %:p:h<cr>
 
 	" Next line and back to normal mode
-		map <leader>o o<Esc>
-		map <leader>O O<Esc>
+		noremap <leader>o o<Esc>
+		noremap <leader>O O<Esc>
 
 	" Switches between Buffers
-	nnoremap <leader>k <C-w><C-w>
+		noremap <leader>j <C-w>h
+		noremap <leader>k <C-w>j
+		noremap <leader>l <C-w>k
+		noremap <leader>; <C-w>l
+		noremap <leader><leader> <C-w><C-w>
 
 	" Splits
 		" Window
@@ -294,14 +297,14 @@ highlight MatchParen ctermbg=4
 
 	" Saving commands
 		" Save and quits
-			map <leader>x :wq<CR>
-			map <leader>X :W<CR>:Q<CR>
+		map <leader>x :wq<CR>
+		map <leader>X :W<CR>:Q<CR>
 		" Writes
-			map <leader>w :w<cr>
-			map <leader>W :W<cr>
+		map <leader>w :w<cr>
+		map <leader>W :W<cr>
 		" Quits
-			map <leader>q :q<cr>
-			map <leader>Q :Q<cr>
+		map <leader>q :q<cr>
+		map <leader>Q :Q<cr>
 
 	" fuGITive
 		map <leader>gc :Gcommit<cr>
