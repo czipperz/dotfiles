@@ -62,11 +62,11 @@ gcl czipperz/b
 		rm -R awesomeThemes
 	fi
 	ln linuxfiles/rc.lua .config/awesome
-	ln linuxfiles/czipperz.zsh-theme .oh-my-zsh/themes
+	ln linuxfiles/zsh/czipperz.zsh-theme .oh-my-zsh/themes
 	[ -f .xinitrc ] && mv .xinitrc .xinitrc.bkup
 	ln linuxfiles/xinitrc .xinitrc
-	ln linuxfiles/zshrc .zshrc
-	ln linuxfiles/zlogin .zlogin
+	ln linuxfiles/zsh/zshrc .zshrc
+	ln linuxfiles/zsh/zlogin .zlogin
 
 	tcd $HOME/b './install'
 
