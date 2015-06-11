@@ -222,18 +222,6 @@ up = "l"
 down = "k"
 
 mouseOn = true
-function toggleMouseHover()
-	return function()
-		mouseOn = not mouseOn
-	end
-end
-function getMouseHover(c)
-	return function(c)
-		if mouseOn and awful.layout.get(c.screen) ~= awful.layout.suit.magnifier and awful.client.focus.filter(c) then
-			client.focus = c
-		end
-	end
-end
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
@@ -276,11 +264,12 @@ globalkeys = awful.util.table.join(
                 client.focus:raise()
             end
         end),
-	awful.key({ modkey,           }, "r", toggleMouseHover()),
+	awful.key({ modkey,           }, "r", function() mouseOn = not mouseOn end),
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
 	awful.key({ modkey, "Control" }, "i", function () awful.util.spawn("intellij-idea-ce-eap") end),
 	awful.key({ modkey, "Control" }, "c", function () awful.util.spawn("chromium") end),
+	awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("systemctl suspend") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "q", awesome.quit),
 
@@ -420,7 +409,11 @@ awful.rules.rules = {
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c, startup)
     -- Enable sloppy focus
-    c:connect_signal("mouse::enter", getMouseHover(c))
+	c:connect_signal("mouse::enter", function(c)
+										if mouseOn and awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
+										and awful.client.focus.filter(c) then
+												client.focus = c
+										end end)
 
     if not startup then
         -- Set the windows at the slave,
