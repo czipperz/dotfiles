@@ -35,11 +35,11 @@ sleep 2000
 	#[[ $REPLY =~ ^[Yy]$ ]] && nano /etc/xfluxd-args.conf
 	#systemctl --user enable xfluxd-args
 	echo "Installing my git applications"
-		git clone czipperz/cd-tools
+		git clone czipperz/linux-tools
 		cd cd-tools
 		./install
 		cd $HOME
-		rm -R cd-tools
+		rm -R linux-tools
 
 		git clone https://github.com/czipperz/g
 		./g/install
