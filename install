@@ -51,6 +51,7 @@ sleep 2000
 #linuxfiles setup
 gcl czipperz/linuxfiles
 gcl czipperz/b
+	cd $HOME
 	[ -f .gitconfig ] && mv .gitconfig .gitconfig.bkup
 	ln linuxfiles/gitconfig $HOME/.gitconfig
 
