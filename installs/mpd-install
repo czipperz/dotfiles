@@ -3,4 +3,4 @@
 yaourt -S mpd ncmpcpp-git
 	mkdir -p $HOME/.config/mpd/playlists
 	touch $HOME/.config/mpd/{database,log,pid,state,sticker.sql}
-	ln $HOME/linuxfiles/mpd.conf $HOME/.config/mpd/mpd.conf
+	ln $HOME/dotfiles/mpd.conf $HOME/.config/mpd/mpd.conf

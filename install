@@ -1,7 +1,7 @@
 #!/bin/bash
 echo 'Files will be moved to "their name".bkup'
 echo 'Requires arch linux. Installs https://aur.archlinux.org/packages/yaourt-git by using `makepkg`'
-echo 'It assumes you DO NOT have `linuxfiles` installed.'
+echo 'It assumes you DO NOT have my dotfiles installed.'
 echo 'It assures you have a graphics card'
 echo 'Please make sure these requirements are fulfilled'
 echo "Note that this doesn't install the asert keyboard layout. You must do that manually"
@@ -48,12 +48,12 @@ sleep 2000
 	echo "Setting zsh as default shell"
 	chsh -s $(which zsh)
 
-#linuxfiles setup
-gcl czipperz/linuxfiles
+#dotfiles setup
+gcl czipperz/dotfiles
 gcl czipperz/b
 	cd $HOME
 	[ -f .gitconfig ] && mv .gitconfig .gitconfig.bkup
-	ln linuxfiles/gitconfig $HOME/.gitconfig
+	ln dotfiles/gitconfig $HOME/.gitconfig
 
 	#Setup awesome
 	mkdir -p .config/awesome/themes
@@ -62,18 +62,18 @@ gcl czipperz/b
 		cp -R awesomeThemes/trans* .config/awesome/themes
 		rm -R awesomeThemes
 	fi
-	ln linuxfiles/rc.lua .config/awesome
-	ln linuxfiles/zsh/czipperz.zsh-theme .oh-my-zsh/themes
+	ln dotfiles/rc.lua .config/awesome
+	ln dotfiles/zsh/czipperz.zsh-theme .oh-my-zsh/themes
 	[ -f .xinitrc ] && mv .xinitrc .xinitrc.bkup
-	ln linuxfiles/xinitrc .xinitrc
-	ln linuxfiles/zsh/zshrc .zshrc
-	ln linuxfiles/zsh/zlogin .zlogin
+	ln dotfiles/xinitrc .xinitrc
+	ln dotfiles/zsh/zshrc .zshrc
+	ln dotfiles/zsh/zlogin .zlogin
 
 	tcd $HOME/b './install'
 
 # vim setup
 [ -f .vimrc ] && mv .vimrc .vimrc.bkup
-	echo "source $HOME/linuxfiles/vim/vimrc.vim" > .vimrc
+	echo "source $HOME/dotfiles/vim/vimrc.vim" > .vimrc
 	mkdir -p $HOME/.vim/{tmp,undo,backup}
 	curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 	cd $HOME/.vim/bundle
@@ -84,6 +84,6 @@ gcl czipperz/b
 yaourt -S mpd ncmpcpp
 	mkdir -p $HOME/.config/mpd/playlists
 	touch $HOME/.config/mpd/{database,log,pid,state,sticker.sql}
-	ln $HOME/linuxfiles/mpd.conf $HOME/.config/mpd/mpd.conf
+	ln $HOME/dotfiles/mpd.conf $HOME/.config/mpd/mpd.conf
 
 yaourt -S intellij-idea-ce-eap
