@@ -87,6 +87,13 @@ alias b=". b"
 #Auto `makedir` and `cd`. https://github.com/czipperz/cd-tools
 alias mcd=". mcd"
 
+#################
+### Functions ###
+#################
+grH() {
+	git reset HEAD~$@
+}
+
 ########################
 ### Auto Run Scripts ###
 ########################
