@@ -1,6 +1,6 @@
-source /home/czipperz/linuxfiles/vim/plugins.vim
+source /home/czipperz/dotfiles/vim/plugins.vim
 
-source /home/czipperz/linuxfiles/vim/neosettings.vim
+source /home/czipperz/dotfiles/vim/neosettings.vim
 
 set shell=/bin/bash
 
