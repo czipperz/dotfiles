@@ -28,7 +28,7 @@ echo "Installing basic things"
 sleep 2000
 	yaourt -Syu
 	yaourt -S zsh xorg-server xorg-server-utils xorg-apps xorg-xinit ctags
-	yaourt -S awesome gvmtool screenfetch pgem-git rakudo
+	yaourt -S awesome screenfetch pgem-git rakudo
 	yaourt -S jdk otf-meslo-powerline-git ttf-meslo gvim scrot alsa-utils
 	yaourt -S xfluxd-args
 	#read -p "Edit xfluxd-args settings? " -n 1 -r
@@ -36,22 +36,20 @@ sleep 2000
 	#systemctl --user enable xfluxd-args
 	echo "Installing my git applications"
 		git clone czipperz/linux-tools
-		cd cd-tools
-		./install
-		cd $HOME
+		(cd cd-tools; ./install)
 		rm -R linux-tools
 
 		git clone https://github.com/czipperz/g
-		./g/install
+		(cd g; ./install)
 		rm -R g
 	gcl robbyrussell/oh-my-zsh.git .oh-my-zsh
 	echo "Setting zsh as default shell"
 	chsh -s $(which zsh)
+	cd $HOME
 
 #dotfiles setup
 gcl czipperz/dotfiles
 gcl czipperz/b
-	cd $HOME
 	[ -f .gitconfig ] && mv .gitconfig .gitconfig.bkup
 	ln dotfiles/gitconfig $HOME/.gitconfig
 
@@ -69,7 +67,7 @@ gcl czipperz/b
 	ln dotfiles/zsh/zshrc .zshrc
 	ln dotfiles/zsh/zlogin .zlogin
 
-	tcd $HOME/b './install'
+	(cd $HOME/b; ./install)
 
 # vim setup
 [ -f .vimrc ] && mv .vimrc .vimrc.bkup
