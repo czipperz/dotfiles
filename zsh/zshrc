@@ -52,10 +52,11 @@ alias la=" ls -lA" # -A hides `.` and `..`
 alias li=" ls -li" # inode numbers
 alias lia="ls -liA"
 ## Displays on own line ##
-alias lsl=" ls | cat"
-alias lil=" ls -l| cat"
-alias lll=" ls -lA | cat"
-alias lial="ls -liA | cat"
+alias lsl=" ls		| cat"
+alias lll=" ls -l	| cat"
+alias lal=" ls -lA	| cat"
+alias lil=" ls -li	| cat"
+alias lial="ls -liA	| cat"
 
 alias pac="sudo pacman"
 alias syu="yaourt -Syua;gem update"
@@ -92,6 +93,10 @@ alias mcd=". mcd"
 #################
 grH() {
 	git reset HEAD~$@
+}
+
+colm() {
+	awk "{ print \$$1 }"
 }
 
 ########################
