@@ -122,12 +122,12 @@ mypromptbox = {}
 mylayoutbox = {}
 mytaglist = {}
 mytaglist.buttons = awful.util.table.join(
-                    awful.button({ }, 1, awful.tag.viewonly),
-                    awful.button({ modkey }, 1, awful.client.movetotag),
-                    awful.button({ }, 3, awful.tag.viewtoggle),
-                    awful.button({ modkey }, 3, awful.client.toggletag),
-                    awful.button({ }, 4, function(t) awful.tag.viewnext(awful.tag.getscreen(t)) end),
-                    awful.button({ }, 5, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end)
+						awful.button({        }, 1, awful.tag.viewonly),
+						awful.button({ modkey }, 1, awful.client.movetotag),
+						awful.button({        }, 3, awful.tag.viewtoggle),
+						awful.button({ modkey }, 3, awful.client.toggletag),
+						awful.button({        }, 4, function(t) awful.tag.viewnext(awful.tag.getscreen(t)) end),
+						awful.button({        }, 5, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end)
                     )
 mytasklist = {}
 mytasklist.buttons = awful.util.table.join(
@@ -252,11 +252,11 @@ globalkeys = awful.util.table.join(
 		end),
 
     -- Layout manipulation
-    awful.key({ modkey, "Shift"   }, down, function () awful.client.swap.byidx(  1)    end),
-    awful.key({ modkey, "Shift"   }, up, function () awful.client.swap.byidx( -1)    end),
-    awful.key({ modkey, "Shift"   }, left, function () awful.screen.focus_relative( 1) end),
-    awful.key({ modkey, "Shift"   }, right, function () awful.screen.focus_relative(-1) end),
-    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
+    awful.key({ modkey, "Shift"   }, down,   function () awful.client.swap.byidx(  1)    end),
+    awful.key({ modkey, "Shift"   }, up,     function () awful.client.swap.byidx( -1)    end),
+    awful.key({ modkey, "Shift"   }, left,   function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey, "Shift"   }, right,  function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey,           }, "u",    awful.client.urgent.jumpto),
     awful.key({ modkey,           }, '`',
         function ()
             awful.client.focus.history.previous()
@@ -267,18 +267,18 @@ globalkeys = awful.util.table.join(
 	awful.key({ modkey,           }, "r", function() mouseOn = not mouseOn end),
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-	awful.key({ modkey, "Control" }, "i", function () awful.util.spawn("intellij-idea-ce-eap") end),
-	awful.key({ modkey, "Control" }, "c", function () awful.util.spawn("chromium") end),
-	awful.key({ modkey, "Control" }, "p", function () awful.util.spawn("systemctl suspend") end),
-    awful.key({ modkey, "Control" }, "r", awesome.restart),
-    awful.key({ modkey, "Control" }, "q", awesome.quit),
+	awful.key({ modkey, "Control" }, "i",     function () awful.util.spawn("intellij-idea-ce-eap") end),
+	awful.key({ modkey, "Control" }, "c",     function () awful.util.spawn("chromium") end),
+	awful.key({ modkey, "Control" }, "p",     function () awful.util.spawn("systemctl suspend") end),
+    awful.key({ modkey, "Control" }, "r",     awesome.restart),
+    awful.key({ modkey, "Control" }, "q",     awesome.quit),
 
-    awful.key({ modkey,           }, right,     function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,           }, left,     function () awful.tag.incmwfact(-0.05)    end),
-    awful.key({ modkey, "Control" }, up,     function () awful.tag.incnmaster( 1)      end),
-    awful.key({ modkey, "Control" }, down,     function () awful.tag.incnmaster(-1)      end),
-    awful.key({ modkey, "Control" }, left,     function () awful.tag.incncol( 1)         end),
-    awful.key({ modkey, "Control" }, right,     function () awful.tag.incncol(-1)         end),
+    awful.key({ modkey,           }, right,   function () awful.tag.incmwfact( 0.05)    end),
+    awful.key({ modkey,           }, left,    function () awful.tag.incmwfact(-0.05)    end),
+    awful.key({ modkey, "Control" }, up,      function () awful.tag.incnmaster( 1)      end),
+    awful.key({ modkey, "Control" }, down,    function () awful.tag.incnmaster(-1)      end),
+    awful.key({ modkey, "Control" }, left,    function () awful.tag.incncol( 1)         end),
+    awful.key({ modkey, "Control" }, right,   function () awful.tag.incncol(-1)         end),
 
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
@@ -305,7 +305,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
     awful.key({ alt               }, "F4",     function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
-	awful.key({ modkey, "Control" }, "u",  awful.client.floating.toggle                     ),
+	awful.key({ modkey, "Control" }, "u",      awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
