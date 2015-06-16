@@ -266,8 +266,6 @@ highlight MatchParen ctermbg=4
 		noremap <leader>to :tabonly<cr>
 		noremap <leader>tc :tabclose<cr>
 		noremap <leader>tm :tabmove 
-		noremap <leader>t<leader> :tabnext<cr>
-		noremap <leader>t<S-leader> :tabprevious<cr>
 
 	" cd to the dir of current buffer
 	noremap <leader>cd :cd %:p:h<cr>
