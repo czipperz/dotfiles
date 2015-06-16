@@ -4,11 +4,9 @@
 [alias]
 	s = status -sb
 	st = status
-	aa = add -A
 	a = add
+	aa = add -A
 	us = reset HEAD
-	unstage = reset HEAD
 	ps = push origin master
 	ci = commit
 	cm = commit -m
-	di = difftool
