@@ -8,6 +8,6 @@ Directories are self explanatory.
 
 **FOR ARCH LINUX ONLY**
 
-    curl -L 'https://github.com/czipperz/linuxfiles/raw/master/install' | bash
+    curl -L 'https://github.com/czipperz/dotfiles/raw/master/install' | bash
 
 Non arch version coming soon
