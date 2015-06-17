@@ -45,13 +45,14 @@ sleep 2000
 	gcl robbyrussell/oh-my-zsh.git .oh-my-zsh
 	echo "Setting zsh as default shell"
 	chsh -s $(which zsh)
-	cd $HOME
 
 #dotfiles setup
 gcl czipperz/dotfiles
 gcl czipperz/b
 	[ -f .gitconfig ] && mv .gitconfig .gitconfig.bkup
-	ln dotfiles/gitconfig $HOME/.gitconfig
+	ln dotfiles/git/gitconfig .gitconfig
+	ln dotfiles/git/gcl .config/gcl
+	ln dotfiles/git/gcl .config/gr
 
 	#Setup awesome
 	mkdir -p .config/awesome/themes
