@@ -105,10 +105,10 @@ set wrap
 	noremap gk j
 	noremap gl k
 	noremap g; gl
-	map <up> <nop>
-	map <down> <nop>
-	map <left> <nop>
-	map <right> <nop>
+	noremap <up> <nop>
+	noremap <down> <nop>
+	noremap <left> <nop>
+	noremap <right> <nop>
 	inoremap <up> <C-o>gk
 	inoremap <down> <C-o>gj
 	noremap , ;
