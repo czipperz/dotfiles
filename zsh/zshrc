@@ -58,9 +58,11 @@ alias lal=" ls -lA	| cat"
 alias lil=" ls -li	| cat"
 alias lial="ls -liA	| cat"
 
+## Arch aliases ##
 alias pac="sudo pacman"
 alias syu="yaourt -Syua;gem update"
 
+## Simple mount ##
 alias mnt="sudo mount"
 alias umnt="sudo umount"
 
@@ -76,9 +78,11 @@ alias d="vimdiff"
 alias x="exit"
 alias v="vim"
 
+## Music ##
 alias mu="ncmpcpp"
 alias am="alsamixer"
 
+## Systemctl ##
 alias sc="sudo systemctl"
 alias scu="systemctl --user"
 
