@@ -51,12 +51,7 @@ alias ll=" ls -l"
 alias la=" ls -lA" # -A hides `.` and `..`
 alias li=" ls -li" # inode numbers
 alias lia="ls -liA"
-## Displays on own line ##
-alias lsl=" ls		| cat"
-alias lll=" ls -l	| cat"
-alias lal=" ls -lA	| cat"
-alias lil=" ls -li	| cat"
-alias lial="ls -liA	| cat"
+alias lsl=" ls		| cat" # Displays on its own line
 
 ## Arch aliases ##
 alias pac="sudo pacman"
