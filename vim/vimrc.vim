@@ -98,8 +98,8 @@ set wrap
 " Also makes the line controlls more intuitive for stupid me
 " and makes the arrow keys disabled in normal and visual mode.
 	noremap j h
-	noremap k gj
-	noremap l gk
+	nnoremap k gj
+	nnoremap l gk
 	noremap ; l
 	noremap gj gh
 	noremap gk j
@@ -112,10 +112,13 @@ set wrap
 	inoremap <up> <C-o>gk
 	inoremap <down> <C-o>gj
 	noremap , ;
-	noremap H L
+	noremap K L
 	noremap L H
+	noremap H K
 
 " Visual mode hacks
+	vnoremap k j
+	vnoremap l k
 	vnoremap . :norm.<cr>
 	vnoremap % :norm%<cr>
 
