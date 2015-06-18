@@ -116,6 +116,9 @@ set wrap
 	noremap L H
 	noremap H K
 
+" Easy escaping
+	inoremap hh <Esc>
+
 " Visual mode hacks
 	vnoremap k j
 	vnoremap l k
