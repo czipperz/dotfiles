@@ -80,12 +80,10 @@ alias am="alsamixer"
 ## Systemctl ##
 alias sc="sudo systemctl"
 alias scu="systemctl --user"
+alias scux="systemctl --user restart xfluxd-args"
 
 #A shell script clone of 'Jump' called 'b'. https://github.com/czipperz/b
 alias b=". b"
-
-#Auto `makedir` and `cd`. https://github.com/czipperz/cd-tools
-alias mcd=". mcd"
 
 #################
 ### Functions ###
@@ -96,6 +94,12 @@ grH() {
 
 colm() {
 	awk "{ print \$$1 }"
+}
+
+#Auto `makedir` and `cd`.
+mcd() {
+	mkdir -p $@
+	cd $@
 }
 
 ########################
