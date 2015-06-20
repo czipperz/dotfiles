@@ -80,7 +80,9 @@ alias p="ping 8.8.8.8"
 
 ## Music ##
 alias mu="ncmpcpp"
+alias mux="ncmpcpp;exit"
 alias am="alsamixer"
+alias amx="alsamixer;exit"
 
 ## Systemctl ##
 alias sc="sudo systemctl"
