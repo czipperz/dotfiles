@@ -46,16 +46,18 @@ alias cld="clear;/usr/bin/gd" #Uses https://github.com/czipperz/gd
 #alias cld="clear;git diff"    # If you don't like my visuals but want same functionality
 
 ## Simple ls aliases ##
-alias l="  ls"
-alias ll=" ls -l"
-alias la=" ls -lA" # -A hides `.` and `..`
-alias li=" ls -li" # inode numbers
-alias lia="ls -liA"
-alias lsl=" ls		| cat" # Displays on its own line
+alias l="  ls -F"
+alias ll=" ls -Fl"
+alias la=" ls -FlA" # -A hides `.` and `..`
+alias li=" ls -Fli" # inode numbers
+alias lia="ls -FliA"
+alias lsl="ls -F | cat" # Displays on its own line
+
+alias plz='sudo $(fc -ln -1)'
 
 ## Arch aliases ##
 alias pac="sudo pacman"
-alias syu="yaourt -Syua;gem update"
+alias syu="yaourt -Syua"
 
 ## Simple mount ##
 alias mnt="sudo mount"
@@ -80,7 +82,8 @@ alias am="alsamixer"
 ## Systemctl ##
 alias sc="sudo systemctl"
 alias scu="systemctl --user"
-alias scux="systemctl --user restart xfluxd-args"
+alias scurx="systemctl --user restart xfluxd-args"
+alias scusx="systemctl --user stop xfluxd-args"
 
 #A shell script clone of 'Jump' called 'b'. https://github.com/czipperz/b
 alias b=". b"
