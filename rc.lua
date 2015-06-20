@@ -273,8 +273,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "r",     awesome.restart),
     awful.key({ modkey, "Control" }, "q",     awesome.quit),
 
-    awful.key({ modkey,           }, right,   function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,           }, left,    function () awful.tag.incmwfact(-0.05)    end),
+    awful.key({ modkey,           }, right,   function () awful.tag.incmwfact( 0.049)    end),
+    awful.key({ modkey,           }, left,    function () awful.tag.incmwfact(-0.049)    end),
     awful.key({ modkey, "Control" }, up,      function () awful.tag.incnmaster( 1)      end),
     awful.key({ modkey, "Control" }, down,    function () awful.tag.incnmaster(-1)      end),
     awful.key({ modkey, "Control" }, left,    function () awful.tag.incncol( 1)         end),
