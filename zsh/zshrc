@@ -98,8 +98,15 @@ grH() {
 	git reset HEAD~$@
 }
 
+#Prints the columns specified
 colm() {
-	awk "{ print \$$1 }"
+	__cols="\$$1"
+	shift
+	while (( $# > 0 )); do
+		__cols="$__cols, \$$1"
+		shift
+	done
+	awk "{ print $__cols }"
 }
 
 #Auto `makedir` and `cd`.
