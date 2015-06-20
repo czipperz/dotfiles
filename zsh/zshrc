@@ -2,6 +2,8 @@
 ### Environment variables ###
 #############################
 
+autoload -U colors && colors
+
 # Path to your oh-my-zsh installation.
 export ZSH=/home/czipperz/.oh-my-zsh
 
@@ -74,6 +76,7 @@ alias c="cd"
 alias d="vimdiff"
 alias x="exit"
 alias v="vim"
+alias p="ping 8.8.8.8"
 
 ## Music ##
 alias mu="ncmpcpp"
