@@ -48,6 +48,7 @@ sleep 2000
 gcl czipperz/dotfiles
 	gcl czipperz/b
 	gcl czipperz/chx
+	gcl czipperz/emacs-config
 	(cd chx; ./install)
 	rm -R linux-tools
 	[ -f .gitconfig ] && mv .gitconfig .gitconfig.bkup
@@ -62,7 +63,10 @@ gcl czipperz/dotfiles
 		cp -R awesomeThemes/trans* .config/awesome/themes
 		rm -R awesomeThemes
 	fi
-	ln dotfiles/emacs.el .emacs
+	ln emacs-config/emacs.el .emacs
+	ln emacs-config/emacs.d/lisp/init-packages.el .emacs/lisp
+	ln emacs-config/emacs.d/lisp/init-powerline.el .emacs/lisp
+	ln emacs-config/emacs.d/lisp/init-mappings.el .emacs.d/lisp
 	ln dotfiles/rc.lua .config/awesome
 	ln dotfiles/zsh/czipperz.zsh-theme .oh-my-zsh/themes
 	[ -f .xinitrc ] && mv .xinitrc .xinitrc.bkup
