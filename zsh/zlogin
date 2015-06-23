@@ -1,2 +1,4 @@
 [ -e /bin/mpd ] && mpd
+emacs --daemon
+# Note that this needs to be the last command
 startx
