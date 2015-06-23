@@ -24,6 +24,7 @@
  )
 (require 'darcula-theme)
 ;(load-theme 'solarized-dark) ; load theme here
+(set-frame-font "Meslo LG S DZ")
 
 ;;; Plugins
 ;; Powerline
@@ -49,17 +50,18 @@
 (global-set-key (kbd "C-c t") 'term)
 
 ;; Move line up and down
-(global-set-key (kbd "M-n") (lambda ()
-			      "Moves the current line down by one"
-			      (interactive)
-			      (let ((col (current-column)))
-				(transpose-lines -1)
-				(forward-line 2)
-				(forward-char col))))
-(global-set-key (kbd "M-p") (lambda ()
-			      "Moves the current line up by one"
-			      (interactive)
-			      (let ((col (current-column)))
-				(transpose-lines 1)
-				(forward-line -2)
-				(forward-char col))))
+(global-set-key (kbd "M-n") 'move-line-down)
+(defun move-line-down () "Moves the current line down by one"
+       (interactive)
+       (let ((col (current-column)))
+	 (transpose-lines -1)
+	 (forward-line 2)
+	 (forward-char col)))
+
+(global-set-key (kbd "M-p") 'move-line-up)
+(defun move-line-up () "Moves the current line up by one"
+       (interactive)
+       (let ((col (current-column)))
+	 (transpose-lines 1)
+	 (forward-line -2)
+	 (forward-char col)))
