@@ -43,7 +43,10 @@
 
 ;; C-c commands
 ; Show unsaved edits
-(global-set-key (kbd "C-c d") (lambda () "Shows differences since the last save" (interactive) (diff-buffer-with-file)))
+(global-set-key (kbd "C-c d") 'diff-buffer-with-current-file)
+(defun diff-buffer-with-current-file () "Shows differences since the last save"
+       (interactive)
+       (diff-buffer-with-file)))
 ; Show git status
 (global-set-key (kbd "C-c s") 'magit-status)
 ; Terminal
