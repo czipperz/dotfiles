@@ -1,6 +1,0 @@
-#!/bin/bash
-yaourt -Syu
-yaourt -S zsh xorg-server xorg-server-utils xorg-apps xorg-xinit ctags
-yaourt -S awesome gvmtool screenfetch pgem-git rakudo
-yaourt -S jdk otf-meslo-powerline-git ttf-meslo gvim scrot alsa-utils
-yaourt -S xfluxd-args
