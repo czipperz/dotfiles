@@ -2,7 +2,7 @@
 gcl czipperz/dotfiles
 gcl czipperz/b
 gcl czipperz/chx
-gcl czipperz/emacs-config
+gcl czipperz/emacs.d $HOME/.emacs.d
 (cd chx; ./install)
 rm -R linux-tools
 [ -f .gitconfig ] && mv .gitconfig .gitconfig.bkup
@@ -18,11 +18,6 @@ if [ ! -d .config/awesome/themes/transBlack ]; then
 	rm -R awesomeThemes
 fi
 
-ln -s $HOME/emacs-config/emacs.el                       $HOME/.emacs
-ln -s $HOME/emacs-config/emacs.d/lisp/init-packages.el  $HOME/.emacs/lisp
-ln -s $HOME/emacs-config/emacs.d/lisp/init-powerline.el $HOME/.emacs/lisp
-ln -s $HOME/emacs-config/emacs.d/lisp/init-mappings.el  $HOME/.emacs.d/lisp
-ln -s $HOME/emacs-config/emacs.d/lisp/init-markdown.el  $HOME/.emacs.d/lisp
 ln -s $HOME/dotfiles/rc.lua                             $HOME/.config/awesome
 ln -s $HOME/dotfiles/zsh/czipperz.zsh-theme             $HOME/.oh-my-zsh/themes
 [ -f .xinitrc ] && mv .xinitrc .xinitrc.bkup
