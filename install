@@ -1,13 +1,14 @@
-#!/bin/bash
-echo 'Files will be moved to "their name".bkup'
-echo 'Requires arch linux. Installs https://aur.archlinux.org/packages/yaourt-git by using `makepkg`'
-echo 'It assumes you DO NOT have my dotfiles installed.'
+#!/usr/bin/bash
+echo 'Files will be moved to <their name>.bkup'
+echo 'Requires arch linux.'
+echo 'It assumes you DO NOT have my dotfiles installed,'
+echo 'but rather that it has been git cloned into ~/dotfiles'
 echo 'It assures you have a graphics card'
 echo 'Please make sure these requirements are fulfilled'
 echo "Note that this doesn't install the asert keyboard layout. You must do that manually"
 echo
 read -p "Do you want to continue? " -n 1 -r
-[[ ! $REPLY =~ ^[Yy]$ ]] && exit 1
+[[ $REPLY =~ ^[Yy]$ ]] || exit 1
 
 cd $HOME
 
