@@ -1,5 +1,4 @@
 #!/usr/bin/bash
-gcl czipperz/dotfiles
 gcl czipperz/b
 gcl czipperz/chx
 gcl czipperz/emacs.d $HOME/.emacs.d
