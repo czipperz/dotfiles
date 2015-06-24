@@ -8,6 +8,8 @@ Directories are self explanatory.
 
 **FOR ARCH LINUX ONLY**
 
-    curl -L 'https://github.com/czipperz/dotfiles/raw/master/install' | bash
+	git clone 'https://github.com/czipperz/dotfiles'
+	cd dotfiles
+	./install
 
 Non arch version coming soon
