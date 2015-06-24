@@ -12,85 +12,18 @@ read -p "Do you want to continue? " -n 1 -r
 cd $HOME
 
 #Yaourt
-if [ ! -e /bin/yaourt ]; then
-	echo "Installing yaourt"
-	mkdir abs
-	(cd abs
-		curl -L "https://aur.archlinux.org/packages/ya/yaourt-git/yaourt-git.tar.gz" > yaourt-git.tar.gz
-		curl -L "https://aur.archlinux.org/packages/pa/package-query-git/package-query-git.tar.gz" > package-query-git.tar.gz
-		tar xf package-query-git.tar.gz
-		(cd package-query-git makepkg -sci)
-		tar xf yaourt-git.tar.gz
-		(cd yaourt-git makepkg -sci)
-	)
-fi
+bash installs/yaourt.sh
 
 #Basic installs
 echo "Installing basic things"
 sleep 2000
-	yaourt -Syu
-	yaourt -S zsh xorg-server xorg-server-utils xorg-apps xorg-xinit ctags
-	yaourt -S awesome screenfetch pgem-git rakudo alsa-utils
-	yaourt -S jdk otf-meslo-powerline-git ttf-meslo gvim scrot
-	yaourt -S xfluxd-args
-	#read -p "Edit xfluxd-args settings? " -n 1 -r
-	#[[ $REPLY =~ ^[Yy]$ ]] && nano /etc/xfluxd-args.conf
-	#systemctl --user enable xfluxd-args
-	echo "Installing my git applications"
-		git clone https://github.com/czipperz/g
-		(cd g; ./install)
-		rm -R g
-	gcl robbyrussell/oh-my-zsh.git .oh-my-zsh
-	echo "Setting zsh as default shell"
-	chsh -s $(which zsh)
+bash installs/basic-installs.sh
 
 #dotfiles setup
-gcl czipperz/dotfiles
-	gcl czipperz/b
-	gcl czipperz/chx
-	gcl czipperz/emacs-config
-	(cd chx; ./install)
-	rm -R linux-tools
-	[ -f .gitconfig ] && mv .gitconfig .gitconfig.bkup
-	ln dotfiles/git/gitconfig .gitconfig
-	ln dotfiles/git/gcl .config/gcl
-	ln dotfiles/git/gcl .config/gr
-
-	#Setup awesome
-	mkdir -p .config/awesome/themes
-	if [ ! -d .config/awesome/themes/transBlack ]; then
-		gcl czipperz/awesomeThemes
-		cp -R awesomeThemes/trans* .config/awesome/themes
-		rm -R awesomeThemes
-	fi
-	ln emacs-config/emacs.el .emacs
-	ln emacs-config/emacs.d/lisp/init-packages.el .emacs/lisp
-	ln emacs-config/emacs.d/lisp/init-powerline.el .emacs/lisp
-	ln emacs-config/emacs.d/lisp/init-mappings.el .emacs.d/lisp
-	ln emacs-config/emacs.d/lisp/init-markdown.el .emacs.d/lisp
-	ln dotfiles/rc.lua .config/awesome
-	ln dotfiles/zsh/czipperz.zsh-theme .oh-my-zsh/themes
-	[ -f .xinitrc ] && mv .xinitrc .xinitrc.bkup
-	ln dotfiles/xinitrc .xinitrc
-	ln dotfiles/zsh/zshrc .zshrc
-	ln dotfiles/zsh/zlogin .zlogin
-
-	(cd b; ./install)
-	rm -R b
+bash installs/dotfiles-setup.sh
 
 # vim setup
-[ -f .vimrc ] && mv .vimrc .vimrc.bkup
-	echo "source $HOME/dotfiles/vim/vimrc.vim" > .vimrc
-	mkdir -p $HOME/.vim/{tmp,undo,backup}
-	curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
-	cd .vim/bundle
-	gcl altercation/vim-colors-solarized
-	cp -R .vim/bundle/vim-colors-solarized/colors $HOME/.vim
+bash installs/vim.sh
 
 # MPD - music player daemon
-yaourt -S mpd ncmpcpp
-	mkdir -p .config/mpd/playlists
-	touch .config/mpd/{database,log,pid,state,sticker.sql}
-	ln dotfiles/mpd.conf .config/mpd/mpd.conf
-
-yaourt -S intellij-idea-ce-eap chromium terminator
+bash installs/mpd.sh
