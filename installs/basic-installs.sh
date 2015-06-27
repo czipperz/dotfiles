@@ -4,7 +4,7 @@ yaourt -S zsh xorg-server xorg-server-utils xorg-apps xorg-xinit ctags
 yaourt -S awesome screenfetch pgem-git rakudo alsa-utils
 yaourt -S jdk otf-meslo-powerline-git ttf-meslo gvim scrot
 yaourt -S intellij-idea-ce-eap chromium terminator
-yaourt -S xfluxd-args
+yaourt -S xfluxd-args emacs
 #read -p "Edit xfluxd-args settings? " -n 1 -r
 #[[ $REPLY =~ ^[Yy]$ ]] && nano /etc/xfluxd-args.conf
 #systemctl --user enable xfluxd-args
