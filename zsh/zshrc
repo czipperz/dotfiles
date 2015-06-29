@@ -45,20 +45,20 @@ alias qwerty="xmodmap $HOME/.Xmodmap.backup;exit"
 
 ## Clear shortcuts ##
 alias cl=" clear"
-alias cls="clear;/bin/ls -F"
-alias cla="clear;/bin/ls -FlA"
+alias cls="clear;/bin/ls -BF"
+alias cla="clear;/bin/ls -BFlA"
 alias clg="clear;git status -sb"
 alias cld="clear;/usr/bin/gd" #Uses https://github.com/czipperz/gd
 #alias cld="clear;git diff"    # If you don't like my visuals but want same functionality
 
 ## Simple ls aliases ##
-alias l="  /bin/ls -F"
-alias ls=" /bin/ls -F"
-alias ll=" /bin/ls -Fl"
-alias la=" /bin/ls -FlA" # -A hides `.` and `..`
-alias li=" /bin/ls -Fli" # inode numbers
-alias lia="/bin/ls -FliA"
-alias lsl="/bin/ls -F | cat" # Displays on its own line
+alias l="  /bin/ls -BF"
+alias ls=" /bin/ls -BF"
+alias ll=" /bin/ls -BFl"
+alias la=" /bin/ls -BFlA" # -A hides `.` and `..`
+alias li=" /bin/ls -BFli" # inode numbers
+alias lia="/bin/ls -BFliA"
+alias lsl="/bin/ls -BF | cat" # Displays on its own line
 
 alias plz='sudo $(fc -ln -1)'
 
