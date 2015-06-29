@@ -84,6 +84,8 @@ alias v="vim"
 alias p="ping 8.8.8.8"
 alias s="sudo"
 alias e="emacsclient -nw -a emacs"
+
+## Emacs stuff ##
 alias ek="emacsclient -e '(kill-emacs)'"
 alias ed="emacs --daemon"
 
@@ -106,24 +108,44 @@ alias b=". b"
 ### Functions ###
 #################
 grH() {
-	git reset HEAD~$@
+    git reset HEAD~$@
 }
 
 #Prints the columns specified
 colm() {
-	__cols="\$$1"
+    __cols="\$$1"
+    shift
+    while (( $# > 0 )); do
+	__cols="$__cols, \$$1"
 	shift
-	while (( $# > 0 )); do
-		__cols="$__cols, \$$1"
-		shift
-	done
-	awk "{ print $__cols }"
+    done
+    awk "{ print $__cols }"
 }
 
 #Auto `makedir` and `cd`.
 mcd() {
-	mkdir -p $@
-	cd $@
+    mkdir -p $@
+    cd $@
+}
+
+#Auto compile and run cpp files (requires GCC)
+rcpp() {
+    if (( $# < 2 )); then
+	echo "Needs at least the binary name and the .cpp file name"
+	exit 1
+    fi
+    name="$1"
+    shift
+    comp=''			# Note that the '' is just so it looks better
+    link=''
+    while (( $# > 0 )); do
+	comp="$comp $1.cpp"
+	link="$link $1.o"
+	shift
+    done
+    g++ -c $comp
+    g++ -o "$name" $link
+    ./"$name"
 }
 
 ########################
