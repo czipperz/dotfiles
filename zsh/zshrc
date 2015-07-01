@@ -83,7 +83,8 @@ alias x="exit"
 alias v="vim"
 alias p="ping 8.8.8.8"
 alias s="sudo"
-alias e="emacsclient -nw -a emacs"
+alias e='$EDITOR'
+alias R='rm -Rf'
 
 ## Emacs stuff ##
 alias ek="emacsclient -e '(kill-emacs)'"
