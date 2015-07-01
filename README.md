@@ -8,6 +8,7 @@ Directories are self explanatory.
 
 **FOR ARCH LINUX ONLY**
 
+	cd $HOME
 	git clone 'https://github.com/czipperz/dotfiles'
 	cd dotfiles
 	./install
