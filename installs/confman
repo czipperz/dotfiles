@@ -1,0 +1,14 @@
+$HOME/dotfiles
+git/gitconfig            $HOME/.gitconfig
+git/gcl                  $HOME/.config
+git/gr                   $HOME/.config/gr
+
+rc.lua                   $HOME/.config/awesome
+
+xinitrc                  $HOME/.xinitrc
+xprofile                 $HOME/.xprofile
+Xresources               $HOME/.Xresources
+
+zsh/czipperz.zsh-theme   $HOME/.oh-my-zsh/themes
+zsh/zshrc                $HOME/.zshrc
+zsh/zlogin               $HOME/.zlogin
