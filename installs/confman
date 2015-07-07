@@ -1,4 +1,5 @@
 $HOME/dotfiles
+
 git/gitconfig            $HOME/.gitconfig
 git/gcl                  $HOME/.config
 git/gr                   $HOME/.config/gr
