@@ -6,15 +6,16 @@ if [ -d $HOME/.emacs.d ]; then
     gcl czipperz/emacs.d $HOME/.emacs.d
     mv emacsdir/* .emacs.d
     rm -R emacsdir
+else
+    gcl czipperz/emacs.d $HOME/.emacs.d
 fi
-gcl czipperz/emacs.d $HOME/.emacs.d
 (cd chx; ./install)
-rm -R linux-tools
-[ -f .gitconfig ] && mv .gitconfig .gitconfig.bkup
-ln -s $HOME/dotfiles/git/gitconfig $HOME/.gitconfig
-rm $HOME/.config/gr $HOME/.config/gcl
-ln -s $HOME/dotfiles/git/gcl       $HOME/.config/gcl
-ln -s $HOME/dotfiles/git/gcl       $HOME/.config/gr
+rm -R chx
+
+gcl czipperz/confman
+(cd confman; ./install)
+rm -R confman
+confman confman
 
 #Setup awesome
 mkdir -p .config/awesome/themes
@@ -23,15 +24,6 @@ if [ ! -d .config/awesome/themes/transBlack ]; then
 	cp -R awesomeThemes/trans* .config/awesome/themes
 	rm -R awesomeThemes
 fi
-
-ln -s $HOME/dotfiles/rc.lua                      $HOME/.config/awesome
-ln -s $HOME/dotfiles/zsh/czipperz.zsh-theme      $HOME/.oh-my-zsh/themes
-[ -f .xinitrc ] && mv .xinitrc .xinitrc.bkup
-ln -s $HOME/dotfiles/xinitrc                     $HOME/.xinitrc
-ln -s $HOME/dotfiles/xprofile                    $HOME/.xprofile
-ln -s $HOME/dotfiles/Xresources                  $HOME/.Xresources
-ln -s $HOME/dotfiles/zsh/zshrc                   $HOME/.zshrc
-ln -s $HOME/dotfiles/zsh/zlogin                  $HOME/.zlogin
 
 (cd b; ./install)
 rm -R b
