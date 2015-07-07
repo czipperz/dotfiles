@@ -1,15 +1,15 @@
 $HOME/dotfiles
 
 git/gitconfig            $HOME/.gitconfig
-git/gcl                  $HOME/.config
+git/gcl                  $HOME/.config/gcl
 git/gr                   $HOME/.config/gr
 
-rc.lua                   $HOME/.config/awesome
+rc.lua                   $HOME/.config/awesome/rc.lua
 
 xinitrc                  $HOME/.xinitrc
 xprofile                 $HOME/.xprofile
 Xresources               $HOME/.Xresources
 
-zsh/czipperz.zsh-theme   $HOME/.oh-my-zsh/themes
+zsh/czipperz.zsh-theme   $HOME/.oh-my-zsh/themes/czipperz.zsh-theme
 zsh/zshrc                $HOME/.zshrc
 zsh/zlogin               $HOME/.zlogin
