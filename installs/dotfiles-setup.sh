@@ -28,6 +28,7 @@ ln -s $HOME/dotfiles/rc.lua                      $HOME/.config/awesome
 ln -s $HOME/dotfiles/zsh/czipperz.zsh-theme      $HOME/.oh-my-zsh/themes
 [ -f .xinitrc ] && mv .xinitrc .xinitrc.bkup
 ln -s $HOME/dotfiles/xinitrc                     $HOME/.xinitrc
+ln -s $HOME/dotfiles/xprofile                    $HOME/.xprofile
 ln -s $HOME/dotfiles/Xresources                  $HOME/.Xresources
 ln -s $HOME/dotfiles/zsh/zshrc                   $HOME/.zshrc
 ln -s $HOME/dotfiles/zsh/zlogin                  $HOME/.zlogin
