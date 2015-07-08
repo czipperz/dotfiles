@@ -10,5 +10,7 @@
 	ps = push origin master
 	ci = commit
 	cm = commit -m
+	cp = commit --patch
+	co = checkout
 [core]
 	excludesfile = /home/czipperz/.gitignore
