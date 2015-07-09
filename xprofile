@@ -1,2 +1,2 @@
 xset m 0 0
-systemctl --user restart xfluxd-args
+[ -e /etc/xfluxd-args.conf ] && systemctl --user restart xfluxd-args
