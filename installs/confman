@@ -2,7 +2,7 @@ $HOME/dotfiles
 
 git/gitconfig            $HOME/.gitconfig
 git/gcl                  $HOME/.config/gcl
-git/gr                   $HOME/.config/gr
+git/gcl                  $HOME/.config/gr
 
 rc.lua                   $HOME/.config/awesome/rc.lua
 
