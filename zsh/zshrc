@@ -66,7 +66,7 @@ alias plz='sudo $(fc -ln -1)'
 ## Arch aliases ##
 alias pac="sudo pacman"
 alias yaourt="yaourt --aur-url https://aur4.archlinux.org"
-alias syu="yaourt -Syua"
+alias syu="/bin/yaourt --aur-url https://aur4.archlinux.org -Syua"
 
 ## Simple mount ##
 alias mnt="sudo mount"
