@@ -34,7 +34,6 @@ export EDITOR="emacsclient -t -a emacs"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-
 ###############
 ### ALIASES ###
 ###############
