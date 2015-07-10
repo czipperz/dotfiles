@@ -61,6 +61,7 @@ alias li=" /bin/ls -BFli"	# inode numbers
 alias lia="/bin/ls -BFliA"
 alias lsl="/bin/ls -BF | cat"	# Displays on its own line
 
+# Same as manually typing `sudo !!'
 alias plz='sudo $(fc -ln -1)'
 
 ## Arch aliases ##
