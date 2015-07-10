@@ -6,9 +6,9 @@ git/git-providers        $HOME/.config/gr
 
 rc.lua                   $HOME/.config/awesome/rc.lua
 
-xinitrc                  $HOME/.xinitrc
-xprofile                 $HOME/.xprofile
-Xresources               $HOME/.Xresources
+xorg/xinitrc             $HOME/.xinitrc
+xorg/xprofile            $HOME/.xprofile
+xorg/Xresources          $HOME/.Xresources
 
 zsh/czipperz.zsh-theme   $HOME/.oh-my-zsh/themes/czipperz.zsh-theme
 zsh/zshrc                $HOME/.zshrc
