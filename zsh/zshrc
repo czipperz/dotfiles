@@ -90,6 +90,7 @@ alias e='$EDITOR'
 alias R='rm -Rf'
 
 ## Emacs stuff ##
+alias se="sudoedit"
 alias ek="emacsclient -e '(kill-emacs)'"
 alias ed="emacs --daemon"
 alias er="emacsclient -e '(kill-emacs)'; emacs --daemon; exit"
