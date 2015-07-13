@@ -115,7 +115,11 @@ alias b=". b"
 ### Functions ###
 #################
 grH() {
-    git reset HEAD~$@
+    if [ $# == 0 ]; then
+	git reset HEAD
+    else
+	git reset HEAD~$@
+    fi
 }
 
 gp() {
