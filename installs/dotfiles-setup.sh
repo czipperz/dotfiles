@@ -4,7 +4,7 @@ gcl czipperz/chx
 if [ -d $HOME/.emacs.d ]; then
     mv .emacs.d emacsdir
     gcl czipperz/emacs.d $HOME/.emacs.d
-    mv emacsdir/* .emacs.d
+    mv $(ls -A emacsdir) .emacs.d
     rm -R emacsdir
 else
     gcl czipperz/emacs.d $HOME/.emacs.d
