@@ -27,7 +27,7 @@ autoload -U compinit
 
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR="emacsclient -t -a emacs"
+export EDITOR="emacsclient"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
