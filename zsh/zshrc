@@ -125,7 +125,7 @@ grH() {
 gp() {
     git stash
     git pull origin
-    git stash apply
+    git stash pop
 }
 
 #Prints the columns specified
