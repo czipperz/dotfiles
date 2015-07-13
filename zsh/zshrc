@@ -118,6 +118,12 @@ grH() {
     git reset HEAD~$@
 }
 
+gp() {
+    git stash
+    git pull origin
+    git stash apply
+}
+
 #Prints the columns specified
 colm() {
     __cols="\$$1"
