@@ -45,7 +45,7 @@ alias asert="xmodmap $HOME/.Xmodmap;exit"
 alias qwerty="xmodmap $HOME/.Xmodmap.backup;exit"
 
 ## Clear shortcuts ##
-alias cl=" clear"
+alias cl=" clear;/bin/ls -BF"
 alias clb="clear;/bin/ls -F"
 alias cls="clear;/bin/ls -BF"
 alias cla="clear;/bin/ls -BFlA"
