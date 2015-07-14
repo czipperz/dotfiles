@@ -7,7 +7,6 @@
 	a = add
 	aa = add -A
 	us = reset HEAD
-	ps = push origin master
 	ci = commit
 	cm = commit -m
 	cp = commit --patch
