@@ -437,11 +437,9 @@ client.connect_signal("manage", function (c, startup)
 				     c:raise()
 				     awful.mouse.client.move(c)
 			       end),
-			       --[[
-				  awful.button({ }, 2, function()
-				  c:minimize()
-				  end),
-			       --]]
+			       awful.button({ }, 2, function()
+				     c:minimize()
+			       end),
 			       awful.button({ }, 3, function()
 				     client.focus = c
 				     c:raise()
