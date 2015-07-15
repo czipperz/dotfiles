@@ -180,6 +180,42 @@ rcpp() {
     ./"$name"
 }
 
+jc() {
+    if [ "$1" == "-h" -o "$1" == "--help" ]; then
+	echo "\`jc' options"
+	echo ""
+	echo "Options:"
+	echo "  \`-c' - specify a custom src directory to first cd to. \`../src' is the default"
+	echo "  \`-d' - specify a custom out directory to specify where Java should compile to. Tries to use \`../out' or \`../src' (from the cd'd directory)"
+	echo ""
+	echo "Then specify all the files you wish to compile"
+	exit 1
+    fi
+    
+    if [ "$1" == "-c" ]; then
+	cd ../"$2"
+	shift;shift
+    else
+	cd ../src
+    fi
+    
+    if [ "$1" == "-d" ]; then
+	di="$2"
+	shift;shift
+	javac -d "$di" $@
+    elif [ ! -d '../out' -a ! -d '../bin' ]; then
+	echo "Can't find ../out | ../bin"
+	exit 3
+    elif [ -d '../out' -a -d '../bin' ]; then
+	echo "Found both ../out & ../bin"
+	exit 2
+    elif [ -d '../out' ]; then
+	javac -d ../out $@
+    elif [ -d '../src' ]; then
+	javac -d ../src $@
+    fi
+}
+
 ########################
 ### Auto Run Scripts ###
 ########################
