@@ -129,16 +129,6 @@ gp() {
     git stash pop
 }
 
-gps() {
-    if (( $# == 0 )); then
-	git push origin "$(git status -sb | head -n 1 | sed -r 's/^## //' | perl -pe 's/(.*)[.]{3}.*\/.*/$1/')"
-    elif (( $# == 1 )); then
-	git push origin $1
-    else
-	git push $@
-    fi
-}
-
 highlight() {
     perl -pe 's/(.*)'"$@"'(.*)/$1'"$fg[red]$@$reset_color"'$2/'
 }
