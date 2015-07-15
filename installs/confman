@@ -1,8 +1,7 @@
 $HOME/dotfiles
 
 git/config               $HOME/.gitconfig
-git/providers            $HOME/.config/gcl
-git/providers            $HOME/.config/gr
+git/providers            $HOME/.config/git-providers
 
 rc.lua                   $HOME/.config/awesome/rc.lua
 
