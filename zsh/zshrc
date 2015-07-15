@@ -139,6 +139,10 @@ gps() {
     fi
 }
 
+highlight() {
+    perl -pe 's/(.*)'"$@"'(.*)/$1'"$fg[red]$@$reset_color"'$2/'
+}
+
 #Prints the columns specified
 colm() {
     __cols="\$$1"
