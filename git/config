@@ -11,8 +11,10 @@
 	cm = commit -m
 	cp = commit --patch
 	co = checkout
+	b = branch
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	ps = push
 [core]
 	excludesfile = /home/czipperz/.gitignore
 [push]
