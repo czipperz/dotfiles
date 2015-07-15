@@ -2,6 +2,9 @@ $HOME/dotfiles
 
 git/config               $HOME/.gitconfig
 git/providers            $HOME/.config/git-providers
+git/ignore               $HOME/.gitignore
+
+vim/vimrc.vim            $HOME/.vimrc
 
 rc.lua                   $HOME/.config/awesome/rc.lua
 
