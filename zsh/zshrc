@@ -132,7 +132,7 @@ gp() {
 }
 
 gst() {
-    for di in $(/bin/ls); do
+    for di in $(/bin/ls -A); do
 	if [ -d "$di" ]; then
 	    cd "$di"
 	    if [ -d ".git" ]; then
