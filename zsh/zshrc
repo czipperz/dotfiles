@@ -124,9 +124,11 @@ grH() {
 }
 
 gp() {
-    git stash
+    stashing="$(git stash)"
     git pull origin
-    git stash pop
+    if [ "$stashing" = "No local changes to save" ]; then
+	git stash pop
+    fi
 }
 
 gst() {
