@@ -88,7 +88,7 @@ alias x="exit"
 alias v="vim"
 alias p="ping 8.8.8.8"
 alias s="sudo"
-alias e='$EDITOR'
+alias e="$EDITOR"
 alias R="rm -Rf"
 
 ## Emacs stuff ##

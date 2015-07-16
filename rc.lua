@@ -101,7 +101,7 @@ myawesomemenu = {
 
 mymainmenu = awful.menu({ items = {
 			     { "Terminal", terminal },
-			     { "Chromium", "chromium" },
+			     { "Chromium", "chromium-browser" },
 			     { "Awesome", myawesomemenu, beautiful.awesome_icon }
 		       }})
 
@@ -269,7 +269,7 @@ globalkeys = awful.util.table.join(
    awful.key({ modkey,           }, "Return",function () awful.util.spawn(terminal) end),
    awful.key({ modkey, "Control" }, "m",     function () awful.util.spawn(terminal) end),
    awful.key({ modkey, "Control" }, "i",     function () awful.util.spawn("idea-ce-eap") end),
-   awful.key({ modkey, "Control" }, "c",     function () awful.util.spawn("chromium") end),
+   awful.key({ modkey, "Control" }, "c",     function () awful.util.spawn("chromium-browser") end),
    awful.key({ modkey, "Control" }, "e",     function () awful.util.spawn("emacsclient -c") end),
    awful.key({ modkey, "Control" }, "r",     awesome.restart),
    awful.key({ modkey, "Control" }, "q",     awesome.quit),
