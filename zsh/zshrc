@@ -129,6 +129,20 @@ gp() {
     git stash pop
 }
 
+gst() {
+    for di in $(/bin/ls); do
+	if [ -d "$di" ]; then
+	    cd "$di"
+	    if [ -d ".git" ]; then
+		echo
+		echo "$di:"
+		git status -sb
+	    fi
+	    cd ..
+	fi
+    done
+}
+
 highlight() {
     perl -pe 's/(.*)'"$@"'(.*)/$1'"$fg[red]$@$reset_color"'$2/'
 }
