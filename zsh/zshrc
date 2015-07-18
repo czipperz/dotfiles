@@ -115,6 +115,13 @@ alias b=". b"
 #################
 ### Functions ###
 #################
+rb() {
+    while (( $# > 0 )); do
+	rm "$1"{,\~}
+	shift
+    done
+}
+
 grH() {
     if [ $# == 0 ]; then
 	git reset HEAD
