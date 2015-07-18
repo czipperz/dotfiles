@@ -18,5 +18,6 @@
 	pss = push --set-upstream origin master
 [core]
 	excludesfile = /home/czipperz/.gitignore
+	pager = 
 [push]
 	default = simple
