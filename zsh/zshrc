@@ -149,6 +149,7 @@ gst() {
 		    echo "$di:"
 		    printf '\033[0m'
 		    git status -sb
+		    if [ ! -z "$(git status -s)" ]; then gd; fi
 		fi
 	    fi
 	    cd ..
