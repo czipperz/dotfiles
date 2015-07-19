@@ -143,9 +143,11 @@ gst() {
 	if [ -d "$di" ]; then
 	    cd "$di"
 	    if [ -d ".git" ]; then
-		echo
-		echo "$di:"
-		git status -sb
+		if [ "$(git status -sb)" != '## master...origin/master' ]; then
+		    echo
+		    echo "$di:"
+		    git status -sb
+		fi
 	    fi
 	    cd ..
 	fi
