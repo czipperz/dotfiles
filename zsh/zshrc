@@ -142,6 +142,7 @@ gst() {
     echo
     local _asert=''
     function gstFunction() {
+        local _back="$(pwd)"
 	cd "$di"
 	if [ -d ".git" ]; then
 	    local _status="$(git status -sb)"
@@ -161,7 +162,7 @@ gst() {
 		if [ ! -z "$(git status -s)" ]; then gd; fi
 	    fi
 	fi
-	cd ..
+	cd "$_back"
     }
     gstFunction .
     for di in $(/bin/ls -A); do
