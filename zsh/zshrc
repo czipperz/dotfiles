@@ -142,7 +142,7 @@ gst() {
     echo
     local _asert=''
     for di in $(/bin/ls -A); do
-	if [ -d "$di" ]; then
+	if [ -d "$di" -a "$di" != ".oh-my-zsh" ]; then
 	    cd "$di"
 	    if [ -d ".git" ]; then
 	        local _status="$(git status -sb)"
