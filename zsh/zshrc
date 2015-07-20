@@ -141,31 +141,36 @@ gp() {
 gst() {
     echo
     local _asert=''
+    function gstFunction() {
+	cd "$di"
+	if [ -d ".git" ]; then
+	    local _status="$(git status -sb)"
+	    if [ "$_status" != '## master...origin/master' -a "$_status" != '## master' ]; then
+	        if [ ! -z "$_asert" ]; then
+                    echo;echo
+                    printf '\033[1;37m'
+                    echo '- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -'
+                    printf '\033[0m'
+                else
+	            _asert=' '
+	        fi
+		printf '\033[1;37m'
+		echo "$di:"
+		printf '\033[0m'
+		git status -sb
+		if [ ! -z "$(git status -s)" ]; then gd; fi
+	    fi
+	fi
+	cd ..
+    }
+    gstFunction .
     for di in $(/bin/ls -A); do
 	if [ -d "$di" -a "$di" != ".oh-my-zsh" ]; then
-	    cd "$di"
-	    if [ -d ".git" ]; then
-	        local _status="$(git status -sb)"
-		if [ "$_status" != '## master...origin/master' -a "$_status" != '## master' ]; then
-	            if [ ! -z "$_asert" ]; then
-                        echo;echo
-                        printf '\033[1;37m'
-                        echo '- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -'
-                        printf '\033[0m'
-                    else
-	                _asert=' '
-	            fi
-		    printf '\033[1;37m'
-		    echo "$di:"
-		    printf '\033[0m'
-		    git status -sb
-		    if [ ! -z "$(git status -s)" ]; then gd; fi
-		fi
-	    fi
-	    cd ..
+            gstFunction "$di"
 	fi
     done
     echo
+    unfunction gstFunction
 }
 
 highlight() {
