@@ -139,7 +139,6 @@ gp() {
 }
 
 gst() {
-    echo
     local _asert=''
     function gstFunction() {
         local _back="$(pwd)"
@@ -169,7 +168,6 @@ gst() {
             gstFunction
 	fi
     done
-    echo
     unfunction gstFunction
 }
 
