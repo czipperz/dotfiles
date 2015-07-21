@@ -21,3 +21,5 @@
 	pager = 
 [push]
 	default = simple
+[credential]
+	helper = cache --timeout=10
