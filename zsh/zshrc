@@ -164,10 +164,9 @@ gst() {
 	fi
 	cd "$_back"
     }
-    gstFunction .
-    for di in $(/bin/ls -A); do
+    for di in $(/bin/ls -A) '.'; do
 	if [ -d "$di" -a "$di" != ".oh-my-zsh" ]; then
-            gstFunction "$di"
+            gstFunction
 	fi
     done
     echo
