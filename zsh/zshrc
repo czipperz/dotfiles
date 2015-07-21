@@ -83,6 +83,7 @@ alias lllp="systemctl suspend;exit" # Works fine for me lul
 ## One letter ##
 alias g="git"
 alias c="cd"
+alias b=". b"
 alias d="vimdiff"
 alias x="exit"
 alias v="vim"
@@ -108,9 +109,6 @@ alias sc="sudo systemctl"
 alias scu="systemctl --user"
 alias scurx="systemctl --user restart xfluxd-args"
 alias scusx="systemctl --user stop xfluxd-args"
-
-#A shell script clone of 'Jump' called 'b'. https://github.com/czipperz/b
-alias b=". b"
 
 #################
 ### Functions ###
