@@ -7,7 +7,7 @@ git/ignore               $HOME/.gitignore
 vim/vimrc.vim            $HOME/.vimrc
 
 rc.lua                   $HOME/.config/awesome/rc.lua
-
+b-list                   $HOME/.b-list
 mpd.conf                 $HOME/.config/mpd/mpd.conf
 
 xorg/xinitrc             $HOME/.xinitrc
