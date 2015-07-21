@@ -174,16 +174,16 @@ gst() {
 }
 
 gps() {
-    echo
     function gpsFunction() {
         local _back="$(pwd)"
         cd "$di"
         if [ -d ".git" ]; then
             local _status="$(git status -sb | head -n 1)"
-            if [ "$_status" != '## master...origin/master' -a "$_status" != '## master' ]; then
+            if [ "$_status" != '## master...origin/master' -a "$_status" != '## master' -a -n "$_status" ]; then
                 echo
                 printf '\033[1;37m'"$di:"'\033[0m\n'
                 git push
+                echo
             fi
         fi
         cd "$_back"
