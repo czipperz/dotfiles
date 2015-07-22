@@ -3,3 +3,7 @@
 \#*
 \#*#
 *~
+
+# INTELLIJ IDEA
+.idea
+*.iml
