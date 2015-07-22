@@ -14,6 +14,6 @@ _gitroot="git://github.com/czipperz/${_gitname}.git"
 source=("$_gitroot")
 
 package() {
-	cd $srcdir/$_gitname
+    cd $srcdir/$_gitname
 }
 md5sums=('SKIP')
