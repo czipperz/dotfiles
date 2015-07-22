@@ -115,16 +115,16 @@ alias scusx="systemctl --user stop xfluxd-args"
 #################
 rb() {
     while (( $# > 0 )); do
-	rm "$1"{,\~}
-	shift
+        rm "$1"{,\~}
+        shift
     done
 }
 
 grH() {
     if [ $# == 0 ]; then
-	git reset HEAD
+        git reset HEAD
     else
-	git reset HEAD~$@
+        git reset HEAD~$@
     fi
 }
 
@@ -132,7 +132,7 @@ gp() {
     stashing="$(git stash)"
     git pull origin
     if [ "$stashing" = "No local changes to save" ]; then
-	git stash pop
+        git stash pop
     fi
 }
 
@@ -140,31 +140,31 @@ gst() {
     local _asert=''
     function gstFunction() {
         local _back="$(pwd)"
-	cd "$di"
-	if [ -d ".git" ]; then
-	    local _status="$(git status -sb)"
-	    if [ "$_status" != '## master...origin/master' -a "$_status" != '## master' ]; then
-	        if [ ! -z "$_asert" ]; then
+        cd "$di"
+        if [ -d ".git" ]; then
+            local _status="$(git status -sb)"
+            if [ "$_status" != "## master...origin/master" -a "$_status" != "## master" ]; then
+                if [ ! -z "$_asert" ]; then
                     echo;echo
                     printf '\033[1;37m'
                     echo '- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -'
                     printf '\033[0m'
                 else
-	            _asert=' '
-	        fi
-		printf '\033[1;37m'
-		echo "$di:"
-		printf '\033[0m'
-		git status -sb
-		if [ ! -z "$(git status -s)" ]; then gd; fi
-	    fi
-	fi
-	cd "$_back"
+                    _asert=' '
+                fi
+                printf '\033[1;37m'
+                echo "$di:"
+                printf '\033[0m'
+                git status -sb
+                if [ ! -z "$(git status -s)" ]; then gd; fi
+            fi
+        fi
+        cd "$_back"
     }
     for di in $(/bin/ls -A) '.'; do
-	if [ -d "$di" -a "$di" != ".oh-my-zsh" ]; then
+        if [ -d "$di" -a "$di" != ".oh-my-zsh" ]; then
             gstFunction
-	fi
+        fi
     done
     unfunction gstFunction
 }
@@ -201,8 +201,8 @@ colm() {
     __cols="\$$1"
     shift
     while (( $# > 0 )); do
-	__cols="$__cols, \$$1"
-	shift
+        __cols="$__cols, \$$1"
+        shift
     done
     awk "{ print $__cols }"
 }
@@ -216,17 +216,17 @@ mcd() {
 #Auto compile and run cpp files (requires GCC)
 rcpp() {
     if (( $# < 2 )); then
-	echo "Needs at least the binary name and the .cpp file name"
-	exit 1
+        echo "Needs at least the binary name and the .cpp file name"
+        exit 1
     fi
     name="$1"
     shift
     comp=''		 # Note that the '' is just so it looks better
     link=''
     while (( $# > 0 )); do
-	comp="$comp $1.cpp"
-	link="$link $1.o"
-	shift
+        comp="$comp $1.cpp"
+        link="$link $1.o"
+        shift
     done
     g++ -c $comp
     g++ -o "$name" $link
@@ -235,41 +235,41 @@ rcpp() {
 
 jc() {
     if [ "$1" == "-h" -o "$1" == "--help" ]; then
-	echo "\`jc' options"
-	echo ""
-	echo "Options:"
-	echo "  \`-c' - specify a custom src directory to first cd to. \`../src' is the default"
-	echo "  \`-d' - specify a custom out directory to specify where Java should compile to. Tries to use \`../out' or \`../src' (from the cd'd directory)"
-	echo ""
-	echo "Then specify all the files you wish to compile"
-	exit 1
+        echo "\`jc' options"
+        echo ""
+        echo "Options:"
+        echo "  \`-c' - specify a custom src directory to first cd to. \`../src' is the default"
+        echo "  \`-d' - specify a custom out directory to specify where Java should compile to. Tries to use \`../out' or \`../src' (from the cd'd directory)"
+        echo ""
+        echo "Then specify all the files you wish to compile"
+        exit 1
     fi
     
     if [ "$1" == "-c" ]; then
-	cd ../"$2"
-	shift;shift
+        cd ../"$2"
+        shift;shift
     else
-	cd ../src
+        cd ../src
     fi
     
     if [ "$1" == "-d" ]; then
-	di="$2"
-	shift;shift
-	javac -d "$di" $@
+        di="$2"
+        shift;shift
+        javac -d "$di" $@
     elif [ ! -d '../out' -a ! -d '../bin' ]; then
-	echo "Can't find ../out | ../bin"
-	exit 3
+        echo "Can't find ../out | ../bin"
+        exit 3
     elif [ -d '../out' -a -d '../bin' ]; then
-	echo "Found both ../out & ../bin"
-	exit 2
+        echo "Found both ../out & ../bin"
+        exit 2
     elif [ -d '../out' ]; then
-	javac -d ../out $@
+        javac -d ../out $@
     elif [ -d '../src' ]; then
-	javac -d ../src $@
+        javac -d ../src $@
     fi
 }
 
-dirN() {
+dirN () {
     echo $(pwd | perl -pe 's/(.*\/)*(.*)/$2/')
 }
 
