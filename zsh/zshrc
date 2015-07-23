@@ -170,6 +170,11 @@ gst() {
     unfunction gstFunction
 }
 
+gpss() {
+    git push --set-upstream origin \
+        $(git branch --list | grep '^\*' | awk '{print $2}')
+}
+
 gps() {
     function gpsFunction() {
         local _back="$(pwd)"

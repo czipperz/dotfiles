@@ -14,7 +14,6 @@
 	b = branch
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	pss = push --set-upstream origin master
 [core]
 	excludesfile = /home/czipperz/.gitignore
 	pager = 
