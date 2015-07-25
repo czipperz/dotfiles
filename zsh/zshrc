@@ -77,7 +77,7 @@ alias umnt="sudo umount"
 ## Systemctl ##
 alias sc="sudo systemctl"
 alias scu="systemctl --user"
-alias lllp="systemctl suspend;exit" # Works fine for me lul
+alias lllp="sudo systemctl suspend;exit" # Works fine for me lul
 
 ## One letter ##
 alias g="git"
