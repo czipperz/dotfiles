@@ -1,4 +1,4 @@
-[ -e /bin/mpd ]   && mpd
-[ -e /bin/emacs ] && emacs --daemon
+[ -e /bin/mpd ]       && mpd
+[ -e /usr/bin/emacs ] && emacs --daemon
 # Note that this needs to be the last command
 startx
