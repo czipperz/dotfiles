@@ -226,7 +226,7 @@ dirN () {
 _c_b='\033[0;34m'
 _c_w='\033[0;31m'
 printf "${_c_b}(\033[0;32mlet ${_c_b}((${_c_w}me${_c_b}))\n"
-printf "\033[0m  ${_c_b}(${_c_w}be ${_c_b}(${_c_w}free${_c_b})))\n"
+printf "\033[0m  ${_c_b}(${_c_w}be ${_c_b}(${_c_w}free${_c_b})))\033[0m\n"
 unset _c_b _c_w
 
 ###############
