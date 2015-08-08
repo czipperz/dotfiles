@@ -201,6 +201,20 @@ gps() {
     unfunction gpsFunction
 }
 
+cdFile() {
+    local _firstop
+    _firstop="$(find -name "$@" -type f | head -n 1)"
+    if [ -n "$_firstop" ]; then
+        cd "$(dirname "$_firstop")"
+    else
+        _firstop="$(find -name "*$@*" -type f | head -n 1)"
+        if [ -n "$_firstop" ]; then
+            cd "$(dirname "$_firstop")"
+        fi
+    fi
+    cd $(dirname `find -name "*$@*" | head -n 1`)
+}
+
 highlight() {
     perl -pe 's/(.*)'"$@"'(.*)/$1'"$fg[red]$@$reset_color"'$2/'
 }
