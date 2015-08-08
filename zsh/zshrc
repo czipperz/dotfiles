@@ -107,6 +107,7 @@ alias grep=' /bin/grep  --color=always'
 alias egrep='/bin/egrep --color=always'
 alias fgrep='/bin/fgrep --color=always'
 
+## Auto make and test ##
 alias tmake="clear;make > /dev/null &&"
 
 #################
