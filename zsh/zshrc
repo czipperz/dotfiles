@@ -102,6 +102,11 @@ alias scu="systemctl --user"
 alias scurx="systemctl --user restart xfluxd-args"
 alias scusx="systemctl --user stop xfluxd-args"
 
+## Grep aliases ##
+alias grep=' /bin/grep  --color=always'
+alias egrep='/bin/egrep --color=always'
+alias fgrep='/bin/fgrep --color=always'
+
 alias tmake="clear;make > /dev/null &&"
 
 #################
