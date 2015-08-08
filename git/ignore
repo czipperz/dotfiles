@@ -4,6 +4,9 @@
 \#*#
 *~
 
+# etags
+TAGS
+
 # INTELLIJ IDEA
 .idea
 *.iml
