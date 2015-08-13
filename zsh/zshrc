@@ -144,7 +144,8 @@ gst() {
         if [ -d ".git" ]; then
             local _status="$(git status -sb)"
             local _branch="$(git branch --list | grep '^\*' | awk '{print $2}')"
-            if [ "$_status" != "## ${_branch}" -a "$_status" != "## ${_branch}...origin/${_branch}" ]; then
+            if [    "$_status" != "## ${_branch}" \
+                 -a "$_status" != "## ${_branch}...origin/${_branch}" ]; then
                 if [ ! -z "$_asert" ]; then
                     echo;echo
                     printf '\033[1;37m'
@@ -183,7 +184,9 @@ gps() {
             _status="$(git status -sb | head -n 1)"
             _branch="$(git branch --list | grep '^\*' | awk '{print $2}')"
             if [ -z "$_branch" ]; then _branch="master"; fi
-            if [ "$_status" != "## ${_branch}" -a "$_status" != "## ${_branch}...origin/${_branch}" -a "$_status" != "## Initial commit on ${_branch}" ]; then
+            if [    "$_status" != "## ${_branch}" \
+                 -a "$_status" != "## ${_branch}...origin/${_branch}" \
+                 -a "$_status" != "## Initial commit on ${_branch}" ]; then
                 echo
                 printf '\033[1;37m'"$di:"'\033[0m\n'
                 git push
