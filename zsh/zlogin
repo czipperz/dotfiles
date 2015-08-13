@@ -1,4 +1,7 @@
+# -*- sh -*-
 [ -e /bin/mpd ]       && mpd
 [ -e /usr/bin/emacs ] && emacs --daemon
 # Note that this needs to be the last command
+GRADLE_OPTS+="-Dorg.gradle.daemon=true"
+export GRADLE_OPTS
 startx
