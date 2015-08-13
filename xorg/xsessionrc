@@ -1,0 +1,7 @@
+# -*- shell-script -*-
+
+# turn off default standby, hibernate
+xset -dpms
+
+# turn off default screensaver
+xset s off
