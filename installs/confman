@@ -9,6 +9,7 @@ vim/vimrc.vim            $HOME/.vimrc
 rc.lua                   $HOME/.config/awesome/rc.lua
 b-list                   $HOME/.b-list
 mpd.conf                 $HOME/.config/mpd/mpd.conf
+tmux.conf                $HOME/.tmux.conf
 
 xorg/xinitrc             $HOME/.xinitrc
 xorg/xprofile            $HOME/.xprofile
