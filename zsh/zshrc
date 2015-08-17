@@ -115,6 +115,16 @@ alias tmake="clear;make > /dev/null &&"
 #################
 ### Functions ###
 #################
+gri() {
+    if [[ -n "$(git status -s)" ]]; then
+        git stash
+        git rebase -i
+        git stash pop
+    else
+        git rebase -i
+    fi
+}
+
 rb() {
     while (( $# > 0 )); do
         rm "$1"{,\~}
