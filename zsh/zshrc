@@ -118,10 +118,10 @@ alias tmake="clear;make > /dev/null &&"
 gri() {
     if [[ -n "$(git status -s)" ]]; then
         git stash
-        git rebase -i
+        git rebase -i "$@"
         git stash pop
     else
-        git rebase -i
+        git rebase -i "$@"
     fi
 }
 
