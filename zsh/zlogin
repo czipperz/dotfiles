@@ -1,6 +1,6 @@
 # -*- sh -*-
 [ -e /bin/mpd ]       && mpd
-[ -e /usr/bin/emacs ] && emacs --daemon
+[ -e /usr/bin/emacs ] && emacs --daemon 2> /dev/null 1> /dev/null
 # Note that this needs to be the last command
 GRADLE_OPTS+="-Dorg.gradle.daemon=true"
 export GRADLE_OPTS
