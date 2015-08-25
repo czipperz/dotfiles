@@ -5,3 +5,7 @@
 GRADLE_OPTS+="-Dorg.gradle.daemon=true"
 export GRADLE_OPTS
 startx
+
+export EMAIL="czipperz@gmail.com"
+export NAME="Chris Gregory"
+export SMTPSERVER="smtp.gmail.com"
