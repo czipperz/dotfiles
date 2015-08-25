@@ -89,8 +89,8 @@ alias R="rm -Rf"
 ## Emacs stuff ##
 alias se="sudoedit"
 alias ek="emacsclient -e '(kill-emacs)'"
-alias ed="emacs --daemon"
-alias er="emacsclient -e '(kill-emacs)'; emacs --daemon; exit"
+alias ed="cd;emacs --daemon"
+alias er="cd;emacsclient -e '(kill-emacs)'; emacs --daemon; exit"
 
 ## Music ##
 alias mu="ncmpcpp"
