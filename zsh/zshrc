@@ -219,7 +219,7 @@ gps() {
     unfunction gpsFunction
 }
 
-cdFile() {
+findfile() {
     local _firstop
     _firstop="$(find -name "$@" -type f | head -n 1)"
     if [ -n "$_firstop" ]; then
