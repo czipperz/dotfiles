@@ -234,7 +234,7 @@ cdFile() {
 }
 
 highlight() {
-    perl -pe 's/(.*)'"$@"'(.*)/$1'"$fg[red]$@$reset_color"'$2/'
+    perl -pe "s/$*/$fg[red]$*$reset_color/g"
 }
 
 #Prints the columns specified
