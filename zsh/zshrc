@@ -215,8 +215,8 @@ gps() {
                  -a "$_status" != "## Initial commit on ${_branch}" ]; then
                 echo
                 printf '\033[1;37m'"$di:"'\033[0m\n'
-                git push
-                while [ $? -ne 0 ]; do git push; done
+                git push "$@"
+                while [ $? -ne 0 ]; do git push "$@"; done
                 echo
             fi
         fi
@@ -224,7 +224,7 @@ gps() {
     }
     for di in $(/bin/ls -A) '.'; do
         if [ -d "$di" -a "$di" != ".oh-my-zsh" ]; then
-            gpsFunction
+            gpsFunction "$@"
         fi
     done
     unfunction gpsFunction
