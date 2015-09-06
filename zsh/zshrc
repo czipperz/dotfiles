@@ -265,7 +265,7 @@ mcd() {
     cd $@
 }
 
-dirN () {
+dirname () {
     echo $(pwd | perl -pe 's/(.*\/)*(.*)/$2/')
 }
 
