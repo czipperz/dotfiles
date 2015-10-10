@@ -84,6 +84,9 @@ alias lsl="/bin/ls -BF | cat"	# Displays on its own line
 # Remove echo interpolation
 alias echo="/bin/echo"
 
+# Force multithreading by default.
+alias make="make -j5"
+
 alias shutdown="sudo shutdown 0"
 
 # Same as manually typing `sudo !!'
