@@ -81,6 +81,7 @@ alias li=" /bin/ls -BFli"	# inode numbers
 alias lia="/bin/ls -FliA"
 alias lsl="/bin/ls -BF | cat"	# Displays on its own line
 
+# Remove echo interpolation
 alias echo="/bin/echo"
 
 # Same as manually typing `sudo !!'
