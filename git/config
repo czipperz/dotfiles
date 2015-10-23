@@ -20,6 +20,6 @@
 [push]
 	default = simple
 [credential]
-	helper = cache --timeout=10
+	helper = cache --timeout=60
 [color "diff"]
 	new = cyan
