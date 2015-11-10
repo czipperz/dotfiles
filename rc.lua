@@ -10,6 +10,8 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
+-- MPD
+local vicious = require("vicious")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -116,6 +118,18 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
 
+-- Initalize MPD widget
+mpdwidget = wibox.widget.textbox()
+-- Register it
+vicious.register(mpdwidget, vicious.widgets.mpd,
+                 function (mpdwidget, args)
+                    if args["{state}"] == "Stop" then
+                       return " - "
+                    else
+                       return ' '..args["{Artist}"]..' - '..args["{Title}"]..' |'
+                    end
+                 end, 10)
+
 -- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
@@ -195,6 +209,7 @@ for s = 1, screen.count() do
    -- Widgets that are aligned to the right
    local right_layout = wibox.layout.fixed.horizontal()
    if s == 1 then right_layout:add(wibox.widget.systray()) end
+   right_layout:add(mpdwidget)
    right_layout:add(mytextclock)
    right_layout:add(mylayoutbox[s])
 
