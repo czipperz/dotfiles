@@ -9,7 +9,7 @@
 	ap = add --patch
 	us = reset HEAD
 	ci = commit
-	cm = commit -m
+	cm = commit --message
 	cp = commit --patch
 	co = checkout
 	b = branch
