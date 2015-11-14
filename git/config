@@ -6,6 +6,7 @@
 	st = status
 	a = add
 	aa = add -A
+	ap = add --patch
 	us = reset HEAD
 	ci = commit
 	cm = commit -m
