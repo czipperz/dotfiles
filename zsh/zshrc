@@ -301,6 +301,28 @@ thisdir() {
     echo $(if (( $# == 0 )); then pwd; else echo "$@"; fi | perl -pe 's/(.*\/)*(.*)/$2/')
 }
 
+grep2in() {
+    flags="$1"; shift
+    re="$1"; shift
+    find "$@" -type f -not -name '*~' -print0 | xargs -0 grep "$flags" "$re"
+}
+
+grepin() {
+    re="$1"; shift
+    find "$@" -type f -not -name '*~' -print0 | xargs -0 grep "$re"
+}
+
+grepa2in() {
+    flags="$1"; shift
+    re="$1"; shift
+    find "$@" -type f -print0 | xargs -0 grep "$flags" "$re"
+}
+
+grepain() {
+    re="$1"; shift
+    find "$@" -type f -print0 | xargs -0 grep "$re"
+}
+
 ########################
 ### Auto Run Scripts ###
 ########################
