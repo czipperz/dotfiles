@@ -339,7 +339,7 @@ unset b w g r
 ###############
 [[ -s /home/czipperz/.autojump/etc/profile.d/autojump.sh ]] \
     && source /home/czipperz/.autojump/etc/profile.d/autojump.sh
-[[ -s /home/czipperz/.gvm/bin/gvm-init.sh ]] \
-    && source /home/czipperz/.gvm/bin/gvm-init.sh
+# [[ -s /home/czipperz/.gvm/bin/gvm-init.sh ]] \
+#     && source /home/czipperz/.gvm/bin/gvm-init.sh
 autoload -U compinit && compinit -u
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
