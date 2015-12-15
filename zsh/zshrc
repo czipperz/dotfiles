@@ -277,7 +277,7 @@ findfile() {
 }
 
 highlight() {
-    perl -pe "s/$*/$fg[red]$*$reset_color/g"
+    perl -pe "s/($*)/$fg[red]\1$reset_color/g"
 }
 
 #Prints the columns specified
