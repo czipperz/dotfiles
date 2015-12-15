@@ -297,8 +297,8 @@ mcd() {
     cd $@
 }
 
-dirname () {
-    echo $(pwd | perl -pe 's/(.*\/)*(.*)/$2/')
+thisdir() {
+    echo $(if (( $# == 0 )); then pwd; else echo "$@"; fi | perl -pe 's/(.*\/)*(.*)/$2/')
 }
 
 ########################
