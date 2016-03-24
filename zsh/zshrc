@@ -90,6 +90,8 @@ alias shutdown="sudo shutdown 0"
 # Same as manually typing `sudo !!'
 alias plz='sudo $(fc -ln -1)'
 
+alias src='source ~/.zshrc'
+
 ## Arch aliases ##
 alias pac="sudo pacman"
 alias yao="yaourt"
