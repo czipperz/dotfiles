@@ -143,6 +143,9 @@ alias egrep='/bin/egrep --color=always'
 alias fgrep='/bin/fgrep --color=always'
 alias fa="find"
 
+# usage: `find -type f | catnamed`
+alias catnamed="perl -pe 's/(.*)/printf \"\033[0;31m%s\033[0m\n\" \"\$1\"; cat \"\$1\"\n/' | bash"
+
 ## Auto make and test ##
 alias tmake="clear;make > /dev/null &&"
 alias vakec="while true; do if ./reconfigure; then ./make test; else return; fi; sleep 5; clear; done"
