@@ -9,6 +9,7 @@ ENABLE_CORRECTION="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(sudo)
 setopt interactivecomments
+source $ZSH/oh-my-zsh.sh
 
 #############################
 ### Environment variables ###
@@ -17,7 +18,8 @@ export PATH=/bin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/bin/site_
 export RUST_SRC_PATH=/home/czipperz/abs/rust/src
 fpath=( $HOME/.oh-my-zsh/functions $fpath )
 
-source $ZSH/oh-my-zsh.sh
+LESS=-RXF
+export LESS
 
 EDITOR="emacsclient -t"
 export EDITOR
