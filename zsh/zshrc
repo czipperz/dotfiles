@@ -232,32 +232,43 @@ gpss() {
 }
 
 gps() {
-    function gpsFunction() {
-        local _back="$(pwd)"
-        cd "$di"
-        if [ -d ".git" ]; then
-            local _status _branch
-            _status="$(git status -sb | head -n 1)"
-            _branch="$(git branch --list | grep '^\*' | awk '{print $2}')"
-            if [ -z "$_branch" ]; then _branch="master"; fi
-            if [    "$_status" != "## ${_branch}" \
-                 -a "$_status" != "## ${_branch}...origin/${_branch}" \
-                 -a "$_status" != "## Initial commit on ${_branch}" ]; then
-                echo
-                printf '\033[1;37m'"$di:"'\033[0m\n'
-                git push "$@"
-                while [ $? -ne 0 ]; do git push "$@"; done
-                echo
-            fi
-        fi
-        cd "$_back"
-    }
     for di in $(/bin/ls -A) '.'; do
         if [ -d "$di" -a "$di" != ".oh-my-zsh" ]; then
-            gpsFunction "$@"
+            local _back="$(pwd)"
+            cd "$di"
+            if [ -d ".git" ]; then
+                local _status _branch
+                _status="$(git status -sb | head -n 1)"
+                _branch="$(git rev-parse --abbrev-ref HEAD)"
+                if [ -z "$_branch" ]; then _branch=master; fi
+                if [    "$_status" != "## $_branch" \
+                     -a "$_status" != "## $_branch...origin/$_branch" \
+                     -a "$_status" != "## Initial commit on $_branch" ]; then
+                    echo
+                    printf '\033[1;37m'"$di:"'\033[0m\n'
+                    git push "$@"
+                    while [ $? -ne 0 ]; do git push "$@"; done
+                    echo
+                fi
+            fi
+            cd "$_back"
         fi
     done
-    unfunction gpsFunction
+}
+
+gpu() {
+    for di in $(/bin/ls -A) '.'; do
+        if [ -d "$di" ]; then
+            local _back="$(pwd)"
+            cd "$di"
+            if [ -d ".git" ]; then
+                echo
+                printf '\033[1;37m'"$di:"'\033[0m\n'
+                git pull
+            fi
+            cd "$_back"
+        fi
+    done
 }
 
 findfile() {
