@@ -20,6 +20,8 @@
 	rs = rebase --skip
 	rc = rebase --continue
 	ra = rebase --abort
+	d = diff --minimal --word-diff=color
+	df = diff --word-diff=color
 [core]
 	excludesfile = /home/czipperz/.gitignore
 [push]
