@@ -201,37 +201,30 @@ gp() {
 }
 
 gst() {
-    local _asert=''
-    function gstFunction() {
-        local _back="$(pwd)"
-        cd "$di"
-        if [ -d ".git" ]; then
-            local _status="$(git status -sb)"
-            local _branch="$(git branch --list | grep '^\*' | awk '{print $2}')"
-            if [    "$_status" != "## ${_branch}" \
-                 -a "$_status" != "## ${_branch}...origin/${_branch}" ]; then
-                if [ ! -z "$_asert" ]; then
-                    echo;echo
-                    printf '\033[1;37m'
-                    echo '- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -'
-                    printf '\033[0m'
-                else
-                    _asert=' '
-                fi
-                printf '\033[1;37m'
-                echo "$di:"
-                printf '\033[0m'
-                git status -sb
-            fi
-        fi
-        cd "$_back"
-    }
+    local _first=''
     for di in $(/bin/ls -A) '.'; do
         if [ -d "$di" -a "$di" != ".oh-my-zsh" ]; then
-            gstFunction
+            local _back="$(pwd)"
+            cd "$di"
+            if [ -d ".git" ]; then
+                if [ ! -z "$(git status -s)" ]; then
+                    if [ ! -z "$_first" ]; then
+                        echo;echo
+                        printf '\033[1;37m'
+                        echo '- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -'
+                        printf '\033[0m'
+                    else
+                        _first=' '
+                    fi
+                    printf '\033[1;37m'
+                    echo "$di:"
+                    printf '\033[0m'
+                    git status -sb
+                fi
+            fi
+            cd "$_back"
         fi
     done
-    unfunction gstFunction
 }
 
 gpss() {
