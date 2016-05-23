@@ -10,3 +10,6 @@ TAGS
 # INTELLIJ IDEA
 .idea
 *.iml
+
+# cargo-fmt
+*.bk
