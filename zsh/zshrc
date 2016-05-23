@@ -152,6 +152,7 @@ alias fa="find"
 
 ## Auto make and test ##
 alias tmake="clear;make > /dev/null &&"
+alias vakec="while true; do if ./reconfigure; then ./make test; else return; fi; sleep 5; clear; done"
 
 #################
 ### Functions ###
