@@ -92,7 +92,7 @@ alias make="make -j5"
 
 alias shutdown="sudo shutdown 0"
 
-# Same as manually typing `sudo !!'
+# Same as manually typing `sudo !!`
 alias plz='sudo $(fc -ln -1)'
 
 alias src='source ~/.zshrc'
