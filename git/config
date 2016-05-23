@@ -12,6 +12,7 @@
 	cm = commit --message
 	cp = commit --patch
 	co = checkout
+	cb = checkout -b
 	b = branch
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
