@@ -355,16 +355,20 @@ musictophone() {
      printf "\n\033[0;31m%s\033[0m\n" "Diff:"
      echo "$diff"
      if [ "$diff" ]; then
-         echo "$diff" \
-             | `/bin/which grep` -E '^>' \
-             | perl -pe 's|..||' \
-             | xargs -d '\n' -n 1 printf 'cp "music/s/%s" "phone/Internal storage/Music"\n' \
-             | bash
-         echo "$diff" \
-             | `/bin/which grep` -E '^<' \
-             | perl -pe 's|..||' \
-             | xargs -d '\n' -n 1 printf 'rm "phone/Internal storage/Music/%s"\n' \
-             | bash
+         cpdiff="$(echo "$diff" | `/bin/which grep` -E '^>')"
+         if [ "$cpdiff" ]; then
+             echo "$cpdiff" \
+                 | perl -pe 's|..||' \
+                 | xargs -d '\n' -n 1 printf 'cp "music/s/%s" "phone/Internal storage/Music"\n' \
+                 | bash
+         fi
+         rmdiff="$(echo "$diff" | `/bin/which grep` -E '^<')"
+         if [ "$rmdiff" ]; then
+             echo "$rmdiff" \
+                 | perl -pe 's|..||' \
+                 | xargs -d '\n' -n 1 printf 'rm "phone/Internal storage/Music/%s"\n' \
+                 | bash
+         fi
      fi
      printf "\n\033[0;31m%s\033[0m\n" "Unmounting phone:"
      fusermount -u phone || exit 3
