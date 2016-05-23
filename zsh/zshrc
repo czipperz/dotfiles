@@ -74,14 +74,15 @@ alias asert="xmodmap $HOME/.Xmodmap;exit"
 alias qwerty="xmodmap $HOME/.Xmodmap.backup;exit"
 
 ## Simple ls aliases ##
-alias l="  /bin/ls"
-alias lb=" /bin/ls -F --color=always"
-alias ls=" /bin/ls -BF --color=always"
-alias ll=" /bin/ls -BFlh --color=always"
-alias la=" /bin/ls -FlAh --color=always"	# -A hides `.` and `..`
-alias li=" /bin/ls -BFli --color=always"	# inode numbers
-alias lia="/bin/ls -FliA --color=always"
-alias lsl="/bin/ls -BF --color=always | cat"	# Displays on its own line
+alias l="/bin/ls --color=auto"
+alias lc="/bin/ls --color=never"
+alias lb="/bin/ls -F --color=auto"
+alias ls="/bin/ls -BF --color=auto"
+alias ll="/bin/ls -BFlh --color=auto"
+alias la="/bin/ls -FlAh --color=auto" # -A hides `.` and `..`
+alias li="/bin/ls -BFli --color=auto" # inode numbers
+alias lia="/bin/ls -FliA --color=auto"
+alias lsl="/bin/ls -BF --color=auto | cat" # Displays on its own line
 
 # Remove echo interpolation
 alias echo="/bin/echo"
