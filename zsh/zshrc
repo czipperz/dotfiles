@@ -336,6 +336,30 @@ grepain() {
     find "$@" -type f -print0 | xargs -0 grep "$re"
 }
 
+musictophone() {
+    (cd
+     mkdir phone || exit 1
+     jmtpfs phone || exit 2
+     diff="$(diff <(ls 'phone/Internal storage/Music') <(ls 'music/s'))"
+     if [ "$diff" ]; then
+         echo "$diff" \
+             | `/bin/which grep` -E '^>' \
+             | perl -pe 's|..||' \
+             | xargs -d '\n' -n 1 printf 'cp "music/s/%s" "phone/Internal storage/Music"\n' \
+             | bash
+         echo "$diff" \
+             | `/bin/which grep` -E '^<' \
+             | perl -pe 's|..||' \
+             | xargs -d '\n' -n 1 printf 'rm "phone/Internal storage/Music/%s"\n' \
+             | bash
+     fi
+     fusermount -u phone || exit 3
+     rm -R phone || exit 4)
+    for i in {0..10}; do
+        echo "DONE"
+    done
+}
+
 ########################
 ### Auto Run Scripts ###
 ########################
