@@ -290,7 +290,7 @@ globalkeys = awful.util.table.join(
 	    client.focus:raise()
 	 end
    end),
-   awful.key({ modkey,           }, "r",     function() mouseOn = not mouseOn end),
+   awful.key({ modkey,           }, "r",     function () mouseOn = not mouseOn end),
    -- Standard program
    awful.key({ modkey,           }, "Return",function () awful.util.spawn(terminal) end),
    awful.key({ modkey, "Control" }, "m",     function () awful.util.spawn(terminal) end),
