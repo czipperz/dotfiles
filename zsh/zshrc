@@ -155,6 +155,9 @@ alias catnamed="perl -pe 's/(.*)/printf \"\033[0;31m%s\033[0m\n\" \"\$1\"; cat \
 alias tmake="clear;make > /dev/null &&"
 alias vakec="while true; do if ./reconfigure; then ./make test; else return; fi; sleep 5; clear; done"
 
+# ssh CGRB
+alias cgrb='ssh -p 732 gregoryc@shell.cgrb.oregonstate.edu'
+
 #################
 ### Functions ###
 #################
