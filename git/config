@@ -15,7 +15,7 @@
 	cb = checkout -b
 	b = branch
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
-	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	l = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	r = rebase
 [core]
 	excludesfile = /home/czipperz/.gitignore
