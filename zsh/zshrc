@@ -78,9 +78,9 @@ alias asert="xmodmap $HOME/.Xmodmap;exit"
 alias qwerty="xmodmap $HOME/.Xmodmap.backup;exit"
 
 ## Simple ls aliases ##
-alias l="  /bin/ls -BF --color=always"
+alias l="  /bin/ls"
 alias lb=" /bin/ls -F --color=always"
-alias ls=" /bin/ls"
+alias ls=" /bin/ls -BF --color=always"
 alias ll=" /bin/ls -BFlh --color=always"
 alias la=" /bin/ls -FlAh --color=always"	# -A hides `.` and `..`
 alias li=" /bin/ls -BFli --color=always"	# inode numbers
