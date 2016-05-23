@@ -310,6 +310,10 @@ thisdir() {
     echo $(if (( $# == 0 )); then pwd; else echo "$@"; fi | perl -pe 's/(.*\/)*(.*)/$2/')
 }
 
+f() {
+    find "$@" -not -name '*~'
+}
+
 grep2in() {
     flags="$1"; shift
     re="$1"; shift
