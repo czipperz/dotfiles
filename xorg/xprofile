@@ -1,3 +1,5 @@
 xset m 0 0
 [ -e /etc/xfluxd-args.conf ] && systemctl --user restart xfluxd-args
 [ -e /bin/emacs ]            && emacs --daemon
+
+exec awesome
