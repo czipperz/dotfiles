@@ -348,8 +348,12 @@ grepain() {
 musictophone() {
     (cd
      mkdir phone || exit 1
+     printf "\033[0;31m%s\033[0m\n" "Mounting phone:"
      jmtpfs phone || exit 2
+     printf "\n\033[0;31m%s\033[0m\n" "Creating diff..."
      diff="$(diff <(ls 'phone/Internal storage/Music') <(ls 'music/s'))"
+     printf "\n\033[0;31m%s\033[0m\n" "Diff:"
+     echo "$diff"
      if [ "$diff" ]; then
          echo "$diff" \
              | `/bin/which grep` -E '^>' \
@@ -362,11 +366,9 @@ musictophone() {
              | xargs -d '\n' -n 1 printf 'rm "phone/Internal storage/Music/%s"\n' \
              | bash
      fi
+     printf "\n\033[0;31m%s\033[0m\n" "Unmounting phone:"
      fusermount -u phone || exit 3
      rm -R phone || exit 4)
-    for i in {0..10}; do
-        echo "DONE"
-    done
 }
 
 ########################
