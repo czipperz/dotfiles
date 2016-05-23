@@ -170,8 +170,8 @@ cleanupemacs() {
 
 gri() {
     if [[ -n "$(git status -s)" ]]; then
-        git stash
-        git rebase -i "$@"
+        git stash && \
+        git rebase -i "$@" && \
         git stash pop
     else
         git rebase -i "$@"
@@ -196,8 +196,8 @@ grH() {
 
 gp() {
     if [ -n "$(git status -s)" ]; then
-	git stash
-	git pull origin
+	git stash && \
+	git pull origin && \
 	git stash pop
     else
 	git pull origin
