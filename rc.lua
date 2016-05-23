@@ -292,8 +292,8 @@ globalkeys = awful.util.table.join(
    end),
    awful.key({ modkey,           }, "r",     function () mouseOn = not mouseOn end),
    -- Standard program
-   awful.key({ modkey,           }, "Return",function () awful.util.spawn(terminal) end),
-   awful.key({ modkey, "Control" }, "m",     function () awful.util.spawn(terminal) end),
+   awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal .. " -e tmux") end),
+   awful.key({ modkey, "Control" }, "m",     function () awful.util.spawn(terminal .. " -e ncmpcpp") end),
    awful.key({ modkey, "Control" }, "i",     function () awful.util.spawn("idea-ce-eap") end),
    awful.key({ modkey, "Control" }, "c",     function () awful.util.spawn("chromium") end),
    awful.key({ modkey, "Control" }, "e",     function () awful.util.spawn("emacsclient -c") end),
