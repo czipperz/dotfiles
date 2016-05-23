@@ -135,6 +135,8 @@ alias mu="ncmpcpp"
 alias mux="ncmpcpp;exit"
 alias am="alsamixer -c 0"
 alias amx="alsamixer -c 0;exit"
+alias pm="pulsemixer"
+alias pmx="pulsemixer;exit"
 
 ## Systemctl ##
 alias sc="sudo systemctl"
