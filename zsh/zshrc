@@ -68,6 +68,11 @@ bindkey -a 'h' vi-repeat-find
 ### ALIASES ###
 ###############
 
+## Source config files ##
+alias srcrc="source .zshrc"
+alias srcx="xrdb -merge -I$HOME ~/.Xresources"
+alias u="xrdb -merge -I$HOME ~/.Xresources; urxvt -e tmux"
+
 ## Resets the Xmodmap ##
 alias asert="xmodmap $HOME/.Xmodmap;exit"
 alias qwerty="xmodmap $HOME/.Xmodmap.backup;exit"
