@@ -17,6 +17,9 @@
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	l = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	r = rebase
+	rs = rebase --skip
+	rc = rebase --continue
+	ra = rebase --abort
 [core]
 	excludesfile = /home/czipperz/.gitignore
 [push]
