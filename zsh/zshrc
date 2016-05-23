@@ -209,10 +209,10 @@ gp() {
 }
 
 gst() {
-    local _first=''
+    local _first='' _back
     for di in $(/bin/ls -A) '.'; do
         if [ -d "$di" -a "$di" != ".oh-my-zsh" ]; then
-            local _back="$(pwd)"
+            _back="$(pwd)"
             cd "$di"
             if [ -d ".git" ]; then
                 if [ ! -z "$(git status -s)" ]; then
@@ -240,12 +240,12 @@ gpss() {
 }
 
 gps() {
+    local _back _status _branch
     for di in $(/bin/ls -A) '.'; do
         if [ -d "$di" -a "$di" != ".oh-my-zsh" ]; then
-            local _back="$(pwd)"
+            _back="$(pwd)"
             cd "$di"
             if [ -d ".git" ]; then
-                local _status _branch
                 _status="$(git status -sb | head -n 1)"
                 _branch="$(git rev-parse --abbrev-ref HEAD)"
                 if [ -z "$_branch" ]; then _branch=master; fi
@@ -265,9 +265,10 @@ gps() {
 }
 
 gpu() {
+    local _back
     for di in $(/bin/ls -A) '.'; do
         if [ -d "$di" ]; then
-            local _back="$(pwd)"
+            _back="$(pwd)"
             cd "$di"
             if [ -d ".git" ]; then
                 echo
