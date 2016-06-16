@@ -1,3 +1,4 @@
+# -*- shell-script -*-
 local returny
 if [ "${ret_status}" = 0 ]; then
     returny=""
