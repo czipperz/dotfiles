@@ -292,6 +292,7 @@ globalkeys = awful.util.table.join(
    end),
    awful.key({ modkey,           }, "r",     function () mouseOn = not mouseOn end),
    -- Standard program
+   awful.key({ modkey, "Control" }, "s",     function () awful.util.spawn("systemctl suspend") end),
    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal .. " -e tmux") end),
    awful.key({ modkey, "Control" }, "m",     function () awful.util.spawn(terminal .. " -e ncmpcpp") end),
    awful.key({ modkey, "Control" }, "i",     function () awful.util.spawn("idea-ce-eap") end),
