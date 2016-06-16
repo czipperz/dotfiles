@@ -1,7 +1,8 @@
+# -*- shell-script -*-
+
 xset m 0 0
 if [ -e /etc/xfluxd-args.conf ]; then
-    [ "$(systemctl --user is-active xfluxd-args)" = "failed" ] \
-        || systemctl --user restart xfluxd-args
+    systemctl --user restart xfluxd-args
 fi
 [ -e /bin/emacs ] && emacs --daemon &
 steam -silent &
