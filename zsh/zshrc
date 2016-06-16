@@ -374,6 +374,10 @@ musictophone() {
      rm -R phone || exit 4)
 }
 
+find() {
+    command find "$@" 2>/dev/null
+}
+
 # # emacs backup files
 # cleanbackups() {
 #     find "$@" -name '#*' -o -name '.#*' -o -name '*~' | xargs rm
