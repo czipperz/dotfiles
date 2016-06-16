@@ -383,14 +383,16 @@ find() {
 #     find "$@" -name '#*' -o -name '.#*' -o -name '*~' | xargs rm
 # }
 
-# vickstatus() {
-#     for dir in . $(/bin/ls plugins | perl -pe 's||plugins/|') \
-#                 vick-build vick-package; do
-#         printf '\033[0;01m%s:\033[0m\n' \
-#             "$(if [ "$dir" = "." ]; then echo vick; else echo "$dir"; fi)"
-#         git -C "$dir" status -sb
-#     done
-# }
+vickstatus() {
+    local arg="$(if [ -n "$1" ]; then echo "$1"; else echo ~/vick; fi)"
+    (cd "$arg"
+     for dir in . $(/bin/ls plugins | perl -pe 's||plugins/|') \
+                  vick-build vick-package; do
+         printf '\033[0;01m%s:\033[0m\n' \
+                "$(if [ "$dir" = "." ]; then echo vick; else echo "$dir"; fi)"
+         git -C "$dir" status -sb
+     done)
+}
 
 ########################
 ### Auto Run Scripts ###
