@@ -7,6 +7,9 @@ URxvt*.scrollBar: false
 URxvt*.scrollstyle: plain
 URxvt*.letterSpace: -1
 
+!! clipboard
+URxvt.perl-ext-common: default,selection-to-clipboard
+
 
 
 
