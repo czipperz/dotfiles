@@ -303,8 +303,8 @@ colm() {
 
 #Auto `makedir` and `cd`.
 mcd() {
-    mkdir -p $@
-    cd $@
+    mkdir -p "$@"
+    cd "$@"
 }
 
 thisdir() {
