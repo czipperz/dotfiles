@@ -124,6 +124,7 @@ alias e="$EDITOR"
 alias R="rm -Rf"
 
 ## Emacs stuff ##
+alias em="emacs -nw -Q"
 alias se="sudoedit"
 alias ek="emacsclient -e '(kill-emacs)'"
 alias ed="cd;emacs --daemon"
