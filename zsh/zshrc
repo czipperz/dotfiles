@@ -21,7 +21,7 @@ export PATH=/bin:/usr/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:\
 /home/czipperz/.cargo/bin:/home/czipperz/.gem/ruby/2.3.0/bin:\
 /home/czipperz/.cabal/bin
 export RUST_SRC_PATH=/home/czipperz/abs/rust/src
-fpath=( $HOME/.oh-my-zsh/functions $fpath )
+fpath=( "$HOME/.oh-my-zsh/functions" $fpath )
 
 LESS=-RXF
 export LESS
@@ -67,12 +67,12 @@ bindkey -a 'h' vi-repeat-find
 
 ## Source config files ##
 alias srcrc="source .zshrc"
-alias srcx="xrdb -merge -I$HOME ~/.Xresources"
-alias u="xrdb -merge -I$HOME ~/.Xresources; urxvt -e tmux"
+alias srcx="xrdb -merge -I'$HOME' ~/.Xresources"
+alias u="xrdb -merge -I'$HOME' ~/.Xresources; urxvt -e tmux"
 
 ## Resets the Xmodmap ##
-alias asert="xmodmap $HOME/.Xmodmap;exit"
-alias qwerty="xmodmap $HOME/.Xmodmap.backup;exit"
+alias asert="xmodmap '$HOME'/.Xmodmap;exit"
+alias qwerty="xmodmap '$HOME'/.Xmodmap.backup;exit"
 
 ## Simple ls aliases ##
 alias l="/bin/ls --color=auto"
