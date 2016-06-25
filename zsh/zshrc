@@ -370,8 +370,11 @@ musictophone() {
          cp "music/p/Electronic.m3u" "phone/Internal storage/Music" || exit 5
      fi
      printf "\033[0;31m%s\033[0m\n" "Unmounting phone..."
-     fusermount -u phone || exit 3
-     rm -R phone || exit 4)
+     unmountphone)
+}
+
+unmountphone() {
+    (cd && fusermount -u phone && rm -R phone)
 }
 
 find() {
