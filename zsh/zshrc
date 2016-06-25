@@ -349,7 +349,7 @@ musictophone() {
      jmtpfs phone || exit 2
      printf "\n\033[0;31m%s\033[0m\n" "Creating diff..."
      diff="$(diff <(ls 'phone/Internal storage/Music') <(ls 'music/s'))"
-     printf "\n\033[0;31m%s\033[0m\n" "Diff:"
+     printf "\033[0;31m%s\033[0m\n" "Diff:"
      echo "$diff"
      if [ "$diff" ]; then
          cpdiff="$(echo "$diff" | `/bin/which grep` -E '^>')"
