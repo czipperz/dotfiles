@@ -396,9 +396,13 @@ vickstatus() {
     (cd "$arg"
      for dir in . $(/bin/ls plugins | perl -pe 's||plugins/|') \
                   vick-build vick-package; do
-         printf '\033[0;01m%s:\033[0m\n' \
-                "$(if [ "$dir" = "." ]; then echo vick; else echo "$dir"; fi)"
-         git -C "$dir" status -sb
+         if [ "$(git -C "$dir" status -sb)" \
+              != "## master...origin/master" ]; then
+            printf '\033[0;01m%s:\033[0m\n' \
+                    "$(if [ "$dir" = "." ]; then echo vick; \
+                       else echo "$dir"; fi)"
+            git -C "$dir" status -sb
+         fi
      done)
 }
 
