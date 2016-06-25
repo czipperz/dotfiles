@@ -4,7 +4,6 @@ Emacs.font: Meslo LG S DZ-12
 !! General URxvt options
 URxvt*.font: xft:Meslo LG S DZ:pixelsize=15
 URxvt*.scrollBar: false
-URxvt*.scrollstyle: plain
 URxvt*.letterSpace: -1
 
 !! clipboard
