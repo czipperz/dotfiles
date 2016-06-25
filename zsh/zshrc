@@ -366,7 +366,7 @@ musictophone() {
                  | xargs -d '\n' -n 1 printf 'rm "phone/Internal storage/Music/%s"\n' \
                  | bash
          fi
-         echo "Copy in Electronic.m3u"
+         printf "\n\033[0;31m%s\033[0m\n" "Copy in Electronic.m3u..."
          cp "music/p/Electronic.m3u" "phone/Internal storage/Music" || exit 5
      fi
      printf "\n\033[0;31m%s\033[0m\n" "Unmounting phone:"
