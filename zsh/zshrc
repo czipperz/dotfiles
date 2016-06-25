@@ -381,10 +381,15 @@ find() {
     command find "$@" 2>/dev/null
 }
 
-# # emacs backup files
-# cleanbackups() {
-#     find "$@" -name '#*' -o -name '.#*' -o -name '*~' | xargs rm
-# }
+# emacs backup files
+cleanbackups() {
+    local cmd='rm'
+    if [ "$1" = -n ]; then
+        cmd='echo'
+        shift
+    fi
+    find "$@" -name '#*' -o -name '.#*' -o -name '*~' | xargs ${cmd}
+}
 
 vickstatus() {
     local arg="$(if [ -n "$1" ]; then echo "$1"; else echo ~/vick; fi)"
