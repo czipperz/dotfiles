@@ -8,9 +8,9 @@ echo 'Please make sure these requirements are fulfilled'
 echo "Note that this doesn't install the asert keyboard layout. You must do that manually"
 echo
 read -p "Do you want to continue? " -n 1 -r
-[[ $REPLY =~ ^[Yy]$ ]] || exit 1
+[[ "$REPLY" =~ ^[Yy]$ ]] || exit 1
 
-cd $HOME
+cd "$HOME"
 
 #Yaourt
 bash installs/yaourt.sh
