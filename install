@@ -17,7 +17,6 @@ bash installs/yaourt.sh
 
 #Basic installs
 echo "Installing basic things"
-sleep 2000
 bash installs/basic-installs.sh
 
 #dotfiles setup
