@@ -16,6 +16,7 @@ xorg/xinitrc             $HOME/.xinitrc
 xorg/xprofile            $HOME/.xprofile
 xorg/Xresources          $HOME/.Xresources
 xorg/xsessionrc          $HOME/.xsessionrc
+xorg/Xmodmap             $HOME/.Xmodmap
 
 zsh/czipperz.zsh-theme   $HOME/.oh-my-zsh/themes/czipperz.zsh-theme
 zsh/zshrc                $HOME/.zshrc
