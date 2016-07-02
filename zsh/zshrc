@@ -164,11 +164,15 @@ alias cgrb='ssh -p 732 gregoryc@shell.cgrb.oregonstate.edu'
 ### Functions ###
 #################
 cleanupemacs() {
+    local echo=
+    if [ "$1" = "-n" ]; then
+        echo=echo
+    fi
     local _dir
     local dir
     for dir in $(find -maxdepth 1 -type d | sort | tail -n +2); do
         if [ "$_dir" = "$(echo "$dir" | perl -pe 's|^\./(.*?)[-]\d*?\.\d*?$|\1|')" ]; then
-            rm -R "$dir"
+            ${echo} rm -R "$dir"
         fi
         _dir="$(echo "$dir" | perl -pe 's|^\./(.*?)[-]\d*?\.\d*?$|\1|')"
     done
