@@ -130,7 +130,7 @@ alias em="emacs -nw -Q"
 alias se="sudoedit"
 alias ek="emacsclient -e '(kill-emacs)'"
 alias ed="cd;emacs --daemon"
-alias er="cd;emacsclient -e '(kill-emacs)'; emacs --daemon; exit"
+alias er="ek;ed; exit"
 
 ## Music ##
 alias mu="ncmpcpp"
