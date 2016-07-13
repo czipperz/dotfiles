@@ -47,6 +47,8 @@ terminal = "urxvt"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
+browser = "firefox"
+
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
@@ -103,7 +105,7 @@ myawesomemenu = {
 
 mymainmenu = awful.menu({ items = {
 			     { "Terminal", terminal },
-			     { "Chromium", "chromium" },
+			     { "Firefox", browser },
 			     { "Awesome", myawesomemenu, beautiful.awesome_icon }
 		       }})
 
@@ -296,7 +298,7 @@ globalkeys = awful.util.table.join(
    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal .. " -e tmux") end),
    awful.key({ modkey, "Control" }, "m",     function () awful.util.spawn(terminal .. " -e ncmpcpp") end),
    awful.key({ modkey, "Control" }, "i",     function () awful.util.spawn("idea-ce-eap") end),
-   awful.key({ modkey, "Control" }, "c",     function () awful.util.spawn("chromium") end),
+   awful.key({ modkey, "Control" }, "c",     function () awful.util.spawn(browser) end),
    awful.key({ modkey, "Control" }, "e",     function () awful.util.spawn("emacsclient -c") end),
    awful.key({ modkey, "Control" }, "r",     awesome.restart),
    awful.key({ modkey, "Control" }, "q",     awesome.quit),
