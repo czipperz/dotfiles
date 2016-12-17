@@ -359,6 +359,7 @@ musictophone() {
      printf "\033[0;31m%s\033[0m\n" "Diff:"
      echo "$diff"
      if [ "$diff" ]; then
+         printf "\n\033[0;31m%s\033[0m\n" "Copy in files..."
          cpdiff="$(echo "$diff" | `/bin/which grep` -E '^>')"
          if [ "$cpdiff" ]; then
              echo "$cpdiff" \
@@ -366,6 +367,7 @@ musictophone() {
                  | xargs -d '\n' -n 1 printf 'cp "music/s/%s" "phone/Internal storage/Music"\n' \
                  | bash
          fi
+         printf "\n\033[0;31m%s\033[0m\n" "Remove files..."
          rmdiff="$(echo "$diff" | `/bin/which grep` -E '^<')"
          if [ "$rmdiff" ]; then
              echo "$rmdiff" \
