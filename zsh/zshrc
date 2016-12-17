@@ -376,7 +376,8 @@ musictophone() {
                  | bash
          fi
          printf "\n\033[0;31m%s\033[0m\n" "Copy in Electronic.m3u..."
-         cp "music/p/Electronic.m3u" "phone/Internal storage/Music" || exit 5
+         cp "music/p/Electronic.m3u" "phone/Internal storage/Music" ||
+             { unmountphone; exit 5; }
      fi
      printf "\033[0;31m%s\033[0m\n" "Unmounting phone..."
      unmountphone)
