@@ -5,7 +5,6 @@ echo 'It assumes you DO NOT have my dotfiles installed,'
 echo 'but rather that it has been git cloned into ~/dotfiles'
 echo 'It assures you have a graphics card'
 echo 'Please make sure these requirements are fulfilled'
-echo "Note that this doesn't install the asert keyboard layout. You must do that manually"
 echo
 read -p "Do you want to continue? " -n 1 -r
 [[ "$REPLY" =~ ^[Yy]$ ]] || exit 1
