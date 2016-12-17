@@ -426,6 +426,19 @@ es() {
     fi
 }
 
+gwh() {
+    if [ a"$1" = a"--help" ]; then
+        echo 'git: What happened?'
+        echo 'Gives diff on n commits ago, defaulting to 0 -- the last commit.'
+    else
+        local num=0
+        if [ $# = 1 ]; then
+            num="$1"
+        fi
+        git log -p HEAD~$num -1
+    fi
+}
+
 ########################
 ### Auto Run Scripts ###
 ########################
