@@ -39,8 +39,9 @@ end
 -- }}}
 
 -- {{{ Variable definitions
+local theme = "transWhite"
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(awful.util.getdir("config") .. "/themes/transBlack/theme.lua")
+beautiful.init(awful.util.getdir("config") .. "/themes/" .. theme .. "/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
