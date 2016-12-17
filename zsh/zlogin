@@ -1,5 +1,6 @@
 # -*- sh -*-
-[ -e /bin/mpd ]       && mpd
+[ -e /bin/mpd ] && mpd &
+
 # Note that this needs to be the last command
 GRADLE_OPTS+="-Dorg.gradle.daemon=true"
 export GRADLE_OPTS
