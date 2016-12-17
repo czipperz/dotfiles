@@ -9,20 +9,22 @@ echo
 read -p "Do you want to continue? " -n 1 -r
 [[ "$REPLY" =~ ^[Yy]$ ]] || exit 1
 
+base="$(dirname "$0")"
+
 cd "$HOME"
 
 #Yaourt
-bash installs/yaourt.sh
+bash "$base/installs/yaourt.sh"
 
 #Basic installs
 echo "Installing basic things"
-bash installs/basic-installs.sh
+bash "$base/installs/basic-installs.sh"
 
 #dotfiles setup
-bash installs/dotfiles-setup.sh
+bash "$base/installs/dotfiles-setup.sh"
 
 # vim setup
-bash installs/vim.sh
+bash "$base/installs/vim.sh"
 
 # MPD - music player daemon
-bash installs/mpd.sh
+bash "$base/installs/mpd.sh"
