@@ -416,6 +416,16 @@ vickstatus() {
      done)
 }
 
+es() {
+    if [ $# = 0 -o "$1" = --help ]; then
+        echo "Give an argument to send to emacs";
+    else
+        for file in "$@"; do
+            emacsclient --eval "(find-file \"${file}\")" > /dev/null
+        done
+    fi
+}
+
 ########################
 ### Auto Run Scripts ###
 ########################
