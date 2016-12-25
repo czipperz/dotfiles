@@ -162,6 +162,9 @@ alias vakec="while true; do if ./reconfigure; then ./make test; else return; fi;
 # ssh CGRB
 alias cgrb='ssh -p 732 gregoryc@shell.cgrb.oregonstate.edu'
 
+# run a task in the background
+alias async=setsid
+
 alias perf-flags="-fno-omit-frame-pointer"
 alias perf-run="perf record -g"
 alias perf-analyze="perf report -g 'graph,0.5,caller'"
