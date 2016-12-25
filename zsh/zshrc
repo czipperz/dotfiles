@@ -439,6 +439,11 @@ gwh() {
     fi
 }
 
+ec() {
+    setsid emacsclient -c "$@"
+    exit
+}
+
 ########################
 ### Auto Run Scripts ###
 ########################
