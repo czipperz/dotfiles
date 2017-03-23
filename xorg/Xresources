@@ -1,3 +1,4 @@
+!!! General Configuration
 !! Ensures Emacs uses the proper font
 Emacs.font: Meslo LG S DZ-12
 
@@ -9,10 +10,22 @@ URxvt*.letterSpace: -1
 !! clipboard
 URxvt.perl-ext-common: default,selection-to-clipboard
 
+!! Transparency
+URxvt*.background: rgba:0000/22bb/3066/dddd
+URxvt*.depth: 32
 
 
 
-!! Solarized Dark
+!!! ROFI configuration
+! rofi.font: Meslo LG S DZ-12
+rofi.color-normal: #fdf6e3,#002b36,#eee8d5,#586e75,#eee8d5
+rofi.color-urgent: #fdf6e3,#dc322f,#eee8d5,#dc322f,#fdf6e3
+rofi.color-active: #fdf6e3,#268bd2,#eee8d5,#268bd2,#fdf6e3
+rofi.color-window: #fdf6e3,#002b36
+
+
+
+!!! Solarized Dark
 #define S_base03        #002b36
 #define S_base02        #073642
 #define S_base01        #586e75
@@ -22,7 +35,7 @@ URxvt.perl-ext-common: default,selection-to-clipboard
 #define S_base2         #eee8d5
 #define S_base3         #fdf6e3
 
-URxvt*.background:            S_base03
+!URxvt*.background:            S_base03
 URxvt*.foreground:            S_base0
 URxvt*.fadeColor:             S_base03
 URxvt*.cursorColor:           S_base1
