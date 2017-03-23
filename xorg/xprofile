@@ -7,4 +7,4 @@ fi
 [ -e /bin/emacs ] && emacs --daemon &
 steam -silent &
 
-exec awesome
+exec i3
