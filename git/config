@@ -16,6 +16,7 @@
 	b = branch
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	l = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	graph = log --graph --decorate --abbrev-commit --all
 	r = rebase
 	rs = rebase --skip
 	rc = rebase --continue
