@@ -1,10 +1,11 @@
 # -*- sh -*-
-[ -e /bin/mpd ]       && mpd
+# [ -e /bin/mpd ]       && mpd
 # Note that this needs to be the last command
 GRADLE_OPTS+="-Dorg.gradle.daemon=true"
 export GRADLE_OPTS
+
 export EMAIL="czipperz@gmail.com"
 export NAME="Chris Gregory"
 export SMTPSERVER="smtp.gmail.com"
 
-startx
+# startx

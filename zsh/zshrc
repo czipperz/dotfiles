@@ -93,6 +93,8 @@ alias echo="/bin/echo"
 # Force multithreading by default.
 alias make="make -j5"
 
+alias vickpid="ps -u czipperz | /bin/grep vick | perl -pe 's/(\d+).*/\$1/'"
+
 alias shutdown="sudo shutdown 0"
 
 # Same as manually typing `sudo !!`
@@ -135,8 +137,8 @@ alias er="ek;ed && exit"
 ## Music ##
 alias mu="ncmpcpp"
 alias mux="ncmpcpp;exit"
-alias am="alsamixer -c 0"
-alias amx="alsamixer -c 0;exit"
+alias am="alsamixer -c 1"
+alias amx="alsamixer -c 1;exit"
 alias pm="pulsemixer"
 alias pmx="pulsemixer;exit"
 

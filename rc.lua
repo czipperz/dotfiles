@@ -47,7 +47,7 @@ terminal = "urxvt"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
-browser = "firefox"
+browser = "chromium-browser"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -117,6 +117,19 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- }}}
 
 -- {{{ Wibox
+-- Power display - requires ``acpi''
+batterywidget = wibox.widget.textbox()
+batterywidget:set_text(" | Battery | ")
+batterywidgettimer = timer({ timeout = 5 })
+batterywidgettimer:connect_signal("timeout",
+  function()
+    fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))
+    batterywidget:set_text(" |" .. fh:read("*l") .. " | ")
+    fh:close()
+  end
+)
+batterywidgettimer:start()
+
 -- Create a textclock widget
 mytextclock = awful.widget.textclock(" %A %D, %H:%M ")
 
@@ -210,8 +223,13 @@ for s = 1, screen.count() do
 
    -- Widgets that are aligned to the right
    local right_layout = wibox.layout.fixed.horizontal()
+
    -- if s == 1 then right_layout:add(wibox.widget.systray()) end
    right_layout:add(mpdwidget)
+
+   if s == 1 then right_layout:add(wibox.widget.systray()) end
+   right_layout:add(batterywidget)
+
    right_layout:add(mytextclock)
    right_layout:add(mylayoutbox[s])
 

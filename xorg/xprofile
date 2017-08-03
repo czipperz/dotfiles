@@ -1,10 +1,12 @@
 # -*- shell-script -*-
 
 xset m 0 0
-if [ -e /etc/xfluxd-args.conf ]; then
-    systemctl --user restart xfluxd-args
-fi
-[ -e /bin/emacs ] && emacs --daemon &
-steam -silent &
+[ -e /etc/xfluxd-args.conf ] && systemctl --user restart xfluxd-args
+[ -e /usr/bin/emacs ]        && emacs --daemon >/dev/null 2>&1 &
+[ -e /bin/steam ]            && steam -silent &
+[ -e /usr/bin/mpd ]          && mpd 2>/dev/null
 
-exec awesome
+xmodmap "$HOME/.Xmodmap"
+xrdb -I"$HOME" "$HOME/.Xresources"
+
+# exec awesome
