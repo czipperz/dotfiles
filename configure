@@ -1,0 +1,35 @@
+#!/bin/bash
+
+rm $HOME/.gitconfig 2>/dev/null
+rm $HOME/.config/git-providers 2>/dev/null
+rm $HOME/.gitignore 2>/dev/null
+rm $HOME/.b-list 2>/dev/null
+rm $HOME/.config/mpd/mpd.conf 2>/dev/null
+rm $HOME/.tmux.conf 2>/dev/null
+rm $HOME/.gnus 2>/dev/null
+rm $HOME/.xinitrc 2>/dev/null
+rm $HOME/.xprofile 2>/dev/null
+rm $HOME/.Xresources 2>/dev/null
+rm $HOME/.xsessionrc 2>/dev/null
+rm $HOME/.Xmodmap 2>/dev/null
+rm $HOME/.oh-my-zsh/themes/czipperz.zsh-theme 2>/dev/null
+rm $HOME/.zshrc 2>/dev/null
+rm $HOME/.zlogin 2>/dev/null
+rm $HOME/.config/i3/config 2>/dev/null
+
+ln -s $HOME/dotfiles/git/config	               $HOME/.gitconfig
+ln -s $HOME/dotfiles/git/providers             $HOME/.config/git-providers
+ln -s $HOME/dotfiles/git/ignore                $HOME/.gitignore
+ln -s $HOME/dotfiles/b-list                    $HOME/.b-list
+ln -s $HOME/dotfiles/mpd.conf                  $HOME/.config/mpd/mpd.conf
+ln -s $HOME/dotfiles/tmux.conf                 $HOME/.tmux.conf
+ln -s $HOME/dotfiles/gnus                      $HOME/.gnus
+ln -s $HOME/dotfiles/xorg/xinitrc              $HOME/.xinitrc
+ln -s $HOME/dotfiles/xorg/xprofile             $HOME/.xprofile
+ln -s $HOME/dotfiles/xorg/Xresources           $HOME/.Xresources
+ln -s $HOME/dotfiles/xorg/xsessionrc           $HOME/.xsessionrc
+ln -s $HOME/dotfiles/xorg/Xmodmap              $HOME/.Xmodmap
+ln -s $HOME/dotfiles/zsh/czipperz.zsh-theme    $HOME/.oh-my-zsh/themes/czipperz.zsh-theme
+ln -s $HOME/dotfiles/zsh/zshrc                 $HOME/.zshrc
+ln -s $HOME/dotfiles/zsh/zlogin                $HOME/.zlogin
+ln -s $HOME/dotfiles/i3.conf                   $HOME/.config/i3/config
