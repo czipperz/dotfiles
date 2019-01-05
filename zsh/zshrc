@@ -169,8 +169,8 @@ perf_flags="-fno-omit-frame-pointer"
 alias perf-run="perf record -g"
 alias perf-analyze="perf report -g 'graph,0.5,caller'"
 
-alias external="xrandr --size 1920x1080"
-alias laptop="xrandr --size 1920x1001"
+alias external="xrandr --size 1920x1080 && ~/.fehbg"
+alias laptop="xrandr --size 1920x1001 && ~/.fehbg"
 
 #################
 ### Functions ###
