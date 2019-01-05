@@ -1,5 +1,7 @@
 # -*- shell-script -*-
 
+(xrandr --size 1920x1080 && ~/.fehbg) &
+
 xset m 0 0
 xset -dpms
 xset s off
