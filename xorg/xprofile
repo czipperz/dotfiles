@@ -1,6 +1,8 @@
 # -*- shell-script -*-
 
 xset m 0 0
+xset -dpms
+xset s off
 if [ -e /etc/xfluxd-args.conf ]; then
     systemctl --user restart xfluxd-args
 fi
