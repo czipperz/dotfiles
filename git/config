@@ -11,6 +11,7 @@
 	ci = commit
 	cm = commit --message
 	cp = commit --patch
+        ca = commit --amend
 	co = checkout
 	cb = checkout -b
 	b = branch
