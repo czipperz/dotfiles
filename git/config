@@ -1,6 +1,6 @@
 [user]
+	name = Chris Gregory
 	email = czipperz@gmail.com
-	name = Czipperz
 [alias]
 	s = status -sb
 	st = status
