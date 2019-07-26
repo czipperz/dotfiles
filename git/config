@@ -3,9 +3,7 @@
 	email = czipperz@gmail.com
 [alias]
 	s = status -sb
-	st = status
 	a = add
-	aa = add -A
 	ap = add --patch
 	us = reset HEAD
 	ci = commit
@@ -15,15 +13,11 @@
 	co = checkout
 	cb = checkout -b
 	b = branch
-	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	l = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	graph = log --graph --decorate --abbrev-commit --all
 	r = rebase
-	rs = rebase --skip
-	rc = rebase --continue
-	ra = rebase --abort
-	d = diff --minimal --word-diff=color
-	df = diff --word-diff=color
+	ri = rebase -i
+	d = diff
+	ds = diff --staged
 [core]
 	excludesfile = /home/czipperz/.gitignore
 [push]
